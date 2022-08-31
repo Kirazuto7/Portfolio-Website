@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link href="css/projects.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="title">Projects</header>
+    <br>
+    <!-- Container surrounding navbar and content-->
+    <div id="container">
+        <!-- Side Navigation Bar -->
+        <div class="sidenav">
+            <br>
+            <li><a href="myportfolio.html">Home</a></li>
+            <br>
+            <li><a href="projects.html">Projects</a></li>
+            <br>
+            <li><a href="experiences.html">Experiences</a></li>
+        </div>
+
+        <div id="content">
+
+            <div class="project">
+                <span class="projectTitle"><a href="https://github.com/PuppyTinder/puppy-tinder" target="_blank">Pupple</a></span> 
+                <span class="date">Apr. 2022 - June 2022</span>
+                <div><b>Achievements:</b> Local Demo Day 1st Place, <a href="https://drive.google.com/file/d/1VErro4fP8KpJ2Ba4haJi3TuyHBMm85oq/view" target="_blank">National Demo Day 2nd Place</a></div>
+                <div class="role"><b>Role:</b> Mobile Frontend & Backend Development</div>
+                <ul class="projectDescription">
+                    <li>Developed an Ios app with a team of 4 to help dog owners find playmates in a tinderesque style using Swift.</li>
+                    <li>Utilized the Koloda Cocoapods to implement a stackable and swipeable card interface for users to like/dislike other users.</li>
+                    <li>Incorporated a live messaging system between matched users utilizing Parse Live Query to retrieve and send messages in real time.</li>
+                    <li>Implemented an extensive sign up, profile, and filtering process to manage and store user data in the Back4App database.</li>
+                </ul>
+                <img class="gif" src="pictures/pupple.gif">
+            </div>
+
+            <div class="project">
+                <span class="projectTitle"><a href="https://github.com/FItTracker-Group/FitTrack" target="_blank">FitTrack</a></span> 
+                <span class="date">Oct. 2021 - Dec. 2021</span>
+                <div><b>Achievements:</b> Local Demo Day 1st Place</div>
+                <div class="role"><b>Role:</b> Mobile Frontend & Backend Development</div>
+                <ul class="projectDescription">
+                    <li>Developed an Android app with a team of 5 to inform users on how to perform exercises via categories using Java.</li>
+                    <li>Designed the feed screen showcasing appropriate workouts in a recycler view parsed from information stored in Back4App utilizing parceler.</li>
+                    <li>Enabled access to the internal camera from the app for users to share their progress via the bumptech.glide library.</li>
+                    <li>Incorporated a search bar for users to filter specific exercises based on name/difficulty programmed via an ArrayList of filtered videos in Java. </li>
+                </ul>
+                <img class="gif" src="pictures/FinalFitTrack.gif">
+            </div>
+
+            <div class="project">
+                <span class="projectTitle"><a href="https://github.com/Kirazuto7/CafesAPI" target="_blank">CafesAPI</a></span> 
+                <span class="date">Apr. 2022 - May 2022</span>
+                <div class="role"><b>Role:</b> Backend Development</div>
+                <ul class="projectDescription">
+                    <li>Programmed a database containing a list of cafes for people to cowork/study.</li>
+                    <li>The database contains a few HTTP methods such as GET, POST, PUT, and DELETE requests.</li>
+                    <li>Stored cafe information in a MySQL database.</li>
+                    <li>Created models and a controller for the program utilizing C#.</li>
+                </ul>
+                <img class="gif" src="pictures/getcafes.png">
+            </div>
+                
+        </div>
+    </div>
+    <br>
+    <div id="buttonContainer">
+        <button type="button" id="topButton"><a id="topButtonLink" href="#title">Go To Top</a></button>
+    </div>
+</body>
+</html>
