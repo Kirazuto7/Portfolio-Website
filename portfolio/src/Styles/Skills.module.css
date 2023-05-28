@@ -1,0 +1,70 @@
+.Container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.Separator {
+    content: "";
+    background-color: #d3d3d3;
+    width: 10em;
+    height: 1px;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.Body {
+    width: 100%;
+    padding-bottom: 2vmax;
+}
+
+.BodySection {
+    margin-left: 10%;
+}
+
+.SectionName {
+    text-align: start;
+    font-size: 1.7em;
+}
+
+.SectionRow {
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 2vmax;
+}
+
+.SkillContainer {
+    height: 11vmax;
+    width: 11vmax;
+    border: 3px solid rgba(0,0,0,0.2);
+    border-radius: 100px;
+    overflow: hidden;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.SkillImage {
+    width: 50%;
+    height: 50%;
+    background-color: transparent;
+    object-fit: cover;
+}
+
+.SkillName {
+    font-size: 1.3em;
+    font-weight: 700;
+}

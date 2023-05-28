@@ -1,0 +1,208 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* MARK: - HEADER */
+
+.Welcome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0;
+    animation: expand-disappear 1.5s ease-in;
+}
+
+@keyframes expand-disappear {
+    from {
+        opacity: 1;
+        font-size: 0;
+    }
+
+    to {
+        opacity: 0;
+        font-size: 7em;
+    }
+}
+
+.Header {
+    animation: appear 1s ease-in;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 2.5%;
+    overflow: hidden;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        width: 20vmax;
+    }
+
+    to {
+        opacity: 1;
+        width: auto;
+        padding-bottom: 2vmax;
+    }
+}
+
+/*.ProfilePhoto {
+    width: 15vmax;
+    height: 15vmax;
+    border-radius: 7.5vmax;
+    object-fit: cover;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    box-shadow: 2px 2px 2px 1px var(--box_shadow_color), -2px -2px 2px 1px var(--box_shadow_color), 2px -2px 2px 1px var(--box_shadow_color), -2px 2px 2px 1px var(--box_shadow_color);
+}*/
+
+.ProfilePhoto {
+    width: 100%;
+    height: 20vmax;
+    object-fit: cover;
+    object-position: center;
+}
+
+.Name {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 0.5vmax;
+    margin-bottom: 0vmax;
+}
+
+.Position {
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 1.5vmax;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.DetailsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5em;
+    margin-left: 2.5%;
+}
+
+.DetailContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+}
+
+.HeaderDetail {
+    font-size: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.Contact {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 1.5vmax;
+    margin-bottom: 1vmax;
+}
+
+.ContactLink {
+    color: var(--link_color);
+    text-decoration: none;
+}
+
+.ContactLink:hover {
+    color: red;
+}
+
+.ButtonGroup {
+    margin-top: 1.5vmax;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.Button {
+    background-color: white;
+    border: 0.1px solid rgba(0,0,0,0.2);
+    border-radius: 5%;
+    padding: 0.4em 1.1em;
+    width: 7em;
+    font-size: 1em;
+    color: var(--link_color);
+    font-weight: 600;
+}
+
+.Button:hover {
+    border: 0.1px solid blue;
+}
+
+/* MARK: - ABOUT ME */
+
+.AngledRight {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    top: 100%;
+    background-color: white;
+    transform: skewY(-4deg);
+    -webkit-transform: skewY(-4deg);
+}
+
+.AboutMeScrollWrapper {
+    position: absolute;
+    top: 107.5%;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.AboutMe {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+/* MARK: - SKILLS */
+
+.AngledLeft {
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    top: 200%;
+    background-color: white;
+    transform: skewY(4deg);
+    -webkit-transform: skewY(4deg);
+}
+
+.SkillsScrollWrapper {
+    position: absolute;
+    top: 220%;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.Skills {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
