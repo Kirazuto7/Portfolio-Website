@@ -1,4 +1,4 @@
-import Styles from '../Styles/Skills.module.css';
+import Styles from '../../Styles/Skills.module.css';
 
 function Skills({style}) {
 
@@ -17,7 +17,7 @@ function Skills({style}) {
         {name: "React", src: "logo192.png"},
         {name: "Firebase", src: "pictures/skills/google-firestore.png"},
         {name: "MySQL", src: "pictures/skills/mysql.png"},
-        {name: "Express JS", src: "pictures/skills/express.png"}
+        {name: "ExpressJS", src: "pictures/skills/express.png"}
     ]
 
     const tools = [
@@ -29,10 +29,10 @@ function Skills({style}) {
         {name: "Unreal", src: "pictures/skills/unrealengine.png"}
     ]
 
-    const createBody = () => {
+    const createSkillTable = () => {
         return sections.map((section, index) => {
             return(
-                <section className={Styles.BodySection}>
+                <section className={Styles.BodySection} key={index}>
                     <h2 className={Styles.SectionName}>{section}</h2>
                     <div className={Styles.SectionRow}>
                         {
@@ -40,9 +40,11 @@ function Skills({style}) {
 
                             languages.map((skill) => {
                                 return(
-                                    <div className={Styles.SkillContainer}>
-                                        <img className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
-                                        <div className={Styles.SkillName}>{skill.name}</div>
+                                    <div className={Styles.SkillContainer} key={skill.name}>
+                                        <div className={Styles.SkillWrapper}>
+                                            <img className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
+                                            <div className={Styles.SkillName}>{skill.name}</div>
+                                        </div>
                                     </div>
                                 )
                             })
@@ -53,9 +55,11 @@ function Skills({style}) {
 
                             frameworkDBs.map((skill) => {
                                 return(
-                                    <div className={Styles.SkillContainer}>
-                                        <img className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
-                                        <div className={Styles.SkillName}>{skill.name}</div>
+                                    <div className={Styles.SkillContainer} key={skill.name}>
+                                        <div className={Styles.SkillWrapper}>
+                                            <img className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
+                                            <div className={Styles.SkillName}>{skill.name}</div>
+                                        </div>
                                     </div>
                                 )
                             })
@@ -66,9 +70,11 @@ function Skills({style}) {
 
                             tools.map((skill) => {
                                 return(
-                                    <div className={Styles.SkillContainer}>
-                                        <img className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
-                                        <div className={Styles.SkillName}>{skill.name}</div>
+                                    <div className={Styles.SkillContainer} key={skill.name}>
+                                        <div className={Styles.SkillWrapper}>
+                                            <img className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
+                                            <div className={Styles.SkillName}>{skill.name}</div>
+                                        </div>
                                     </div>
                                 )
                             })
@@ -88,7 +94,7 @@ function Skills({style}) {
         <div className={`${Styles.Container} ${style}`}>
             <div className={Styles.Title}>Skills</div>
             <div className={Styles.Separator}/>
-            <body className={Styles.Body}> { createBody() } </body>
+            <section className={Styles.Body}> { createSkillTable() } </section>
         </div>
     )
 }

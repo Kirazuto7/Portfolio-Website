@@ -1,0 +1,181 @@
+.Container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.RightContainer ul {
+    margin-top: 1%;
+}
+
+/* MARK: - Left Container */
+
+.LeftContainer {
+    width: 20%;
+    background-color: var(--secondary_color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    padding-bottom: 5vh;
+}
+
+.Photo {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 7.5vw;
+    object-fit: cover;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3), -2px -2px 2px 1px rgba(0, 0, 0, 0.3);
+    margin-top: 3vh;
+}
+
+.JobTitle {
+    color: white;
+    font-size: 1.5em;
+}
+
+.HSeparator {
+    border: 0.8px solid #d3d3d3;
+    width: 15vw;
+}
+
+.SkillsContainer {
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    gap: 2vh;
+    margin-left: 10%;
+}
+
+.SkillsLabel {
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.SkillsTable {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.SkillRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+.Skill {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vw;
+    font-size: 0.9em;
+    width: 10vw;
+}
+
+.SkillImageWrapper {
+    background-color: white;
+    padding: 4px;
+    border-radius: 0.25vw;
+}
+
+.SkillImage {
+    width: 2vw;
+    height: 2vw;
+    border-radius: 0.5vw;
+    object-fit: cover;
+}
+
+/* MARK: - Right Container */
+
+.RightContainer {
+    width: 80%;
+    background-color: #F2F3FA;
+}
+
+.Title {
+    text-align: center;
+    font-size: 2em;
+    color: var(--secondary_color);
+}
+
+.Link {
+    text-decoration: none;
+    color: var(--link_color);
+}
+
+.Link:hover {
+    color: red;
+}
+
+.VSeparator {
+    border: 0.9px solid #d3d3d3;
+    height: 1em;
+}
+
+.SubTitleRow {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    justify-content: center;
+    align-items: center;
+}
+
+.SubTitle {
+    font-size: 1em;
+}
+
+.ResumeSections {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    gap: 5vh;
+}
+
+.Section {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.SectionLabel {
+    color: var(--secondary_color);
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.SubSections {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.RowContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1em;
+}
+
+.SectionTitleWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.SectionTitle {
+    font-weight: bold;
+}
+
+.SectionAttribute {
+    font-style: italic;
+}
+

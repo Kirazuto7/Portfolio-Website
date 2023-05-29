@@ -1,4 +1,4 @@
-import Styles from '../Styles/AboutMe.module.css';
+import Styles from '../../Styles/AboutMe.module.css';
 
 function AboutMe({style}) {
     return(
@@ -7,7 +7,7 @@ function AboutMe({style}) {
             <div className={Styles.Title}>About Me</div>
             <div className={Styles.Separator}/>
 
-            <body className={Styles.Body}>
+            <section className={Styles.Body}>
 
                 <div className={Styles.LeftSection}>
                     <p className={Styles.Description}>
@@ -18,7 +18,7 @@ function AboutMe({style}) {
                         Previously as an iOS Developer intern I practiced agile scrum meetings with team members, learned to analyze and debug code written by other developers, and collaborated with a designer to implement requested updates.
                         Furthermore, my work experience in retail has given me the experience to work on a team and develop key communication skills to effectively complete assignments and satisfy company demands.
                         <br/><br/>
-                        Aside from programming, I also enjoy studying foreign languages, traveling, exploring new and tasty restaurants, socializing, cooking, and exercising.
+                        Aside from programming, I also enjoy studying foreign languages, traveling, exploring new restaurants, socializing, cooking, and exercising.
                     </p>
                 </div>
 
@@ -26,7 +26,7 @@ function AboutMe({style}) {
                     <img src="pictures/aboutme_photo.jpg" className={Styles.Image} alt="selfie"/> 
                 </div>
 
-            </body>
+            </section>
         </div>
         </>
     )

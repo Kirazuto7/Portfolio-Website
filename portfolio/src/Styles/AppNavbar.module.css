@@ -1,0 +1,25 @@
+.NavLinks {
+    height: 5vh;
+    object-fit: contain;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /*background-color: rgba(0,0,0,0.1);*/
+    background-color: #D7DBDF;
+    align-items: center;
+    border-radius: 0.25vmax;
+    padding: 0px 16px;
+}
+
+.Link {
+    text-decoration: none;
+    color: var(--link_color);
+    font-size: 1.2em;
+}
+
+.Link:hover {
+    color: white;
+}
