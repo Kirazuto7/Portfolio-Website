@@ -1,4 +1,4 @@
-import './App.css';
+import Styles from './App.module.css';
 import Homepage from './Components/Homepage';
 import Resume from './Components/Resume';
 import Education from './Components/Education';
@@ -7,8 +7,9 @@ import AppNavbar from './Components/AppNavbar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
+
   return (
-    <div className="App">
+    <div id="App" className={ window.location.pathname === "/" ? `${Styles.HomepageBackground} ${Styles.App}`  : `${Styles.App}` }>
       <AppNavbar/>
       <Router>
         <Routes>

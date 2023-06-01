@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 function HomepageHeader({aboutMeScroll = () => {}, skillsScroll = () => {}}) {
-
+    
     useEffect(() => {
         let details = [
             "New York, NY",
@@ -44,10 +44,11 @@ function HomepageHeader({aboutMeScroll = () => {}, skillsScroll = () => {}}) {
             clearTimeout(timeout)
         }
     }, [])
-
+   
     return(
         <>
             <h1 className={Styles.Welcome}>Welcome</h1>
+            <div className={Styles.Wrapper}>
             <header className={Styles.Header}>
                 <img className={Styles.ProfilePhoto} src="pictures/profile_photo.jpeg" alt="profile"></img>
                 <div className={Styles.Name}>Jordan Sukhnandan</div>
@@ -75,6 +76,7 @@ function HomepageHeader({aboutMeScroll = () => {}, skillsScroll = () => {}}) {
                     <button className={Styles.Button} onClick={() => skillsScroll()}>Skills</button>
                 </div>
             </header>
+            </div>
         </>
     )
 };

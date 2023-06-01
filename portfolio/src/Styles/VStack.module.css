@@ -1,0 +1,12 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.Stack {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
