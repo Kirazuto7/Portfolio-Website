@@ -1,32 +1,32 @@
 import Styles from '../../Styles/Skills.module.css';
+import { baseURL } from '../../App';
 
 function Skills({style, scrollIdentifier}) {
-
     const sections = ["Languages", "Frameworks & Databases", "Tools"];
     const languages = [
-        {name: "Swift", src: "/Portfolio-Website/pictures/skills/swift.png"},
-        {name: "C++", src: "/Portfolio-Website/pictures/skills/c++.png"},
-        {name: "Javascript", src: "/Portfolio-Website/pictures/skills/javascript.png"},
-        {name: "Python", src: "/Portfolio-Website/pictures/skills/python.png"},
-        {name: "Java", src: "/Portfolio-Website/pictures/skills/java.png"},
-        {name: "C#", src: "/Portfolio-Website/pictures/skills/csharp.jpeg"}
+        {name: "Swift", src: `${baseURL}/skills/swift.png`},
+        {name: "C++", src: `${baseURL}/skills/c++.png`},
+        {name: "Javascript", src: `${baseURL}/skills/javascript.png`},
+        {name: "Python", src: `${baseURL}/skills/python.png`},
+        {name: "Java", src: `${baseURL}/skills/java.png`},
+        {name: "C#", src: `${baseURL}/skills/csharp.jpeg`}
     ]
 
     const frameworkDBs = [
-        {name: "UIKit", src: "/Portfolio-Website/pictures/skills/uikit.png"},
-        {name: "React", src: "/Portfolio-Website/logo192.png"},
-        {name: "Firebase", src: "/Portfolio-Website/pictures/skills/google-firestore.png"},
-        {name: "MySQL", src: "/Portfolio-Website/pictures/skills/mysql.png"},
-        {name: "ExpressJS", src: "/Portfolio-Website/pictures/skills/express.png"}
+        {name: "UIKit", src: `${baseURL}/skills/uikit.png`},
+        {name: "React", src: "/logo192.png"},
+        {name: "Firebase", src: `${baseURL}/skills/google-firestore.png`},
+        {name: "MySQL", src: `${baseURL}/skills/mysql.png`},
+        {name: "ExpressJS", src: `${baseURL}/skills/express.png`}
     ]
 
     const tools = [
-        {name: "VS Code", src: "/Portfolio-Website/pictures/skills/vscode.png"},
-        {name: "XCode", src: "/Portfolio-Website/pictures/skills/xcode.jpeg"},
-        {name: "Github", src: "/Portfolio-Website/pictures/skills/github.png"},
-        {name: "Ubuntu", src: "/Portfolio-Website/pictures/skills/ubuntu.png"},
-        {name: "Android", src: "/Portfolio-Website/pictures/skills/androidstudio.jpeg"},
-        {name: "Unreal", src: "/Portfolio-Website/pictures/skills/unrealengine.png"}
+        {name: "VS Code", src: `${baseURL}/skills/vscode.png`},
+        {name: "XCode", src: `${baseURL}/skills/xcode.jpeg`},
+        {name: "Github", src: `${baseURL}/skills/github.png`},
+        {name: "Ubuntu", src: `${baseURL}/skills/ubuntu.png`},
+        {name: "Android", src: `${baseURL}/skills/androidstudio.jpeg`},
+        {name: "Unreal", src: `${baseURL}/skills/unrealengine.png`}
     ]
 
     const createSkillTable = () => {
