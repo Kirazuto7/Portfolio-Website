@@ -31,6 +31,7 @@ function Homepage() {
         app.addEventListener(('scroll'), () => {
             let scrollTop = app.scrollTop;
             let pageHeight = (scrollTop / (window.innerHeight)) * 100
+
             if(pageHeight < 5) {
                 button.style.display = 'none';
             }
@@ -55,7 +56,7 @@ function Homepage() {
             app.removeEventListener(('scroll'), null);
         }
     }, [backgroundColor])
-
+    
     return(
         <div id="top" className={Styles.Container}> 
             <HomepageHeader scroll={scrollToView} />

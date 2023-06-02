@@ -1,4 +1,5 @@
 import Styles from '../../Styles/AboutMe.module.css';
+import { baseURL } from '../../App';
 
 function AboutMe({style, scrollIdentifier}) {
     return(
@@ -22,7 +23,7 @@ function AboutMe({style, scrollIdentifier}) {
                 </div>
 
                 <div className={Styles.RightSection}>
-                    <img src="/Portfolio-Website/pictures/aboutme_photo.jpg" className={Styles.Image} alt="selfie"/> 
+                    <img src={`${baseURL}/aboutme_photo.jpg`} className={Styles.Image} alt="selfie"/> 
                 </div>
 
             </section>

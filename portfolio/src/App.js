@@ -1,10 +1,9 @@
 import Homepage from './Components/Homepage';
 import Resume from './Components/Resume';
 import Projects from './Components/Projects';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-const router = createHashRouter([
- 
+const router = createBrowserRouter([
   { path: "/", element: <Homepage/>},
   { path: "/resume", element: <Resume/>},
   { path: "/projects", element: <Projects/>}
@@ -13,3 +12,6 @@ const router = createHashRouter([
 export default function App() {
   return <RouterProvider router={router}/>
 }
+
+export const baseURL = "/pictures";
+

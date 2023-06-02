@@ -1,19 +1,20 @@
 import Styles from '../../Styles/Experience.module.css';
 import HStack from '../SubComponents/HStack';
 import React from 'react';
+import { baseURL } from '../../App';
 
 function Experience({style, scrollIdentifier}) {
-
+    
     const displayExperiences = () => {
         const experiences = [
-            {name: "CUNY Hunter College", src: "/Portfolio-Website/pictures/huntercollege.jpeg", label: "Graduated From", date: "Jan. 2020 - May 2023", position: "Bachelor of Arts Computer Science", 
+            {name: "CUNY Hunter College", src: `${baseURL}/huntercollege.jpeg`, label: "Graduated From", date: "Jan. 2020 - May 2023", position: "Bachelor of Arts Computer Science", 
             details: [
                 "Graduated with a cumulative GPA of 3.90 achieving Summa Cum Laude and departmental honors",
                 "Focus Study Minor in Japanese up to Advanced Japanese 1",
                 "Developed teamwork skills participating in group projects and hackathon(s) among student peers",
                 "Learned several data structures and algorithms in which I further practice doing Leetcode and in my project(s)"
             ]},
-            {name: "JetSweat", src: "/Portfolio-Website/pictures/jetsweat.jpeg", label: "Recently Worked At", date: "May 2022 - Aug.2022", position: "iOS Mobile Developer Intern",
+            {name: "JetSweat", src: `${baseURL}/jetsweat.jpeg`, label: "Recently Worked At", date: "May 2022 - Aug.2022", position: "iOS Mobile Developer Intern",
             details: [
                 "Analyzed and debugged code to fix an issue where live classes disappeared 1 minute after the start time.",
                 "Constructed a radiating indicator and banner for live videos to notify users when they are currently streaming.",
@@ -80,11 +81,12 @@ function Experience({style, scrollIdentifier}) {
     };
 
     const displayCertificates = () => {
+        const baseCertificatesURL = `${baseURL}/certificates`
         const certificates = [
-            { name: "PUPPLE", src: "/Portfolio-Website/pictures/certificates/pupplecertificate.png",link: "https://drive.google.com/file/d/1VErro4fP8KpJ2Ba4haJi3TuyHBMm85oq/view"},
-            { name: "INTERMEDIATE SWE", src: "/Portfolio-Website/pictures/certificates/swecertificate.png", link: "https://drive.google.com/file/d/1N7-3xudSHRH9v8e2lkkNE-vmqoX4RaOC/view"},
-            { name: "IOS", src: "/Portfolio-Website/pictures/certificates/ioscertificate.png", link: "https://drive.google.com/file/d/1JDgMH8B0uZgu0Bjo2iWZhmSErDbtlQuS/view"},
-            { name: "ANDROID", src: "/Portfolio-Website/pictures/certificates/androidcertificate.png", link: "https://drive.google.com/file/d/1HZEkoU-_nvpHKCTXecE9nODRUh376d20/view"}
+            { name: "PUPPLE", src: `${baseCertificatesURL}/pupplecertificate.png`,link: "https://drive.google.com/file/d/1VErro4fP8KpJ2Ba4haJi3TuyHBMm85oq/view"},
+            { name: "INTERMEDIATE SWE", src: `${baseCertificatesURL}/swecertificate.png`, link: "https://drive.google.com/file/d/1N7-3xudSHRH9v8e2lkkNE-vmqoX4RaOC/view"},
+            { name: "IOS", src: `${baseCertificatesURL}/ioscertificate.png`, link: "https://drive.google.com/file/d/1JDgMH8B0uZgu0Bjo2iWZhmSErDbtlQuS/view"},
+            { name: "ANDROID", src: `${baseCertificatesURL}/androidcertificate.png`, link: "https://drive.google.com/file/d/1HZEkoU-_nvpHKCTXecE9nODRUh376d20/view"}
         ]
         return certificates.map((certificate, index) => {
             return(

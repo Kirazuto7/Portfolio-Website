@@ -2,6 +2,7 @@ import Styles from '../../Styles/Homepage.module.css';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { baseURL } from '../../App';
 
 function HomepageHeader({scroll = () => {}}) {
     const [exists, setExists] = useState(false);
@@ -51,7 +52,7 @@ function HomepageHeader({scroll = () => {}}) {
             <h1 className={Styles.Welcome}>Welcome</h1>
             <div className={Styles.Wrapper}>
             <header className={Styles.Header}>
-                <img className={Styles.ProfilePhoto} src="/Portfolio-Website/pictures/profile_photo.jpeg" alt="profile"></img>
+                <img className={Styles.ProfilePhoto} src={`${baseURL}/profile_photo.jpeg`} alt="profile"></img>
                 <div className={Styles.Name}>Jordan Sukhnandan</div>
                 <div className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</div>
 
