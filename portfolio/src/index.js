@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AppNavbar from './Components/AppNavbar';
+import Styles from './App.module.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App />
+    <div id="App" className={ (window.location.pathname === "/Portfolio-Website/" || "/Portfolio-Website") ? `${Styles.HomepageBackground} ${Styles.App}`  : `${Styles.App}` }>
+        <AppNavbar/>
+        <App/>
+    </div>
 );
 
 // If you want to start measuring performance in your app, pass a function

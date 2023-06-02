@@ -6,23 +6,23 @@ import ResumeOtherExperience from './ResumeSections/ResumeOtherExperience';
 
 function Resume() {
     const skills = [
-        {name: "Swift", src: "pictures/skills/swift.png"},
-        {name: "C++", src: "pictures/skills/c++.png"},
-        {name: "Javascript", src: "pictures/skills/javascript.png"},
-        {name: "Python", src: "pictures/skills/python.png"},
-        {name: "Java", src: "pictures/skills/java.png"},
-        {name: "C#", src: "pictures/skills/csharp.jpeg"},
-        {name: "UIKit", src: "pictures/skills/uikit.png"},
-        {name: "React", src: "logo192.png"},
-        {name: "Firebase", src: "pictures/skills/google-firestore.png"},
-        {name: "MySQL", src: "pictures/skills/mysql.png"},
-        {name: "ExpressJS", src: "pictures/skills/express.png"},
-        {name: "VS Code", src: "pictures/skills/vscode.png"},
-        {name: "XCode", src: "pictures/skills/xcode.jpeg"},
-        {name: "Github", src: "pictures/skills/github.png"},
-        {name: "Ubuntu", src: "pictures/skills/ubuntu.png"},
-        {name: "Android", src: "pictures/skills/androidstudio.jpeg"},
-        {name: "Unreal", src: "pictures/skills/unrealengine.png"}
+        {name: "Swift", src: "/Portfolio-Website/pictures/skills/swift.png"},
+        {name: "C++", src: "/Portfolio-Website/pictures/skills/c++.png"},
+        {name: "Javascript", src: "/Portfolio-Website/pictures/skills/javascript.png"},
+        {name: "Python", src: "/Portfolio-Website/pictures/skills/python.png"},
+        {name: "Java", src: "/Portfolio-Website/pictures/skills/java.png"},
+        {name: "C#", src: "/Portfolio-Website/pictures/skills/csharp.jpeg"},
+        {name: "UIKit", src: "/Portfolio-Website/pictures/skills/uikit.png"},
+        {name: "React", src: "/Portfolio-Website/logo192.png"},
+        {name: "Firebase", src: "/Portfolio-Website/pictures/skills/google-firestore.png"},
+        {name: "MySQL", src: "/Portfolio-Website/pictures/skills/mysql.png"},
+        {name: "ExpressJS", src: "/Portfolio-Website/pictures/skills/express.png"},
+        {name: "VS Code", src: "/Portfolio-Website/pictures/skills/vscode.png"},
+        {name: "XCode", src: "/Portfolio-Website/pictures/skills/xcode.jpeg"},
+        {name: "Github", src: "/Portfolio-Website/pictures/skills/github.png"},
+        {name: "Ubuntu", src: "/Portfolio-Website/pictures/skills/ubuntu.png"},
+        {name: "Android", src: "/Portfolio-Website/pictures/skills/androidstudio.jpeg"},
+        {name: "Unreal", src: "/Portfolio-Website/pictures/skills/unrealengine.png"}
 
     ]
 

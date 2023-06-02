@@ -18,13 +18,19 @@ function Homepage() {
         });
     }
 
+    const scrollToTop = () => {
+        const element = document.getElementById('top');
+        element.scrollIntoView({
+            behavior: 'instant'
+        });
+    }
+
     useEffect(() => {
         let button = topButtonRef.current
         let app = document.getElementById("App")
         app.addEventListener(('scroll'), () => {
             let scrollTop = app.scrollTop;
             let pageHeight = (scrollTop / (window.innerHeight)) * 100
-            console.log(pageHeight)
             if(pageHeight < 5) {
                 button.style.display = 'none';
             }
@@ -63,7 +69,7 @@ function Homepage() {
             <div className={Styles.AngledRight} style={{'top':'372.5%'}}/>
             <Experience scrollIdentifier="Experiences" style={Styles.Experience}/>
 
-            <button ref={topButtonRef} className={backgroundColor === 'white' ? `${Styles.TopButton} ${Styles.White}` : `${Styles.TopButton} ${Styles.Black}`} onClick={() => {window.location.href = '#top'}}>
+            <button ref={topButtonRef} className={backgroundColor === 'white' ? `${Styles.TopButton} ${Styles.White}` : `${Styles.TopButton} ${Styles.Black}`} onClick={() => scrollToTop()}>
                 <FontAwesomeIcon icon={faChevronUp} className={Styles.TopButtonIcon}/>
             </button>
         </div>

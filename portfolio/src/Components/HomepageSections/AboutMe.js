@@ -22,7 +22,7 @@ function AboutMe({style, scrollIdentifier}) {
                 </div>
 
                 <div className={Styles.RightSection}>
-                    <img src="pictures/aboutme_photo.jpg" className={Styles.Image} alt="selfie"/> 
+                    <img src="/Portfolio-Website/pictures/aboutme_photo.jpg" className={Styles.Image} alt="selfie"/> 
                 </div>
 
             </section>
