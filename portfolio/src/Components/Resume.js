@@ -69,7 +69,7 @@ function Resume() {
         <div className={Styles.Container}>
             
             <div className={Styles.LeftContainer}>
-                <img className={Styles.Photo} src="/pictures/profile_photo.jpeg" alt="profile"></img>
+                <img className={Styles.Photo} src="/Portfolio-Website/pictures/profile_photo.jpeg" alt="profile"></img>
                 <div className={Styles.JobTitle}>Software Developer</div>
                 <div className={Styles.HSeparator}></div>
 

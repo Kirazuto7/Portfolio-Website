@@ -51,7 +51,7 @@ function HomepageHeader({scroll = () => {}}) {
             <h1 className={Styles.Welcome}>Welcome</h1>
             <div className={Styles.Wrapper}>
             <header className={Styles.Header}>
-                <img className={Styles.ProfilePhoto} src="pictures/profile_photo.jpeg" alt="profile"></img>
+                <img className={Styles.ProfilePhoto} src="/Portfolio-Website/pictures/profile_photo.jpeg" alt="profile"></img>
                 <div className={Styles.Name}>Jordan Sukhnandan</div>
                 <div className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</div>
 

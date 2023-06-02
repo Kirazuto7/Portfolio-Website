@@ -8,9 +8,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
 
   return (
-    <div id="App" className={ window.location.pathname === "/" ? `${Styles.HomepageBackground} ${Styles.App}`  : `${Styles.App}` }>
+    <div id="App" className={ window.location.pathname === "/Portfolio-Website/" ? `${Styles.HomepageBackground} ${Styles.App}`  : `${Styles.App}` }>
       <AppNavbar/>
-      <Router>
+      <Router basename='/Portfolio-Website'>
         <Routes>
           <Route exact path="/" element={<Homepage />}/>
           <Route exact path="/resume" element={<Resume/>}/>
