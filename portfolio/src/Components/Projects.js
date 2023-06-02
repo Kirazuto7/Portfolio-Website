@@ -128,7 +128,7 @@ function Projects() {
 
     return(
         <div className={Styles.Container}>
-            <VStack header={dropDown()} style={Styles.VStack} items={displayProjects()}/>
+            <VStack header={dropDown()} style={Styles.VStack} stackStyle={Styles.VStackBody} items={displayProjects()}/>
         </div>
     )
 }

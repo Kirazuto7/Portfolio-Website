@@ -13,10 +13,11 @@
 .Separator {
     content: "";
     background-color: #d3d3d3;
-    width: 10em;
+    width: 6em;
     height: 1px;
     margin-top: 0.5em;
     margin-bottom: 1em;
+    border: 0.1px solid #d3d3d3;
 }
 
 .Body {

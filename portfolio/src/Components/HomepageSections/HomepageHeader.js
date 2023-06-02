@@ -1,10 +1,10 @@
 import Styles from '../../Styles/Homepage.module.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
-function HomepageHeader({aboutMeScroll = () => {}, skillsScroll = () => {}}) {
-    
+function HomepageHeader({scroll = () => {}}) {
+    const [exists, setExists] = useState(false);
     useEffect(() => {
         let details = [
             "New York, NY",
@@ -24,9 +24,9 @@ function HomepageHeader({aboutMeScroll = () => {}, skillsScroll = () => {}}) {
                 }
             }, delay);
         }
-
-
-        let timeout = setTimeout(() => {
+        let timeout;
+        if(!exists){
+        timeout = setTimeout(() => {
             let elements = document.getElementsByClassName(Styles.HeaderDetail);
             [].forEach.call(elements, function(element, index) {    
                 let timer = setTimeout(function() {
@@ -39,11 +39,12 @@ function HomepageHeader({aboutMeScroll = () => {}, skillsScroll = () => {}}) {
                 
             });
         }, 3000)
-
+    }
         return () => {
             clearTimeout(timeout)
+            setExists(true)
         }
-    }, [])
+    }, [exists])
    
     return(
         <>
@@ -72,8 +73,9 @@ function HomepageHeader({aboutMeScroll = () => {}, skillsScroll = () => {}}) {
                 </div>
 
                 <div className={Styles.ButtonGroup}>
-                    <button className={Styles.Button} onClick={() => aboutMeScroll()}>About Me</button>
-                    <button className={Styles.Button} onClick={() => skillsScroll()}>Skills</button>
+                    <button className={Styles.Button} onClick={(e) => scroll(e)} value={"AboutMe"}>About Me</button>
+                    <button className={Styles.Button} onClick={(e) => scroll(e)} value={"Skills"}>Skills</button>
+                    <button className={Styles.Button} onClick={(e) => scroll(e)} value={"Experiences"}>Experiences</button>
                 </div>
             </header>
             </div>

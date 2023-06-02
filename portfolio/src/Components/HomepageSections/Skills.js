@@ -1,6 +1,6 @@
 import Styles from '../../Styles/Skills.module.css';
 
-function Skills({style}) {
+function Skills({style, scrollIdentifier}) {
 
     const sections = ["Languages", "Frameworks & Databases", "Tools"];
     const languages = [
@@ -91,7 +91,7 @@ function Skills({style}) {
     }
 
     return (
-        <div className={`${Styles.Container} ${style}`}>
+        <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
             <div className={Styles.Title}>Skills</div>
             <div className={Styles.Separator}/>
             <section className={Styles.Body}> { createSkillTable() } </section>

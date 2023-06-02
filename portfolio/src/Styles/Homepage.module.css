@@ -7,6 +7,24 @@
     height: auto;
 }
 
+.AngledRight {
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    background-color: white;
+    transform: skewY(-4deg);
+    -webkit-transform: skewY(-4deg);
+}
+
+.AngledLeft {
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    background-color: white;
+    transform: skewY(4deg);
+    -webkit-transform: skewY(4deg);
+}
+
 /* MARK: - HEADER */
 
 .Welcome {
@@ -164,6 +182,8 @@
     display: flex;
     flex-direction: row;
     gap: 2em;
+    margin-left: 1vmax;
+    margin-right: 1vmax;
 }
 
 .Button {
@@ -171,7 +191,7 @@
     border: 0.1px solid rgba(0,0,0,0.2);
     border-radius: 5%;
     padding: 0.4em 1.1em;
-    width: 7em;
+    width: 7.5em;
     font-size: 1em;
     color: var(--link_color);
     font-weight: 600;
@@ -183,27 +203,9 @@
 
 /* MARK: - ABOUT ME */
 
-.AngledRight {
-    position: absolute;
-    width: 100%;
-    height: 20%;
-    top: 100%;
-    background-color: white;
-    transform: skewY(-4deg);
-    -webkit-transform: skewY(-4deg);
-}
-
-.AboutMeScrollWrapper {
-    position: absolute;
-    top: 107.5%;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-}
-
 .AboutMe {
     position: absolute;
-    top: 0;
+    top: 107.5%;
     width: 100%;
     height: 100%;
     background-color: white;
@@ -211,17 +213,7 @@
 
 /* MARK: - SKILLS */
 
-.AngledLeft {
-    position: absolute;
-    width: 100%;
-    height: 15%;
-    top: 200%;
-    background-color: white;
-    transform: skewY(4deg);
-    -webkit-transform: skewY(4deg);
-}
-
-.SkillsScrollWrapper {
+.Skills {
     position: absolute;
     top: 220%;
     width: 100%;
@@ -229,13 +221,18 @@
     background-color: transparent;
 }
 
-.Skills {
+/* MARK: - EXPERIENCE */
+
+.Experience {
     position: absolute;
-    top: 0;
+    top: 380%;
     width: 100%;
-    height: 100%;
+    height: auto;
+    background-color: white;
+    padding-bottom: 5%;
 }
 
+/* MARK: - Button to go to top of the page */
 .TopButton {
     position: fixed;
     bottom: 1%;

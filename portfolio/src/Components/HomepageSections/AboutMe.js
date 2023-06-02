@@ -1,9 +1,8 @@
 import Styles from '../../Styles/AboutMe.module.css';
 
-function AboutMe({style}) {
+function AboutMe({style, scrollIdentifier}) {
     return(
-        <>
-        <div className={`${Styles.Container} ${style}`}>
+        <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
             <div className={Styles.Title}>About Me</div>
             <div className={Styles.Separator}/>
 
@@ -28,7 +27,6 @@ function AboutMe({style}) {
 
             </section>
         </div>
-        </>
     )
 }
 
