@@ -1,0 +1,129 @@
+.Container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5%;
+}
+
+.Title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.Separator {
+    content: "";
+    background-color: #d3d3d3;
+    width: 13em;
+    height: 1px;
+    margin: auto;
+    margin-top: 0.5em;
+}
+
+.Wrapper {
+    display: flex;
+    height: 40%;
+    width: 80%;
+    margin: auto;
+    gap: 5%;
+}
+
+.HStack {
+    gap: 5%;
+    border: 1px solid #d3d3d3;
+    border-radius: 0.5%;
+    padding: 8px;
+    align-items: center;
+    align-content: center;
+}
+
+.CertificateWrapper {
+    position: relative; 
+    display: inline-block;
+}
+
+.Certificate {
+    object-fit: contain;
+    height: auto;
+    width: 20vw;
+    border: 1px solid black;
+}
+
+.CertificateLabel {
+    display: none;
+}
+
+.CertificateWrapper:hover {
+    border: 5px solid black;
+    cursor: pointer;
+}
+
+.CertificateWrapper:hover .Certificate {
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+}
+
+.CertificateWrapper:hover .CertificateLabel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+
+.ExperiencesContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    gap: 5vh;
+}
+
+.Experience {
+    width: 80vw;
+    height: 60vh;
+    margin: auto;
+}
+
+.Label {
+    text-align: start;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.Body {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 100%;
+    justify-content: space-between;
+    gap: 5vw;
+}
+
+.BodyContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.Details {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    gap: 2vh;
+    list-style-type: circle;
+}
+
+.ExperienceImage {
+    object-fit: cover;
+    border: 1px solid #f3f3f3;
+    border-radius: 2%;
+    height: 80%;
+    width: 50%;
+    padding: 2vmax;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1), 
+                -2px 2px 2px 2px rgba(0,0,0,0.1);
+}

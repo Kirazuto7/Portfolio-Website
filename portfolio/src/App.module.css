@@ -1,0 +1,23 @@
+.App {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+  color: var(--text_color);
+}
+
+.HomepageBackground {
+  background: url("https://i.pinimg.com/originals/08/29/cc/0829cc1818d40b77f11df5740b264feb.jpg") no-repeat;
+  background-size: cover;
+}
+
+
+:root {
+  --text_color: black;
+  --link_color: #3366bb;
+  --box_shadow_color: rgba(0,0,0,0.5);
+  --secondary_color: #38485C;
+  --test_color: #096192;
+}
+
