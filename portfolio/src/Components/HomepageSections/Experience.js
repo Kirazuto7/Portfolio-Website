@@ -1,5 +1,5 @@
-import Styles from '../Styles/Experience.module.css';
-import HStack from './SubComponents/HStack';
+import Styles from '../../Styles/Experience.module.css';
+import HStack from '../SubComponents/HStack';
 import React from 'react';
 
 function Experience({style, scrollIdentifier}) {

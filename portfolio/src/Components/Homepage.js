@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import HomepageHeader from './HomepageSections/HomepageHeader';
 import AboutMe from './HomepageSections/AboutMe';
 import Skills from './HomepageSections/Skills';
-import Experience from './Experience';
+import Experience from './HomepageSections/Experience';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
