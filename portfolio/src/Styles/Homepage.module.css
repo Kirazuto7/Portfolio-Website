@@ -5,24 +5,7 @@
     align-items: center;
     width: 100%;
     height: auto;
-}
-
-.AngledRight {
-    position: absolute;
-    width: 100%;
-    height: 15%;
-    background-color: white;
-    transform: skewY(-4deg);
-    -webkit-transform: skewY(-4deg);
-}
-
-.AngledLeft {
-    position: absolute;
-    width: 100%;
-    height: 15%;
-    background-color: white;
-    transform: skewY(4deg);
-    -webkit-transform: skewY(4deg);
+    font-size: var(--text_size);
 }
 
 /* MARK: - HEADER */
@@ -108,7 +91,7 @@
 @keyframes appear {
     from {
         opacity: 0;
-        width: 20vmax;
+        width: auto;
     }
 
     to {
@@ -126,14 +109,13 @@
 }
 
 .Name {
-    font-size: 2em;
+    font-size: var(--important_size);
     font-weight: bold;
     margin-top: 0.5vmax;
     margin-bottom: 0vmax;
 }
 
 .Position {
-    font-size: 1em;
     font-weight: 500;
     margin-bottom: 1.5vmax;
     padding-left: 1em;
@@ -156,16 +138,8 @@
 }
 
 .HeaderDetail {
-    font-size: 1em;
     white-space: nowrap;
     overflow: hidden;
-}
-
-.Contact {
-    font-size: 1.3em;
-    font-weight: bold;
-    margin-top: 1.5vmax;
-    margin-bottom: 1vmax;
 }
 
 .ContactLink {
@@ -192,7 +166,7 @@
     border-radius: 5%;
     padding: 0.4em 1.1em;
     width: 7.5em;
-    font-size: 1em;
+    font-size: var(--text_size);
     color: var(--link_color);
     font-weight: 600;
 }
@@ -271,4 +245,41 @@
 
 .White:hover {
     background-color: black !important;
+}
+
+@media (orientation: landscape) {
+    @media (max-width: 915px) {
+        .TopButton {
+            height: 4.5vmax;
+            width: 4.5vmax;
+            border-radius: 2.25vmax;
+        }
+        
+        .TopButtonIcon {
+            width: 2.25vmax;
+            height: 2.25vmax;
+        }
+    }
+}
+
+@media (orientation: portrait) {
+    .ProfilePhoto {
+        height: 40vmax;
+    }
+
+    .ButtonGroup {
+        margin-left: 5vmax;
+        margin-right: 5vmax;
+    }
+
+    .TopButton {
+        height: 5vmax;
+        width: 5vmax;
+        border-radius: 2.5vmax;
+    }
+    
+    .TopButtonIcon {
+        width: 2.5vmax;
+        height: 2.5vmax;
+    }
 }

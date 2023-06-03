@@ -6,16 +6,16 @@
 }
 
 .Title {
-    font-size: 2em;
+    font-size: var(--title_size);
     font-weight: bold;
 }
 
 .Separator {
     content: "";
     background-color: #d3d3d3;
-    width: 10em;
+    width: 10vmax;
     height: 1px;
-    margin-top: 0.5em;
+    margin-top: 0.8em;
 }
 
 .Body {
@@ -29,14 +29,16 @@
 }
 
 .LeftSection {
-    width: 40%;
+    width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 .Description {
     text-align: left;
+    font-size: var(--text_size);
     line-height: 1.75em;
 }
 
@@ -49,4 +51,40 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+@media (orientation: landscape) {
+    @media (max-width: 915px) {
+        .Description {
+            text-align: left;
+            font-size: var(--text_size);
+            line-height: 1.5em;
+        }
+    }
+}
+
+@media (orientation: portrait) {
+    .Separator {
+        width: 15vmax;
+        margin-top: 0.4em;
+        margin-bottom: 0.4em;
+    }
+
+    .Body {
+        flex-direction: column;
+        height: 90%;
+        gap: 1vh;
+    }
+
+    .LeftSection {
+        order: 1;
+        width: 80%;
+
+    }
+    .RightSection {
+        order: 0;
+        width: 60%;
+        height: 35%
+    }
+    
 }

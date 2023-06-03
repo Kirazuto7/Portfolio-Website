@@ -6,6 +6,8 @@ import Skills from './HomepageSections/Skills';
 import Experience from './HomepageSections/Experience';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import AngledLeft from './SubComponents/AngledLeft.js';
+import AngledRight from './SubComponents/AngledRight.js';
 
 function Homepage() {
     const topButtonRef = useRef();
@@ -61,13 +63,13 @@ function Homepage() {
         <div id="top" className={Styles.Container}> 
             <HomepageHeader scroll={scrollToView} />
 
-            <div className={Styles.AngledRight} style={{'top':'100%'}}/>
+            <AngledRight top="100%"/>
             <AboutMe scrollIdentifier="AboutMe" style={Styles.AboutMe}/>
 
-            <div className={Styles.AngledLeft} style={{'top':'200%'}}/>
+            <AngledLeft top="200%"/>
             <Skills scrollIdentifier="Skills" style={Styles.Skills} />
 
-            <div className={Styles.AngledRight} style={{'top':'372.5%'}}/>
+            <AngledRight top="372.5%"/>
             <Experience scrollIdentifier="Experiences" style={Styles.Experience}/>
 
             <button ref={topButtonRef} className={backgroundColor === 'white' ? `${Styles.TopButton} ${Styles.White}` : `${Styles.TopButton} ${Styles.Black}`} onClick={() => scrollToTop()}>

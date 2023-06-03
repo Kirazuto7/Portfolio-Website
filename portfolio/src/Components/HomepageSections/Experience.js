@@ -30,7 +30,7 @@ function Experience({style, scrollIdentifier}) {
                         <section className={Styles.Body}>
                             <div className={Styles.BodyContent}>
                                 <header className={Styles.Label}>{experience.label}</header>
-                                <h2>{experience.name}</h2>
+                                <h2 className={Styles.ExperienceName}>{experience.name}</h2>
                                 <div style={{'display':'flex', 'flexDirection':'right', 'justifyContent': 'space-between'}}>
                                     <div style={{'fontWeight':'600'}}>{experience.position}</div>
                                     <div>{experience.date}</div>
@@ -57,7 +57,7 @@ function Experience({style, scrollIdentifier}) {
                             <img className={Styles.ExperienceImage} src={experience.src} alt={experience.name}></img>
                             <div className={Styles.BodyContent}>
                                 <header className={Styles.Label}>{experience.label}</header>
-                                <h2>{experience.name}</h2>
+                                <h2 className={Styles.ExperienceName}>{experience.name}</h2>
                                 <div style={{'display':'flex', 'flexDirection':'right', 'justifyContent': 'space-between'}}>
                                     <div style={{'fontWeight':'600'}}>{experience.position}</div>
                                     <div>{experience.date}</div>

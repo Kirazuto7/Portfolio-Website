@@ -7,7 +7,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    /*background-color: rgba(0,0,0,0.1);*/
     background-color: #D7DBDF;
     align-items: center;
     border-radius: 0.25vmax;
@@ -17,9 +16,27 @@
 .Link {
     text-decoration: none;
     color: var(--link_color);
-    font-size: 1.2em;
+    font-size: var(--sub_section_size);
 }
 
 .Link:hover {
     color: white;
+}
+
+@media (orientation: landscape) {
+    @media (max-width: 915px) {
+
+    }
+}
+
+@media (orientation: portrait) {
+    .NavLinks {
+        width: 100%;
+        left: 0;
+        justify-content: center;
+    }
+
+    .Link {
+        font-size: var(--section_size);
+    }
 }
