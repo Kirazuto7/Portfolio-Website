@@ -219,6 +219,10 @@
 .TopButtonIcon {
     width: 1.5vmax;
     height: 1.5vmax;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .Black {
@@ -249,6 +253,7 @@
 
 @media (orientation: landscape) {
     @media (max-width: 915px) {
+
         .TopButton {
             height: 4.5vmax;
             width: 4.5vmax;

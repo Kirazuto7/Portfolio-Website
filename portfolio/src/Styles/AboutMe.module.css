@@ -72,19 +72,25 @@
 
     .Body {
         flex-direction: column;
-        height: 90%;
-        gap: 1vh;
+        height: 100%;
+        gap: 0;
     }
 
     .LeftSection {
         order: 1;
         width: 80%;
-
+        align-items: flex-start;
     }
     .RightSection {
         order: 0;
         width: 60%;
         height: 35%
+    }
+
+    .Description {
+        text-align: left;
+        font-size: calc(0.5rem + 1vw);
+        line-height: 1.5em;
     }
     
 }
