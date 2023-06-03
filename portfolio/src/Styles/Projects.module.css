@@ -205,10 +205,12 @@
 
     .Summary {
         font-size: var(--text_size);
-        line-height: 2vh;
+        line-height: 2.25vh;
         text-align: start;
         width: 95%;
         margin: auto;
+        overflow: hidden;
+        height: 14vh;
     }
     
     .BodyMain {

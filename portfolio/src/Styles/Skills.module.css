@@ -90,13 +90,16 @@
             height: 7.5vmax;
             width: 7.5vmax;
         }
+
+        .SkillName {
+            font-size: var(--icon_text_size);
+        }
     }
 }
 
 @media (orientation: portrait) {
     .BodySection {
         margin-left: 0;
-        padding-bottom: 2vh;
     }
 
     .SectionName {
@@ -106,17 +109,17 @@
 
     .SectionRow {
         flex-wrap: wrap;
-        gap: 8vmax;
-        padding: 3vmax;
+        gap: 6vmax;
+        padding: 2.5vmax;
         justify-content: space-evenly;
     }
     
     .SkillContainer {
-        height: 7.5vmax;
-        width: 7.5vmax;
+        height: 10vmax;
+        width: 10vmax;
     }
 
     .SkillName {
-        font-size: calc(0.4rem + 1vw);
+        font-size: var(--icon_text_size);
     }
 }

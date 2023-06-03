@@ -163,7 +163,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 1em;
 }
 
 .SectionTitleWrapper {
@@ -192,6 +191,30 @@
     @media(max-width: 915px) {
         .JobTitle {
             text-align: center;
+        }
+
+        .SkillName {
+            font-size: var(--icon_text_size);
+        }
+
+        .RightContainer {
+            font-size: 16px;
+        }
+
+        .RightContainer li {
+            font-size: 16px;
+        }
+
+        .RowContainer {
+            font-size: 16px;
+        }
+
+        .RowContainer a {
+            font-size: 16px;
+        }
+
+        .SubTitleRow {
+            font-size: 12px;
         }
     }
 }
@@ -228,6 +251,7 @@
     
     .Skill {
         flex-direction: column;
+        height: 10vmax;
     }
     
     .SkillImageWrapper {
@@ -241,7 +265,7 @@
 
     .SkillName {
         text-align: center;
-        font-size: calc(0.49rem + 1vw);
+        font-size: var(--icon_text_size);
     }
 
     /* RIGHT */
@@ -263,7 +287,7 @@
     .ResumeSections {
         margin-left: 2.5%;
         margin-right: 2.5%;
-        font-size: var(--sub_section_size);
+        font-size: var(--text_size);
     }
     
     .RowContainer {

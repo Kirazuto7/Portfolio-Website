@@ -5,9 +5,8 @@
 }
 
 .Stack {
-    width: auto;
     height: auto;
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: hidden;
     display: flex;
     flex-direction: row;

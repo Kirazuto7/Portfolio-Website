@@ -12,10 +12,9 @@
 
 .Separator {
     content: "";
-    background-color: #d3d3d3;
     width: 10vmax;
-    height: 1px;
     margin-top: 0.8em;
+    border: 0.5px solid #d3d3d3;
 }
 
 .Body {
@@ -59,7 +58,9 @@
             text-align: left;
             font-size: var(--text_size);
             line-height: 1.5em;
+            line-height: calc(0.425rem + 2vh);
         }
+    
     }
 }
 
@@ -78,19 +79,19 @@
 
     .LeftSection {
         order: 1;
-        width: 80%;
+        width: 95%;
         align-items: flex-start;
     }
     .RightSection {
         order: 0;
-        width: 60%;
-        height: 35%
+        width: 40%;
+        height: 20%
     }
 
     .Description {
         text-align: left;
-        font-size: calc(0.5rem + 1vw);
-        line-height: 1.5em;
+        font-size: var(--text_size);
+        line-height: calc(0.25rem + 2vh);
     }
     
 }

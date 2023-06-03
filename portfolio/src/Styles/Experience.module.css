@@ -134,10 +134,26 @@
 
 @media (orientation: landscape) {
     @media (max-width: 915px) {
+
+        .ExperiencesContainer {
+            gap: calc(1.6rem + 15vh);
+            margin-bottom: calc(0.8rem + 15vh);
+        }
+
         .Experience {
             width: 95vw;
             height: 60vh;
             margin: auto;
+        }
+
+        .Wrapper { 
+            --wrapper-width: 90%;
+            width: var(--wrapper-width);
+        }
+    
+        .HStack {
+            --stack-width: calc(var(--wrapper-width) * 0.9);
+            width: var(--stack-width);
         }
     }
 }
@@ -174,8 +190,14 @@
         margin: 0 !important;
     }
 
-    .Wrapper {
-        width: 90%;
+    .Wrapper { 
+        --wrapper-width: 90%;
+        width: var(--wrapper-width);
+    }
+
+    .HStack {
+        --stack-width: calc(var(--wrapper-width) * 0.9);
+        width: var(--stack-width);
     }
 
     .CertificateWrapper:hover .CertificateLabel {
