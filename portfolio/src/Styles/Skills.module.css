@@ -86,13 +86,17 @@
 @media (orientation: landscape) {
     @media (max-width: 915px) {
 
+        .SkillContainer {
+            height: 7.5vmax;
+            width: 7.5vmax;
+        }
     }
 }
 
 @media (orientation: portrait) {
     .BodySection {
-        margin-left: 0%;
-        padding-bottom: 15vh;
+        margin-left: 0;
+        padding-bottom: 2vh;
     }
 
     .SectionName {
@@ -103,7 +107,7 @@
     .SectionRow {
         flex-wrap: wrap;
         gap: 8vmax;
-        padding: 2vmax;
+        padding: 3vmax;
         justify-content: space-evenly;
     }
     
