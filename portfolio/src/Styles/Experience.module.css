@@ -5,7 +5,7 @@
 }
 
 .Title {
-    font-size: 2em;
+    font-size: var(--title_size);
     font-weight: bold;
 }
 
@@ -90,8 +90,12 @@
 
 .Label {
     text-align: start;
-    font-size: 2em;
+    font-size: var(--title_size);
     font-weight: bold;
+}
+
+.ExperienceName {
+    font-size: var(--section_size);
 }
 
 .Body {
@@ -126,4 +130,64 @@
     padding: 2vmax;
     box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1), 
                 -2px 2px 2px 2px rgba(0,0,0,0.1);
+}
+
+@media (orientation: landscape) {
+    @media (max-width: 915px) {
+        .Experience {
+            width: 95vw;
+            height: 60vh;
+            margin: auto;
+        }
+    }
+}
+
+@media (orientation: portrait) {
+    .Body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Experience {
+        width: 100vw;
+        height: auto;
+    }
+
+    .ExperienceImage {
+        width: 30vmax;
+        order: 0;
+        object-fit: cover;
+    }
+    
+    .BodyContent {
+        order: 1;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    .Details {
+        font-size: var(--text_size);
+        gap: 8px;
+    }
+
+    .Details dd{
+        margin: 0 !important;
+    }
+
+    .Wrapper {
+        width: 90%;
+    }
+
+    .CertificateWrapper:hover .CertificateLabel {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--text_size);
+        font-weight: bold;
+    }
 }

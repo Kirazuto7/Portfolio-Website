@@ -5,6 +5,7 @@
     justify-content: center;
     background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzg4YTZhNjVkZjBlY2YyNmYzOTVmNDY1NjU2YTVkNDJkMTc4MTk2ZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/FlodpfQUBSp20/giphy.gif') no-repeat;
     background-size: cover;
+    font-size: var(--text_size);
 }
 
 .DropDown {
@@ -15,6 +16,8 @@
     height: 3vmax;
     width: 20vmax;
     margin-top: 5%;
+    font-size: var(--text_size);
+    text-align: center;
 }
 
 .VStack {
@@ -48,7 +51,7 @@
 
 .Title {
     text-align: center;
-    font-size: 2.5em;
+    font-size: var(--important_size);
     text-decoration: none;
 }
 
@@ -74,10 +77,6 @@
     margin: auto;
     align-items: center;
     height: 4vmax;
-}
-
-.Date {
-    font-size: 1em;
 }
 
 .Links {
@@ -124,8 +123,8 @@
 }
 
 .Summary {
-    font-size: 1.1em;
-    line-height: 2.5vh;
+    font-size: calc(0.35rem + 1vw);
+    line-height: 4vh;
     height: 10vh;
     text-align: center;
     display: flex;
@@ -169,11 +168,72 @@
     display: flex;
     flex-direction: row;
     gap: 0.5vw;
-    font-size: 0.9em;
+    font-size: var(--small_size);
     align-self: center;
 }
 
 .VSeparator {
     border: 0.9px solid #d3d3d3;
     height: 1em;
+}
+
+@media (orientation: landscape) {
+    @media(max-width: 915px) {
+        .Summary {
+            line-height: 4vh;
+            height: 20vh;
+            text-align: start;
+            width: 80%;
+            margin: auto;
+        }
+    }
+}
+
+@media (orientation: portrait) {
+    .Container {
+        margin-top: 10%;
+        height: 90%;
+    }
+
+    .VStack {
+        width: 100%;
+    }
+
+    .Links {
+        gap: 4vw;
+    }
+
+    .Summary {
+        font-size: var(--text_size);
+        line-height: 2vh;
+        text-align: start;
+        width: 95%;
+        margin: auto;
+    }
+    
+    .BodyMain {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: auto;
+    }
+    
+    .UserStories {
+        display: none;
+    }
+    
+    .Image {
+        width: 60%;
+        height: 100%;
+        align-self: center;
+    }
+    
+    .TechStackList {
+        font-size: calc(0.5rem + 1vw);
+    }
+    
+    .DropDownLabel {
+        font-size: calc(1.1rem + 1vw);
+    }
 }

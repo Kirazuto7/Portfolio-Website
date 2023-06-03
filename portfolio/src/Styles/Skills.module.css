@@ -6,7 +6,7 @@
 }
 
 .Title {
-    font-size: 2em;
+    font-size: var(--title_size);
     font-weight: bold;
 }
 
@@ -31,7 +31,7 @@
 
 .SectionName {
     text-align: start;
-    font-size: 1.7em;
+    font-size: var(--section_size);
 }
 
 .SectionRow {
@@ -78,8 +78,41 @@
 }
 
 .SkillName {
-    font-size: 1em;
     font-weight: 700;
     display: flex;
     align-items: center;
+}
+
+@media (orientation: landscape) {
+    @media (max-width: 915px) {
+
+    }
+}
+
+@media (orientation: portrait) {
+    .BodySection {
+        margin-left: 0%;
+        padding-bottom: 15vh;
+    }
+
+    .SectionName {
+        margin-left: 10%;
+        font-size: var(--section_size);
+    }
+
+    .SectionRow {
+        flex-wrap: wrap;
+        gap: 8vmax;
+        padding: 2vmax;
+        justify-content: space-evenly;
+    }
+    
+    .SkillContainer {
+        height: 7.5vmax;
+        width: 7.5vmax;
+    }
+
+    .SkillName {
+        font-size: calc(0.4rem + 1vw);
+    }
 }
