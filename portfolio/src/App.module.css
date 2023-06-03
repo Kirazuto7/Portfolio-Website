@@ -37,7 +37,8 @@
       --title_size: calc(1.5rem + 1vw);
       --section_size: calc(1.2rem + 1vw);
       --sub_section_size: calc(0.75rem + 1vw);
-      --text_size: calc(0.2rem + 1vw);
+      --text_size: calc(0.4rem + 1vw);
+      --icon_text_size: calc(0.3rem + 1vw);
       --small_size: calc(0.075rem + 1vw);
     }
   }
@@ -47,9 +48,10 @@
   :root {
     --important_size: calc(1.8rem + 1vw);
     --title_size: calc(1.6rem + 1vw);
-    --section_size: calc(1.3rem + 1vw);
-    --sub_section_size: calc(0.75rem + 1vw);
-    --text_size: calc(0.6rem + 1vw);
+    --section_size: calc(1.4rem + 1vw);
+    --sub_section_size: calc(1.1rem + 1vw);
+    --text_size: calc(1rem + 1vw);
+    --icon_text_size: calc(0.75rem + 1vw);
     --small_size: calc(0.25rem + 1vw);
   }
 }

@@ -18,7 +18,7 @@ function AboutMe({style, scrollIdentifier}) {
                         Previously as an iOS Developer intern I practiced agile scrum meetings with team members, learned to analyze and debug code written by other developers, and collaborated with a designer to implement requested updates.
                         Furthermore, my work experience in retail has given me the experience to work on a team and develop key communication skills to effectively complete assignments and satisfy company demands.
                         <br/><br/>
-                        Aside from programming, I also enjoy studying foreign languages, traveling, exploring new restaurants, socializing, cooking, and exercising.
+                        Aside from programming, I also enjoy studying foreign languages, traveling, hiking, exploring restaurants, socializing, cooking, and exercising.
                     </p>
                 </div>
 

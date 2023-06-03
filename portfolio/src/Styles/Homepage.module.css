@@ -164,15 +164,19 @@
     background-color: white;
     border: 0.1px solid rgba(0,0,0,0.2);
     border-radius: 5%;
-    padding: 0.4em 1.1em;
-    width: 7.5em;
+    padding: 0.6em 1.1em;
+    width: 10vw;
     font-size: var(--text_size);
     color: var(--link_color);
-    font-weight: 600;
+    font-weight: 700;
+    text-align: center;
 }
 
 .Button:hover {
     border: 0.1px solid blue;
+    color: white;
+    background: linear-gradient( 135deg,
+        #1cb5e0 25%, #015194 100%);
 }
 
 /* MARK: - ABOUT ME */
@@ -254,6 +258,16 @@
 @media (orientation: landscape) {
     @media (max-width: 915px) {
 
+        .ProfilePhoto {
+            height: 30vh;
+            width: 25vw;
+        }
+
+        .Button {
+            padding: 0.7em 0em;
+            width: 12vw;
+        }
+
         .TopButton {
             height: 4.5vmax;
             width: 4.5vmax;
@@ -273,8 +287,14 @@
     }
 
     .ButtonGroup {
-        margin-left: 5vmax;
-        margin-right: 5vmax;
+        margin-left: 1.5vmax;
+        margin-right: 1.5vmax;
+        gap: 1.5vw;
+    }
+
+    .Button {
+        padding: 0.7em 0em;
+        width: 30vw;
     }
 
     .TopButton {
