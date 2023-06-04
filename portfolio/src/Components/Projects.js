@@ -1,12 +1,16 @@
 import Styles from '../Styles/Projects.module.css';
 import VStack from './SubComponents/VStack';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { baseURL } from '../App';
 
-function Projects() {
+function Projects({title = ""}) {
+
+    useEffect(() => {
+        document.title = title || "";
+    }, [title])
 
     const projects = [
         {name: "EasyHangout", role: "Full Stack Web", date: "Mar. 2023 - May 2023", src: `${baseURL}/easyhangout.gif`, github:"https://github.com/csci-499-sp23/team-6-sp23-redux",
