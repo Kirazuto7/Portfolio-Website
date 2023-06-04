@@ -4,8 +4,14 @@ import ResumeProjects from './ResumeSections/ResumeProjects';
 import ResumeRelevantExperience from './ResumeSections/ResumeRelevantExperience';
 import ResumeOtherExperience from './ResumeSections/ResumeOtherExperience';
 import { baseURL } from '../App';
+import { useEffect } from 'react';
 
-function Resume() {
+function Resume({title = ""}) {
+
+    useEffect(() => {
+        document.title = title;
+    }, [title])
+
     const skills = [
         {name: "Swift", src: `${baseURL}/skills/swift.png`},
         {name: "C++", src: `${baseURL}/skills/c++.png`},

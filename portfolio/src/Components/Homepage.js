@@ -9,7 +9,12 @@ import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import AngledLeft from './SubComponents/AngledLeft.js';
 import AngledRight from './SubComponents/AngledRight.js';
 
-function Homepage() {
+function Homepage({title = ""}) {
+
+    useEffect(() => {
+        document.title = title || "";
+    }, [title])
+    
     const topButtonRef = useRef();
     const [backgroundColor, setBackgroundColor] = useState('white');
 
