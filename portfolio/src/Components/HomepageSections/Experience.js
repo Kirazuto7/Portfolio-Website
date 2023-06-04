@@ -45,7 +45,7 @@ function Experience({style, scrollIdentifier}) {
                                 }
                                 </dl>
                             </div>
-                            <img className={Styles.ExperienceImage} src={experience.src} alt={experience.name}></img>
+                            <img loading="lazy" className={Styles.ExperienceImage} src={experience.src} alt={experience.name}></img>
                         </section>
                     </div>
                 )
@@ -54,7 +54,7 @@ function Experience({style, scrollIdentifier}) {
                 return(
                     <div key={experience.name} className={Styles.Experience}>
                         <section className={Styles.Body}>
-                            <img className={Styles.ExperienceImage} src={experience.src} alt={experience.name}></img>
+                            <img loading="lazy" className={Styles.ExperienceImage} src={experience.src} alt={experience.name}></img>
                             <div className={Styles.BodyContent}>
                                 <header className={Styles.Label}>{experience.label}</header>
                                 <h2 className={Styles.ExperienceName}>{experience.name}</h2>
@@ -91,7 +91,7 @@ function Experience({style, scrollIdentifier}) {
         return certificates.map((certificate, index) => {
             return(
                 <div className={Styles.CertificateWrapper} key={index} onClick={() => window.open(certificate.link,'_blank')}>
-                    <img className={Styles.Certificate} src ={certificate.src} alt={certificate.link}/>
+                    <img loading="lazy" className={Styles.Certificate} src ={certificate.src} alt={certificate.link}/>
                     <div className={Styles.CertificateLabel}>{certificate.name}</div>
                 </div>
             )

@@ -67,7 +67,7 @@ function Projects() {
 
                     <section className={Styles.Body}>
                         <section className={Styles.BodyMain}>
-                            <img className={Styles.Image} src={project.src} alt={project.name}></img>
+                            <img loading="lazy" className={Styles.Image} src={project.src} alt={project.name}></img>
                             <ul className={Styles.UserStories}>
                                 {
                                     project.userStories.map((story, index) => {

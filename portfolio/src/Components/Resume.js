@@ -46,7 +46,7 @@ function Resume() {
                         return(
                             <section className={Styles.SkillRow} key={index}>
                                  <div className={Styles.Skill} > 
-                                        <div className={Styles.SkillImageWrapper}> <img className={Styles.SkillImage} src={row[0][0].src} alt={row[0][0].name}></img> </div>
+                                        <div className={Styles.SkillImageWrapper}> <img loading="lazy" className={Styles.SkillImage} src={row[0][0].src} alt={row[0][0].name}></img> </div>
                                         <div className={Styles.SkillName}>{row[0][0].name}</div>
                                 </div>
                                 {
@@ -70,7 +70,7 @@ function Resume() {
         <div className={Styles.Container}>
             
             <div className={Styles.LeftContainer}>
-                <img className={Styles.Photo} src={`${baseURL}/profile_photo.jpeg`} alt="profile"></img>
+                <img loading="lazy" className={Styles.Photo} src={`${baseURL}/profile_photo.jpeg`} alt="profile"></img>
                 <div className={Styles.JobTitle}>Software Developer</div>
                 <div className={Styles.HSeparator}></div>
 

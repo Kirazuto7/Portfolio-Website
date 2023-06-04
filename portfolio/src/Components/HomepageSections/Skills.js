@@ -42,7 +42,7 @@ function Skills({style, scrollIdentifier}) {
                                 return(
                                     <div className={Styles.SkillContainer} key={skill.name}>
                                         <div className={Styles.SkillWrapper}>
-                                            <img className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
+                                            <img loading="lazy" className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
                                             <div className={Styles.SkillName}>{skill.name}</div>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@ function Skills({style, scrollIdentifier}) {
                                 return(
                                     <div className={Styles.SkillContainer} key={skill.name}>
                                         <div className={Styles.SkillWrapper}>
-                                            <img className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
+                                            <img loading="lazy" className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
                                             <div className={Styles.SkillName}>{skill.name}</div>
                                         </div>
                                     </div>
@@ -72,7 +72,7 @@ function Skills({style, scrollIdentifier}) {
                                 return(
                                     <div className={Styles.SkillContainer} key={skill.name}>
                                         <div className={Styles.SkillWrapper}>
-                                            <img className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
+                                            <img loading="lazy" className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
                                             <div className={Styles.SkillName}>{skill.name}</div>
                                         </div>
                                     </div>
