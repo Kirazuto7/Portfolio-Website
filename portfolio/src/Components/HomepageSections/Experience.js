@@ -7,19 +7,19 @@ function Experience({style, scrollIdentifier}) {
     
     const displayExperiences = () => {
         const experiences = [
-            {name: "CUNY Hunter College", src: `${baseURL}/huntercollege.jpeg`, label: "Graduated From", date: "Jan. 2020 - May 2023", position: "Bachelor of Arts Computer Science", 
+            {name: "CUNY Hunter College", src: `${baseURL}/huntercollege.jpeg`, label: "Graduated From", date: "Jan. 2020 - May 2023", position: "B.A. Computer Science", 
             details: [
-                "Graduated with a cumulative GPA of 3.90 achieving Summa Cum Laude and departmental honors",
-                "Focus Study Minor in Japanese up to Advanced Japanese 1",
-                "Developed teamwork skills participating in group projects and hackathon(s) among student peers",
-                "Learned several data structures and algorithms in which I further practice doing Leetcode and in my project(s)"
+                <dd>Graduated with a cumulative <b>GPA of 3.90</b> achieving <b>Summa Cum Laude</b> and departmental honors</dd>,
+                <dd>Focus Study Minor in Japanese up to Advanced Japanese 1</dd>,
+                <dd>Developed teamwork skills participating in group projects and hackathon(s) among student peers</dd>,
+                <dd>Learned several data structures and algorithms in which I further practice doing Leetcode and in my project(s)</dd>
             ]},
             {name: "JetSweat", src: `${baseURL}/jetsweat.jpeg`, label: "Recently Worked At", date: "May 2022 - Aug.2022", position: "iOS Mobile Developer Intern",
             details: [
-                "Analyzed and debugged code to fix an issue where live classes disappeared 1 minute after the start time.",
-                "Constructed a radiating indicator and banner for live videos to notify users when they are currently streaming.",
-                "Programmed the ability for users to view future and previous weeks of scheduled live classes in Swift.",
-                "Collaborated together with a UX designer to implement styling changes based on designs in Figma files."
+                <dd>Analyzed and debugged code to fix an issue where live classes disappeared 1 minute after the start time.</dd>,
+                <dd>Constructed a radiating indicator and banner for live videos to notify users when they are currently streaming.</dd>,
+                <dd>Programmed the ability for users to view future and previous weeks of scheduled live classes in Swift.</dd>,
+                <dd>Collaborated together with a UX designer to implement styling changes based on designs in Figma files.</dd>
             ]},
         ]
 
@@ -33,13 +33,13 @@ function Experience({style, scrollIdentifier}) {
                                 <h2 className={Styles.ExperienceName}>{experience.name}</h2>
                                 <div style={{'display':'flex', 'flexDirection':'right', 'justifyContent': 'space-between'}}>
                                     <div style={{'fontWeight':'600'}}>{experience.position}</div>
-                                    <div>{experience.date}</div>
+                                    <div style={{'whiteSpace': 'nowrap'}}>{experience.date}</div>
                                 </div>
                                 <dl className={Styles.Details}>
                                 {
                                     experience.details.map((detail, index) => {
                                         return(
-                                            <dd key={index}>{detail}</dd>
+                                            <React.Fragment key={index}>{detail}</React.Fragment>
                                         )
                                     })
                                 }
@@ -60,13 +60,13 @@ function Experience({style, scrollIdentifier}) {
                                 <h2 className={Styles.ExperienceName}>{experience.name}</h2>
                                 <div style={{'display':'flex', 'flexDirection':'right', 'justifyContent': 'space-between'}}>
                                     <div style={{'fontWeight':'600'}}>{experience.position}</div>
-                                    <div>{experience.date}</div>
+                                    <div style={{'whiteSpace': 'nowrap'}}>{experience.date}</div>
                                 </div>
                                 <dl className={Styles.Details}>
                                 {
                                     experience.details.map((detail, index) => {
                                         return(
-                                            <dd key={index}>{detail}</dd>
+                                            <React.Fragment key={index}>{detail}</React.Fragment>
                                         )
                                     })
                                 }
