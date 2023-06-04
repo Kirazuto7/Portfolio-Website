@@ -7,8 +7,9 @@ import AppNavbar from './Components/AppNavbar';
 import Styles from './App.module.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
-    <div id="App" className={ (window.location.pathname === "/Portfolio-Website/" || "/Portfolio-Website") ? `${Styles.HomepageBackground} ${Styles.App}`  : `${Styles.App}` }>
+    <div id="App" className={ (window.location.pathname === ("/")) ? `${Styles.HomepageBackground} ${Styles.App}`  : `${Styles.App}` }>
         <AppNavbar/>
         <App/>
     </div>
