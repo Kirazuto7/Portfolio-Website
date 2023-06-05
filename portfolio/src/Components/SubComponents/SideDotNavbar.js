@@ -10,7 +10,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
         let element = document.getElementById('NavDot')
         let children = element.children
         let index;
-        
+
         if(pageHeight < 44) {
             index = 0;
 
@@ -84,6 +84,10 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
 
     const handleClick = (e) => {
         let value = e.target.getAttribute("value");
+        let element = document.getElementById(value)
+        element.scrollIntoView({
+            behavior: 'smooth'
+        })
         setSelected(() => (value));
     }
     return(
@@ -91,8 +95,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
         {
             links.map((link, index) => {
                 return(
-                    // eslint-disable-next-line
-                    <a key={index} href={`#${link}`} className={ (selected === link) ? `${Styles.NavDot} ${Styles.Selected}` : `${Styles.NavDot}`}
+                    <div key={index} className={ (selected === link) ? `${Styles.NavDot} ${Styles.Selected}` : `${Styles.NavDot}`}
                         onClick={(e) => handleClick(e)} value={link}/>
                 )
             })
