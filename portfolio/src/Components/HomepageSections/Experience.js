@@ -107,13 +107,13 @@ function Experience({style, scrollIdentifier}) {
 
         if(next) {
             element.scrollBy({
-                left: width/4,
+                left: width/2.75,
                 behavior: 'smooth'
             });
         }
         else {
             element.scrollBy({
-                left: -width/4,
+                left: -width/2.75,
                 behavior: 'smooth'
             });
         }

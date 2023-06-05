@@ -104,8 +104,13 @@
 .ProfilePhoto {
     width: 100%;
     height: 20vmax;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
+}
+
+.Header img {
+    overflow: clip;
+    overflow-clip-margin: content-box;
 }
 
 .Name {
@@ -259,8 +264,7 @@
     @media (max-width: 915px) {
 
         .ProfilePhoto {
-            height: 30vh;
-            width: 25vw;
+            height: 40vh;
         }
 
         .Button {
@@ -283,7 +287,7 @@
 
 @media (orientation: portrait) {
     .ProfilePhoto {
-        height: 40vmax;
+        height: 60vh;
     }
 
     .ButtonGroup {

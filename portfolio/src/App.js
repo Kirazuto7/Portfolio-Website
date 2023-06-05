@@ -4,7 +4,7 @@ import Projects from './Components/Projects';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage title="Portfolio"/>},
+  { path: "/", element: <Homepage title="Jordan S | Portfolio"/>},
   { path: "/resume", element: <Resume title="Resume"/>},
   { path: "/projects", element: <Projects title="Projects"/>}
 ])
