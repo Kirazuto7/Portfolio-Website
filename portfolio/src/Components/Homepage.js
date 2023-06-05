@@ -34,7 +34,10 @@ function Homepage({title = ""}) {
 
     useEffect(() => {
         let button = topButtonRef.current
-        let app = document.getElementById("App")
+        let app = document.getElementById("App");
+        let navbar = document.getElementById("NavBar");
+        let links = navbar.children;
+
         app.addEventListener(('scroll'), () => {
             let scrollTop = app.scrollTop;
             let pageHeight = (scrollTop / (window.innerHeight)) * 100
@@ -45,10 +48,10 @@ function Homepage({title = ""}) {
             else {
                 button.style.display = 'initial';
             }
-
+            
+            // Button to go to top breakpoints
             if(pageHeight >= 5 && pageHeight < 116) {
                 setBackgroundColor('white');
-
             }
             else if(pageHeight >= 116 && pageHeight < 277 ) {
                 setBackgroundColor('black');
@@ -57,6 +60,40 @@ function Homepage({title = ""}) {
                 setBackgroundColor('white');
             }
 
+            // Navbar breakpoints
+
+            if (pageHeight < 93) {
+                navbar.style.backgroundColor = '#D7DBDF';
+                for(let link of links) {
+                    link.style.color = '#3366bb';
+                    link.onmouseover = function() {this.style.color = "white"};
+                    link.onmouseout = function() {this.style.color = "#3366bb"};
+                }
+            }
+            else if (pageHeight >= 93 && pageHeight < 215) {
+                navbar.style.backgroundColor = 'black';
+                for(let link of links) {
+                    link.style.color = 'white';
+                    link.onmouseover = function() {this.style.color = "#3366bb"};
+                    link.onmouseout = function() {this.style.color = "white"};
+                }
+            }
+            else if (pageHeight >= 215 && pageHeight < 368) {
+                navbar.style.backgroundColor = '#D7DBDF';
+                for(let link of links) {
+                    link.style.color = '#3366bb';
+                    link.onmouseover = function() {this.style.color = "white"};
+                    link.onmouseout = function() {this.style.color = "#3366bb"};
+                }
+            }
+            else if ( pageHeight >= 368) {
+                navbar.style.backgroundColor = 'black';
+                for(let link of links) {
+                    link.style.color = 'white';
+                    link.onmouseover = function() {this.style.color = "#3366bb"};
+                    link.onmouseout = function() {this.style.color = "white"};
+                }
+            }
         })
 
         return () => {
