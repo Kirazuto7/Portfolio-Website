@@ -11,6 +11,10 @@ import AngledRight from './SubComponents/AngledRight.js';
 
 function Homepage({title = ""}) {
 
+    const [slideLeftExperience, setSlideLeftExperience] = useState(false);
+    const [slideRightExperience, setSlideRightExperience] = useState(false);
+    const [slideLeftExperience2, setSlideLeftExperience2] = useState(false);
+
     useEffect(() => {
         document.title = title || "";
     }, [title])
@@ -94,12 +98,35 @@ function Homepage({title = ""}) {
                     link.onmouseout = function() {this.style.color = "white"};
                 }
             }
+            
+            // Experience Slide
+            if(pageHeight < 300 && slideLeftExperience === true) {
+                setSlideLeftExperience(() => (false))
+            }
+            else if(pageHeight >= 300 && slideLeftExperience === false) {
+                setSlideLeftExperience(() => (true))
+            }
+
+            if(pageHeight < 300 && slideRightExperience === true) {
+                setSlideRightExperience(() => (false))
+            }
+            else if(pageHeight >= 360 && slideRightExperience === false) {
+                setSlideRightExperience(() => (true))
+            }
+
+            if(pageHeight < 300 && slideLeftExperience2 === true) {
+                setSlideLeftExperience2(() => (false))
+            }
+            else if(pageHeight >= 425 && slideLeftExperience2 === false) {
+                setSlideLeftExperience2(() => (true))
+            }
+            
         })
 
         return () => {
             app.removeEventListener(('scroll'), null);
         }
-    }, [backgroundColor])
+    }, [backgroundColor, slideLeftExperience, slideRightExperience, slideLeftExperience2])
     
     return(
         <div id="top" className={Styles.Container}> 
@@ -112,7 +139,7 @@ function Homepage({title = ""}) {
             <Skills scrollIdentifier="Skills" style={Styles.Skills} />
 
             <AngledRight top="372.5%"/>
-            <Experience scrollIdentifier="Experiences" style={Styles.Experience}/>
+            <Experience scrollIdentifier="Experiences" style={Styles.Experience} slideLeft={slideLeftExperience} slideRight={slideRightExperience} slideLeft2={slideLeftExperience2}/>
 
             <button ref={topButtonRef} className={backgroundColor === 'white' ? `${Styles.TopButton} ${Styles.White}` : `${Styles.TopButton} ${Styles.Black}`} onClick={() => scrollToTop()}>
                 <FontAwesomeIcon icon={faChevronUp} className={Styles.TopButtonIcon}/>

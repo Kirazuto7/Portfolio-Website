@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { baseURL } from '../../App';
 
-function Experience({style, scrollIdentifier}) {
+function Experience({style, scrollIdentifier, slideLeft = false, slideRight = false, slideLeft2 = false}) {
     
     const displayExperiences = () => {
         const experiences = [
@@ -28,7 +28,7 @@ function Experience({style, scrollIdentifier}) {
         return experiences.map((experience, index) => {
             if(index % 2 === 0){
                 return(
-                    <div key={experience.name} className={Styles.Experience}>
+                    <div key={experience.name} className={ slideLeft ? `${Styles.Experience} ${Styles.LeftSlide}` : `${Styles.Hidden}`}>
                         <section className={Styles.Body}>
                             <div className={Styles.BodyContent}>
                                 <header className={Styles.Label}>{experience.label}</header>
@@ -54,7 +54,7 @@ function Experience({style, scrollIdentifier}) {
             }
             else {
                 return(
-                    <div key={experience.name} className={Styles.Experience}>
+                    <div key={experience.name} className={ slideRight ? `${Styles.Experience} ${Styles.RightSlide}` : `${Styles.Hidden}`}>
                         <section className={Styles.Body}>
                             <img loading="lazy" className={Styles.ExperienceImage} src={experience.src} alt={experience.name}></img>
                             <div className={Styles.BodyContent}>
@@ -118,14 +118,14 @@ function Experience({style, scrollIdentifier}) {
             });
         }
     }
- 
+
     return(
         <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
             <div className={Styles.Title}>Experiences</div>
             <div className={Styles.Separator}/>
             <div className={Styles.ExperiencesContainer}>{displayExperiences()}</div>
 
-            <div className={Styles.Wrapper}>
+            <div className={slideLeft2 ? `${Styles.Wrapper} ${Styles.LeftSlide}` : `${Styles.Hidden}`}>
                 <button className={Styles.HStackLeftButton} onClick={() => scrollToCertificate(false)}><FontAwesomeIcon icon={faChevronLeft} className={Styles.HStackChevron}/></button>
                 <HStack id="CertificateStack" style={Styles.HStack}
                 header={<header className={Styles.Label}>Certificates</header>}
@@ -136,6 +136,5 @@ function Experience({style, scrollIdentifier}) {
         </div>
     )
 }
-/**               
- */
+
 export default Experience;
