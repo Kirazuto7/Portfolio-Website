@@ -23,6 +23,15 @@ function Projects({title = ""}) {
                        "Queried real-time data from a Firestore database utilizing an event listener to retrieve pertinent user info.",
                        "Designed the app to be responsive on both mobile and web browsers for all routes using Media Query."]
         },
+        {name: "HomeChefUnited", role: "Mobile iOS", date: "Mar. 2023 - May 2023", src: `${baseURL}/HomeChefUnited.gif`, github:"https://github.com/Kirazuto7/Home-Chef-United",
+         summary: "An app that allows users to save their favorite recipes in a personal cookbook and time their cooking. \n Also users may choose to share their recipes with other users to discover new types of meals or different methods of cooking.",
+         techStack: ["Swift", "CoreData", "Cloud Firestore", "TheMealDB API", "UIKit"],
+         userStories: ["Programmed a book-like view for saved recipes using PageViewController from UIKit.",
+                       "Fetched saved recipes from Core Data for the logged in user displayed on a table view of collection views utilizing an NSFetchedResultsController.",
+                       "Enabled users the choice to publicly post their created recipes for others via storing the recipes in Firestore.",
+                       "Coded an interactive timer implemented as a header view while following the recipe instructions step by step.",
+                       "Queries the api endpoint for recipes based on user search input or provides a random recipe based on the search option set. "]
+        },
         {name: "Pupple", role: "Mobile iOS", date: "Apr. 2022 - June 2022", src: `${baseURL}/pupple.gif`, github:"https://github.com/PuppyTinder/puppy-tinder",
          summary: "A Tinder-like app that allows dog owners to find a playmate for their dogs.",
          techStack: ["Swift", "Back4App", "UIKit", "Dog API", "Koloda", "Alamofire"],

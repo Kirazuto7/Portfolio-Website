@@ -1,11 +1,11 @@
 import Styles from '../../Styles/HStack.module.css';
 import PropTypes from 'prop-types';
 
-function HStack({items = [], header = <></>, style, alignItems = 'center', alignContent = 'center', justifyContent = 'center'}) {
+function HStack({items = [], header = <></>, style, alignItems = 'center', alignContent = 'center', justifyContent = 'center', id=""}) {
     return(
         <div className={`${Styles.Container}`}>
             {header}
-        <div style={{'alignContent':{alignContent}, 'alignItems': {alignItems}, 'justifyContent': {justifyContent}}} className={`${Styles.Stack} ${style}`}>
+        <div id={id} style={{'alignContent':{alignContent}, 'alignItems': {alignItems}, 'justifyContent': {justifyContent}}} className={`${Styles.Stack} ${style}`}>
             {items}
         </div>
         </div>
