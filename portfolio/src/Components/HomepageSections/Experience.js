@@ -1,6 +1,8 @@
 import Styles from '../../Styles/Experience.module.css';
 import HStack from '../SubComponents/HStack';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { baseURL } from '../../App';
 
 function Experience({style, scrollIdentifier}) {
@@ -90,7 +92,7 @@ function Experience({style, scrollIdentifier}) {
         ]
         return certificates.map((certificate, index) => {
             return(
-                <div className={Styles.CertificateWrapper} key={index} onClick={() => window.open(certificate.link,'_blank')}>
+                <div id={`Certificate${index}`} className={Styles.CertificateWrapper} key={index} onClick={() => window.open(certificate.link,'_blank')}>
                     <img loading="lazy" className={Styles.Certificate} src ={certificate.src} alt={certificate.link}/>
                     <div className={Styles.CertificateLabel}>{certificate.name}</div>
                 </div>
@@ -99,6 +101,24 @@ function Experience({style, scrollIdentifier}) {
         })
     }
 
+    const scrollToCertificate = (next = false) => {
+        let element = document.getElementById(`CertificateStack`);
+        let { width } = element.getBoundingClientRect();
+
+        if(next) {
+            element.scrollBy({
+                left: width/4,
+                behavior: 'smooth'
+            });
+        }
+        else {
+            element.scrollBy({
+                left: -width/4,
+                behavior: 'smooth'
+            });
+        }
+    }
+ 
     return(
         <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
             <div className={Styles.Title}>Experiences</div>
@@ -106,13 +126,16 @@ function Experience({style, scrollIdentifier}) {
             <div className={Styles.ExperiencesContainer}>{displayExperiences()}</div>
 
             <div className={Styles.Wrapper}>
-                <HStack style={Styles.HStack}
+                <button className={Styles.HStackLeftButton} onClick={() => scrollToCertificate(false)}><FontAwesomeIcon icon={faChevronLeft} className={Styles.HStackChevron}/></button>
+                <HStack id="CertificateStack" style={Styles.HStack}
                 header={<header className={Styles.Label}>Certificates</header>}
                 items={displayCertificates()}
                 />
+                <button className={Styles.HStackRightButton} onClick={() => scrollToCertificate(true)}><FontAwesomeIcon icon={faChevronRight} className={Styles.HStackChevron}/></button>
             </div>
         </div>
     )
 }
-
+/**               
+ */
 export default Experience;

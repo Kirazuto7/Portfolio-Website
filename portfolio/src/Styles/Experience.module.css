@@ -19,20 +19,67 @@
 }
 
 .Wrapper {
+    --hstack-wrapper-width: 80vw;
+    --hstack-wrapper-height: 40vh;
     display: flex;
-    height: 40%;
-    width: 80%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: var(--hstack-wrapper-height);
+    width: var(--hstack-wrapper-width);
     margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
     gap: 5%;
 }
 
 .HStack {
+    --hstack-width: calc(var(--hstack-wrapper-width) * 1);
+    --hstack-height: 40vh;
     gap: 5%;
     border: 1px solid #d3d3d3;
     border-radius: 0.5%;
     padding: 8px;
     align-items: center;
     align-content: center;
+    width: var(--hstack-width);
+    height: var(--hstack-height);
+}
+
+.HStackLeftButton {
+    position: absolute;
+    left: 7vw;
+    --hstack-button-height: calc(var(--hstack-wrapper-height) * 0.2);
+    width: var(--hstack-button-height);
+    height: var(--hstack-button-height);
+    border-radius: calc(var(--hstack-button-height) / 2);
+    border: none;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.HStackRightButton {
+    position: absolute;
+    right: 7vw;
+    --hstack-button-height: calc(var(--hstack-wrapper-height) * 0.20);
+    width: var(--hstack-button-height);
+    height: var(--hstack-button-height);
+    border-radius: calc(var(--hstack-button-height) / 2);
+    border: none;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.HStackChevron {
+    height: 50%;
+    width: 50%;
+    color: white;
 }
 
 .CertificateWrapper {
@@ -41,9 +88,8 @@
 }
 
 .Certificate {
-    object-fit: contain;
-    height: auto;
-    width: 20vw;
+    object-fit: fill;
+    height: var(--hstack-wrapper-height);
     border: 1px solid black;
 }
 
@@ -146,14 +192,48 @@
             margin: auto;
         }
 
-        .Wrapper { 
-            --wrapper-width: 90%;
-            width: var(--wrapper-width);
+        .Wrapper {
+            --hstack-wrapper-width: 80vw;
+            --hstack-wrapper-height: 40vh;
+            height: var(--hstack-wrapper-height);
+            width: var(--hstack-wrapper-width);
+            margin-bottom: 5%;
         }
-    
+        
         .HStack {
-            --stack-width: calc(var(--wrapper-width) * 0.9);
-            width: var(--stack-width);
+            --hstack-width: calc(var(--hstack-wrapper-width) * 1);
+            --hstack-height: 40vh;
+            width: var(--hstack-width);
+            height: var(--hstack-height);
+        }
+        
+        .HStackLeftButton {
+            position: absolute;
+            left: 5vw;
+            --hstack-button-height: calc(var(--hstack-wrapper-height) * 0.25);
+            width: var(--hstack-button-height);
+            height: var(--hstack-button-height);
+            border-radius: calc(var(--hstack-button-height) / 2);
+            z-index: 1;
+        }
+        
+        .HStackRightButton {
+            position: absolute;
+            right: 5vw;
+            --hstack-button-height: calc(var(--hstack-wrapper-height) * 0.25);
+            width: var(--hstack-button-height);
+            height: var(--hstack-button-height);
+            border-radius: calc(var(--hstack-button-height) / 2);
+            z-index: 1;
+        }
+        
+        .HStackChevron {
+            height: 1.5vmax;
+            width: 1.5vmax;
+        }
+        
+        .Certificate {
+            height: var(--hstack-wrapper-height);
         }
     }
 }
@@ -190,16 +270,6 @@
         margin: 0 !important;
     }
 
-    .Wrapper { 
-        --wrapper-width: 90%;
-        width: var(--wrapper-width);
-    }
-
-    .HStack {
-        --stack-width: calc(var(--wrapper-width) * 0.9);
-        width: var(--stack-width);
-    }
-
     .CertificateWrapper:hover .CertificateLabel {
         position: absolute;
         top: 50%;
@@ -211,5 +281,49 @@
         align-items: center;
         font-size: var(--text_size);
         font-weight: bold;
+    }
+
+    .Wrapper {
+        --hstack-wrapper-width: 80vw;
+        --hstack-wrapper-height: 20vh;
+        height: var(--hstack-wrapper-height);
+        width: var(--hstack-wrapper-width);
+        margin-bottom: 15%;
+    }
+    
+    .HStack {
+        --hstack-width: calc(var(--hstack-wrapper-width) * 1);
+        --hstack-height: 20vh;
+        width: var(--hstack-width);
+        height: var(--hstack-height);
+    }
+    
+    .HStackLeftButton {
+        position: absolute;
+        left: 5vw;
+        --hstack-button-height: calc(var(--hstack-wrapper-height) * 0.25);
+        width: var(--hstack-button-height);
+        height: var(--hstack-button-height);
+        border-radius: calc(var(--hstack-button-height) / 2);
+        z-index: 1;
+    }
+    
+    .HStackRightButton {
+        position: absolute;
+        right: 5vw;
+        --hstack-button-height: calc(var(--hstack-wrapper-height) * 0.25);
+        width: var(--hstack-button-height);
+        height: var(--hstack-button-height);
+        border-radius: calc(var(--hstack-button-height) / 2);
+        z-index: 1;
+    }
+    
+    .HStackChevron {
+        height: 1.5vmax;
+        width: 1.5vmax;
+    }
+    
+    .Certificate {
+        height: var(--hstack-wrapper-height);
     }
 }
