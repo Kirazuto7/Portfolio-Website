@@ -4,16 +4,18 @@ import HomepageHeader from './HomepageSections/HomepageHeader';
 import AboutMe from './HomepageSections/AboutMe';
 import Skills from './HomepageSections/Skills';
 import Experience from './HomepageSections/Experience';
+import SideDotNavbar from './SubComponents/SideDotNavbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import AngledLeft from './SubComponents/AngledLeft.js';
 import AngledRight from './SubComponents/AngledRight.js';
 
 function Homepage({title = ""}) {
-
+    const pages = ["Header", "AboutMe", "Skills", "Experiences"]
     const [slideLeftExperience, setSlideLeftExperience] = useState(false);
     const [slideRightExperience, setSlideRightExperience] = useState(false);
     const [slideLeftExperience2, setSlideLeftExperience2] = useState(false);
+    const [scrollPageHeight, setScrollPageHeight] = useState(0);
 
     useEffect(() => {
         document.title = title || "";
@@ -45,6 +47,8 @@ function Homepage({title = ""}) {
         app.addEventListener(('scroll'), () => {
             let scrollTop = app.scrollTop;
             let pageHeight = (scrollTop / (window.innerHeight)) * 100
+
+            setScrollPageHeight(() => (pageHeight))
 
             if(pageHeight < 5) {
                 button.style.display = 'none';
@@ -98,23 +102,23 @@ function Homepage({title = ""}) {
                     link.onmouseout = function() {this.style.color = "white"};
                 }
             }
-            
+
             // Experience Slide
-            if(pageHeight < 300 && slideLeftExperience === true) {
+            if(pageHeight <= 270 && slideLeftExperience === true) {
                 setSlideLeftExperience(() => (false))
             }
-            else if(pageHeight >= 300 && slideLeftExperience === false) {
+            else if(pageHeight >= 316 && slideLeftExperience === false) {
                 setSlideLeftExperience(() => (true))
             }
 
-            if(pageHeight < 300 && slideRightExperience === true) {
+            if(pageHeight <= 270 && slideRightExperience === true) {
                 setSlideRightExperience(() => (false))
             }
             else if(pageHeight >= 360 && slideRightExperience === false) {
                 setSlideRightExperience(() => (true))
             }
 
-            if(pageHeight < 300 && slideLeftExperience2 === true) {
+            if(pageHeight <= 270 && slideLeftExperience2 === true) {
                 setSlideLeftExperience2(() => (false))
             }
             else if(pageHeight >= 425 && slideLeftExperience2 === false) {
@@ -129,7 +133,9 @@ function Homepage({title = ""}) {
     }, [backgroundColor, slideLeftExperience, slideRightExperience, slideLeftExperience2])
     
     return(
-        <div id="top" className={Styles.Container}> 
+        <div id="top" className={Styles.Container}>
+            <SideDotNavbar pageHeight={scrollPageHeight} links={pages}/> 
+
             <HomepageHeader scroll={scrollToView} />
 
             <AngledRight top="100%"/>

@@ -133,6 +133,7 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
                 />
                 <button className={Styles.HStackRightButton} onClick={() => scrollToCertificate(true)}><FontAwesomeIcon icon={faChevronRight} className={Styles.HStackChevron}/></button>
             </div>
+            <div className={slideLeft2 ? `${Styles.Hidden}` : `${Styles.InvisBlock}`}/>
         </div>
     )
 }

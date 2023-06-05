@@ -48,7 +48,7 @@ function HomepageHeader({scroll = () => {}}) {
     }, [exists])
    
     return(
-        <div className={Styles.HeaderContainer}>
+        <div id={"Header"} className={Styles.HeaderContainer}>
             <h1 className={Styles.Welcome}>Welcome</h1>
             <div className={Styles.Wrapper}>
             <header className={Styles.Header}>
