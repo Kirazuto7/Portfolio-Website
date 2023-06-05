@@ -1,19 +1,30 @@
 import Styles from '../Styles/Projects.module.css';
 import VStack from './SubComponents/VStack';
-import React, { useEffect } from 'react';
+import SegmentController from './SubComponents/SegmentController';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { baseURL } from '../App';
 
 function Projects({title = ""}) {
+    const ProjectType = Object.freeze({
+        All: "All",
+        Web: "Web",
+        iOS: "iOS",
+        Android: "Android",
+        Backend: "Backend",
+        array: ["All", "Web", "iOS", "Android", "Backend"]
+    })
+
+    const [selectedProjectType, setSelectedProjectType] = useState(ProjectType.All);
 
     useEffect(() => {
         document.title = title || "";
     }, [title])
 
     const projects = [
-        {name: "EasyHangout", role: "Full Stack Web", date: "Mar. 2023 - May 2023", src: `${baseURL}/easyhangout.gif`, github:"https://github.com/csci-499-sp23/team-6-sp23-redux",
+        {name: "EasyHangout", type: ProjectType.Web ,role: "Full Stack Web", date: "Mar. 2023 - May 2023", src: `${baseURL}/easyhangout.gif`, github:"https://github.com/csci-499-sp23/team-6-sp23-redux",
          summary: "EasyHangOut is a web application designed to make finding recreational spots to hang out with friends simple and intuitive. \nThe app presents users with a series of recreational locations that they can choose to save for later in a Tinder fashion.",
          techStack: ["Javascript", "React", "Cloud Firestore", "Yelp API", "GoogleMaps API", "Express JS", "Axios"],
          website: "https://easy-hangout-68597.web.app/",
@@ -23,7 +34,7 @@ function Projects({title = ""}) {
                        "Queried real-time data from a Firestore database utilizing an event listener to retrieve pertinent user info.",
                        "Designed the app to be responsive on both mobile and web browsers for all routes using Media Query."]
         },
-        {name: "HomeChefUnited", role: "Mobile iOS", date: "Mar. 2023 - May 2023", src: `${baseURL}/HomeChefUnited.gif`, github:"https://github.com/Kirazuto7/Home-Chef-United",
+        {name: "HomeChefUnited", type: ProjectType.iOS, role: "Mobile iOS", date: "Mar. 2023 - May 2023", src: `${baseURL}/HomeChefUnited.gif`, github:"https://github.com/Kirazuto7/Home-Chef-United",
          summary: "An app that allows users to save their favorite recipes in a personal cookbook and time their cooking. \n Also users may choose to share their recipes with other users to discover new types of meals or different methods of cooking.",
          techStack: ["Swift", "CoreData", "Cloud Firestore", "TheMealDB API", "UIKit"],
          userStories: ["Programmed a book-like view for saved recipes using PageViewController from UIKit.",
@@ -32,7 +43,7 @@ function Projects({title = ""}) {
                        "Coded an interactive timer implemented as a header view while following the recipe instructions step by step.",
                        "Queries the api endpoint for recipes based on user search input or provides a random recipe based on the search option set. "]
         },
-        {name: "Pupple", role: "Mobile iOS", date: "Apr. 2022 - June 2022", src: `${baseURL}/pupple.gif`, github:"https://github.com/PuppyTinder/puppy-tinder",
+        {name: "Pupple", type: ProjectType.iOS, role: "Mobile iOS", date: "Apr. 2022 - June 2022", src: `${baseURL}/pupple.gif`, github:"https://github.com/PuppyTinder/puppy-tinder",
          summary: "A Tinder-like app that allows dog owners to find a playmate for their dogs.",
          techStack: ["Swift", "Back4App", "UIKit", "Dog API", "Koloda", "Alamofire"],
          userStories: ["Developed an Ios app with a team of 4 to help dog owners find playmates in a tinderesque style using Swift.",
@@ -40,7 +51,7 @@ function Projects({title = ""}) {
                        "Incorporated a live messaging system between matched users utilizing Parse Live Query to retrieve and send messages in real time.",
                        "Implemented an extensive sign up, profile, and filtering process to manage and store user data in the Back4App database."]
         },
-        {name: "FitTrack", role: "Mobile Android", date: "Oct. 2021 - Dec. 2021", src: `${baseURL}/FinalFitTrack.gif`, github:"https://github.com/FItTracker-Group/FitTrack",
+        {name: "FitTrack", type: ProjectType.Android, role: "Mobile Android", date: "Oct. 2021 - Dec. 2021", src: `${baseURL}/FinalFitTrack.gif`, github:"https://github.com/FItTracker-Group/FitTrack",
          summary: "A fitness application designed to help people learn about various exercises and keep track of their weight. \nThe purpose of this app is to help create a workout community among friends or people with similar goals.",
          techStack: ["Java", "Back4App", "Parceler"],
          userStories: ["Developed an Android app with a team of 5 to inform users on how to perform exercises via categories using Java.",
@@ -49,7 +60,7 @@ function Projects({title = ""}) {
                        "Incorporated a search bar for users to filter specific exercises based on name/difficulty programmed via an ArrayList of filtered videos in Java."
          ]
         },
-        {name: "CafesAPI", role: "Backend", date: "Apr. 2022 - May 2022", src: `${baseURL}/getcafes.png`, github:"https://github.com/Kirazuto7/CafesAPI",
+        {name: "CafesAPI", type: ProjectType.Backend, role: "Backend", date: "Apr. 2022 - May 2022", src: `${baseURL}/getcafes.png`, github:"https://github.com/Kirazuto7/CafesAPI",
          summary: "An api containing a list of information about cafes for people to find a good place to study/work in NYC.",
          techStack: ["C#", "MySQL", "Postman"],
          userStories: ["Programmed a database containing a list of cafes for people to cowork/study.",
@@ -61,7 +72,16 @@ function Projects({title = ""}) {
     ]
 
     const displayProjects = () => {
-        return projects.map((project, index) => {
+        return projects
+        .filter((project) => {
+            if(selectedProjectType !== ProjectType.All) {
+                return project.type === selectedProjectType
+            }
+            else {
+                return project
+            }
+        })
+        .map((project, index) => {
             return(
                 <section id={project.name} className={Styles.Project} key={index}>
                     <header className={Styles.Header}>
@@ -123,11 +143,21 @@ function Projects({title = ""}) {
         }
 
         return(
+            <div style={{'display': 'flex', 'flexDirection': 'column', 'gap': '3vh'}}>
             <form className={Styles.DropDown}>
                 <label htmlFor="selectProjects"></label>
                 <select className={Styles.DropDownLabel} id="selectProjects" onChange={onSelectProject}>
                     {
-                        projects.map((project, index) => {
+                        projects
+                        .filter((project) => {
+                            if(selectedProjectType !== ProjectType.All) {
+                                return project.type === selectedProjectType
+                            }
+                            else {
+                                return project
+                            }
+                        })
+                        .map((project, index) => {
                             return(
                                 <option key={index} value={project.name}>
                                     {project.name}
@@ -137,7 +167,13 @@ function Projects({title = ""}) {
                     }
                 </select>
             </form>
+            <SegmentController items={ProjectType.array} onSelect={(selected) => {selectProjectType(selected)}} defaultItem={ProjectType.All}/>
+            </div>
         )
+    }
+
+    const selectProjectType = (selected) => {
+        setSelectedProjectType(() => (selected))
     }
 
     return(

@@ -1,0 +1,37 @@
+.Container {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15%;
+}
+
+.Button {
+    border: none;
+    background-color: white;
+    border-radius: 0.25em;
+    padding:4px 8px;
+    width: 100%;
+    font-size: var(--text_size);
+    font-weight: bold;
+}
+
+.Button:hover {
+    background-color: var(--link_color);
+    color: white;
+}
+
+.SelectedButton {
+    background-color: var(--link_color);
+    color: white;
+}
+
+@media (orientation: landscape) {
+    @media(max-width: 915px) {
+    }
+}
+
+@media(orientation: portrait) {
+    .Container {
+        gap: 5%;
+    }
+}

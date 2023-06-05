@@ -31,6 +31,7 @@
     border-top: none;
     border-bottom: none;
     background-color: black;
+    height: 80vh;
 }
 
 .Project {
@@ -186,6 +187,10 @@
             width: 80%;
             margin: auto;
         }
+
+        .DropDownLabel {
+            margin-top: 20%;
+        }
     }
 }
 
@@ -236,6 +241,7 @@
     }
     
     .DropDownLabel {
+        height: auto;
         font-size: calc(1.1rem + 1vw);
     }
 }
