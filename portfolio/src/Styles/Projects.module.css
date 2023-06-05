@@ -196,8 +196,9 @@
 
 @media (orientation: portrait) {
     .Container {
-        margin-top: 10%;
+        padding-top: 10%;
         height: 90%;
+        padding-bottom: 10%;
     }
 
     .VStack {

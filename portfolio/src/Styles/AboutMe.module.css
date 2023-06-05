@@ -83,15 +83,13 @@
         align-items: flex-start;
     }
     .RightSection {
-        order: 0;
-        width: 40%;
-        height: 20%
+        display: none;
     }
 
     .Description {
         text-align: left;
         font-size: var(--text_size);
-        line-height: calc(0.25rem + 2vh);
+        line-height: calc(0.25em + 2.25vh);
     }
     
 }
