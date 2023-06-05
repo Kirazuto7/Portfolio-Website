@@ -1,0 +1,42 @@
+.Container {
+    position: fixed;
+    top: 50%;
+    right: 3%;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+}
+
+.NavDot {
+    width: 0.8vmax;
+    height: 0.8vmax;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.NavDot:hover {
+    background-color: var(--link_color);
+}
+
+.Selected {
+    background-color: var(--link_color);
+}
+
+@media (orientation: landscape) {
+    @media(max-width: 915px) {
+        .NavDot {
+            height: 1.5vmax;
+            width: 1.5vmax;
+        }
+    }
+}
+
+@media (orientation: portrait) {
+    .NavDot {
+        height: 1.5vmax;
+        width: 1.5vmax;
+    }
+}
