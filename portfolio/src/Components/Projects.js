@@ -18,6 +18,18 @@ function Projects({title = ""}) {
     })
 
     const [selectedProjectType, setSelectedProjectType] = useState(ProjectType.All);
+    const [sourceChanged, setSourceChanged] = useState([false]);
+
+    /*window.addEventListener("load", event => {
+        let elements = document.getElementsByClassName(`${Styles.Image}`)
+        for(let i = 0; i < elements.length; ++i) {
+            console.log(elements[i].complete)
+            if(elements[i].complete) {
+                console.log("Complete")
+                setSourceChanged(false)
+            }
+        }
+    });*/
 
     useEffect(() => {
         document.title = title || "";
@@ -100,7 +112,10 @@ function Projects({title = ""}) {
 
                     <section className={Styles.Body}>
                         <section className={Styles.BodyMain}>
-                            <img loading="lazy" className={Styles.Image} src={project.src} alt={project.name}></img>
+                            <div className={Styles.ImageContainer}>
+                            <div className={Styles.PlaceHolderImage} alt={"placeholder"}><div className={Styles.Loading}>Loading...</div><div className={Styles.Spinner}/></div>
+                            <img id={`${project.name}Image`} onLoad={() => {setSourceChanged(false)}} loading="lazy" className={sourceChanged ? `${Styles.Hidden}`: `${Styles.Image}`} key={project.src} src={project.src} alt={project.name}/>
+                            </div>
                             <ul className={Styles.UserStories}>
                                 {
                                     project.userStories.map((story, index) => {
@@ -174,12 +189,16 @@ function Projects({title = ""}) {
 
     const selectProjectType = (selected) => {
         setSelectedProjectType(() => (selected))
+        setSourceChanged(() => (true))
     }
 
     return(
+        <>
+        <div className={Styles.Background}/>
         <div className={Styles.Container}>
             <VStack header={dropDown()} style={Styles.VStack} stackStyle={Styles.VStackBody} items={displayProjects()}/>
         </div>
+        </>
     )
 }
 

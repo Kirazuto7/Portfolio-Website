@@ -3,9 +3,42 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzg4YTZhNjVkZjBlY2YyNmYzOTVmNDY1NjU2YTVkNDJkMTc4MTk2ZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/FlodpfQUBSp20/giphy.gif') no-repeat;
-    background-size: cover;
     font-size: var(--text_size);
+    position: fixed;
+    z-index: 1;
+}
+
+.Background {
+    background: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2942&q=80');
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    animation: fallingScroll 2500s infinite linear;
+    -webkit-animation: fallingScroll 2500s infinite linear;
+    background-repeat: repeat-y;
+    background-position: center;
+    background-size: cover;
+}
+
+@-webkit-keyframes fallingScroll {
+    0%{
+        background-position: 0 10000%;
+    }
+
+    100%{
+        background-position: 0 0;
+    }
+}
+
+@keyframes fallingScroll {
+    0%{
+        background-position: 0 10000%;
+    }
+
+    100%{
+        background-position: 0 0;
+    }
 }
 
 .DropDown {
@@ -158,11 +191,69 @@
     margin-right: 10%;
 }
 
+.ImageContainer {
+    width: 30vmax;
+    height: 30vmax;
+    position: relative;
+}
+
+.PlaceHolderImage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.LoadingText {
+    font-size: var(--section_size);
+}
+
+.Spinner {
+    border: 16px solid var(--link_color);
+    border-top-color: #fff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .Image {
+    position: absolute;
+    top: 0;
+    left: 0;
     object-fit: cover;
     width: 30vmax;
     height: 30vmax;
+    width: 100%;
+    height: 100%;
     align-self: flex-start;
+}
+
+.Hidden {
+    visibility: hidden;
 }
 
 .TechStackList {
@@ -190,6 +281,12 @@
 
         .DropDownLabel {
             margin-top: 20%;
+        }
+
+        .Spinner {
+            border-width: 8px;
+            height: 40px;
+            width: 40px;
         }
     }
 }
@@ -230,9 +327,18 @@
     .UserStories {
         display: none;
     }
+
+    .ImageContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 30vmax;
+        height: 50vmax;
+    }
     
     .Image {
-        width: 60%;
+        width: 100%;
         height: 100%;
         align-self: center;
     }
@@ -244,5 +350,11 @@
     .DropDownLabel {
         height: auto;
         font-size: calc(1.1rem + 1vw);
+    }
+
+    .Spinner {
+        border-width: 8px;
+        height: 40px;
+        width: 40px;
     }
 }

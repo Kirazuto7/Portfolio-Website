@@ -1,0 +1,89 @@
+.Container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    
+}
+
+.Background {
+    background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzg4YTZhNjVkZjBlY2YyNmYzOTVmNDY1NjU2YTVkNDJkMTc4MTk2ZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/FlodpfQUBSp20/giphy.gif');
+    background-size: cover; 
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    background-repeat: repeat-y;
+    background-position: center;
+    animation: fallingScroll 2000s linear infinite;
+}
+
+@keyframes fallingScroll {
+    0%{
+        background-position: 0 10000%;
+    }
+
+    100%{
+        background-position: 0 0;
+    }
+}
+
+.Title {
+    background: url('https://colorlib.com/etc/404/colorlib-error-404-10/img/bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20vmax;
+    font-weight: bold;
+    margin: 0;
+    -webkit-text-stroke: 1px white;
+}
+
+.ErrorText {
+    font-weight: bold;
+    font-size: var(--important_size);
+    color: white;
+}
+
+.Button {
+    background-color: var(--link_color);
+    padding: 15px 100px;
+    border-radius: 40px;
+    border: none;  
+}
+
+.ButtonLink {
+    text-decoration: none;
+    color: white;
+    font-size: var(--title_size);
+    font-weight: bold;
+}
+
+.Button:hover {
+    background: url('https://colorlib.com/etc/404/colorlib-error-404-10/img/bg.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.Button:hover .ButtonLink {
+    color: white;
+}
+
+@media (orientation: landscape) {
+    @media(max-width: 915px) {
+
+    }
+}
+
+@media (orientation: portrait) {
+    .Title {
+        font-size: 10vmax;
+    }
+}
