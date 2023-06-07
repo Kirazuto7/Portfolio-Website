@@ -36,8 +36,33 @@
     width: 20%;
     align-self: flex-start;
     position: absolute;
-    top: 5%;
-    left: 5%;
+    bottom: 15%;
+    right: 5%;
+    animation: tilt 5s 3 linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateZ(-45deg);
+    }
+
+    50% {
+        transform: rotateZ(0deg);
+    }
+
+    75% {
+        transform: rotateZ(45deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+        visibility: hidden;
+    }
 }
 
 .Image {
