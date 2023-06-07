@@ -19,7 +19,7 @@ function Projects({title = ""}) {
 
     const [selectedProjectType, setSelectedProjectType] = useState(ProjectType.All);
     const [projectViews, setProjectViews] = useState([]);
-
+    
     useEffect(() => {
         document.title = title || "";
     }, [title])
@@ -75,9 +75,22 @@ function Projects({title = ""}) {
     // eslint-disable-next-line
     const memoizedProjects = useMemo(() => projects, []);
 
+    const imageLoaded = (e) => {
+        // Remove the spinner from the document after loading the image
+        let projectName = e.target.getAttribute("value");
+        let element = document.getElementById(`${projectName}Spinner`)
+        element.style.display = 'none';
+    }
+
     useEffect(() => {
 
         const displayProjects = () => {
+            // Reset Spinner views that were disabled
+            let spinners = document.getElementsByClassName(`${Styles.PlaceHolderImage}`);
+            for(let i = 0; i < spinners.length; ++i) {
+                spinners[i].style.display = 'flex';
+            }
+            
             return memoizedProjects
             .filter((project) => {
                 if(selectedProjectType !== ProjectType.All) {
@@ -106,12 +119,12 @@ function Projects({title = ""}) {
                         <section className={Styles.Body}>
                             <section className={Styles.BodyMain}>
                                 <div className={Styles.ImageContainer}>
-                                <div className={Styles.PlaceHolderImage} alt={"spinner"}><div className={Styles.Loading}>Loading...</div><div className={Styles.Spinner}/></div>
+                                <div id={`${project.name}Spinner`} className={Styles.PlaceHolderImage} alt={"spinner"}><div className={Styles.Loading}>Loading...</div><div className={Styles.Spinner}/></div>
                                 {
                                     index === 0 ?
-                                    <img id={`${project.name}Image`} onLoad={() => {}} loading="eager" className={Styles.Image} key={project.src} src={project.src} alt={project.name}/>
+                                    <img value={project.name} id={`${project.name}Image`} onLoad={(e) => {imageLoaded(e)}} loading="eager" className={Styles.Image} key={project.src} src={project.src} alt={project.name}/>
                                     :
-                                    <img id={`${project.name}Image`} onLoad={() => {}} loading="lazy" className={Styles.Image} key={project.src} src={project.src} alt={project.name}/>
+                                    <img value={project.name} id={`${project.name}Image`} onLoad={(e) => {imageLoaded(e)}} loading="lazy" className={Styles.Image} key={project.src} src={project.src} alt={project.name}/>
                                 }
                                 </div>
                                 <ul className={Styles.UserStories}>
