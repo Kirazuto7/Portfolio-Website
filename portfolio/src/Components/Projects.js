@@ -1,7 +1,7 @@
 import Styles from '../Styles/Projects.module.css';
 import VStack from './SubComponents/VStack';
 import SegmentController from './SubComponents/SegmentController';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
@@ -18,18 +18,7 @@ function Projects({title = ""}) {
     })
 
     const [selectedProjectType, setSelectedProjectType] = useState(ProjectType.All);
-    const [sourceChanged, setSourceChanged] = useState([false]);
-
-    /*window.addEventListener("load", event => {
-        let elements = document.getElementsByClassName(`${Styles.Image}`)
-        for(let i = 0; i < elements.length; ++i) {
-            console.log(elements[i].complete)
-            if(elements[i].complete) {
-                console.log("Complete")
-                setSourceChanged(false)
-            }
-        }
-    });*/
+    const [projectViews, setProjectViews] = useState([]);
 
     useEffect(() => {
         document.title = title || "";
@@ -83,69 +72,90 @@ function Projects({title = ""}) {
         }
     ]
 
-    const displayProjects = () => {
-        return projects
-        .filter((project) => {
-            if(selectedProjectType !== ProjectType.All) {
-                return project.type === selectedProjectType
-            }
-            else {
-                return project
-            }
-        })
-        .map((project, index) => {
-            return(
-                <section id={project.name} className={Styles.Project} key={index}>
-                    <header className={Styles.Header}>
-                        <div className={Styles.LeftDivider}/>
-                        <div className={Styles.Title}>{project.name}</div> 
-                        <div className={Styles.RightDivider}/>
-                    </header>
-                    <div className={Styles.SubHeader}>
-                        <div className={Styles.Date}>{project.date}</div>
-                        <div className={Styles.Links}>
-                            {project.website && <FontAwesomeIcon className={Styles.Website} onClick={() => window.open(project.website,'_blank')} icon={faGlobe}/>}
-                            <FontAwesomeIcon className={Styles.Github} onClick={() => {window.open(project.github,'_blank')}} icon={faGithub}/>
-                        </div>
-                    </div>
-                    <div className={Styles.Summary}>{project.summary}</div>
+    // eslint-disable-next-line
+    const memoizedProjects = useMemo(() => projects, []);
 
-                    <section className={Styles.Body}>
-                        <section className={Styles.BodyMain}>
-                            <div className={Styles.ImageContainer}>
-                            <div className={Styles.PlaceHolderImage} alt={"placeholder"}><div className={Styles.Loading}>Loading...</div><div className={Styles.Spinner}/></div>
-                            <img id={`${project.name}Image`} onLoad={() => {setSourceChanged(false)}} loading="lazy" className={sourceChanged ? `${Styles.Hidden}`: `${Styles.Image}`} key={project.src} src={project.src} alt={project.name}/>
+    useEffect(() => {
+
+        const displayProjects = () => {
+            return memoizedProjects
+            .filter((project) => {
+                if(selectedProjectType !== ProjectType.All) {
+                    return project.type === selectedProjectType
+                }
+                else {
+                    return true
+                }
+            })
+            .forEach((project, index) => {
+            let newProject = <section id={project.name} className={Styles.Project} key={index}>
+                        <header className={Styles.Header}>
+                            <div className={Styles.LeftDivider}/>
+                            <div className={Styles.Title}>{project.name}</div> 
+                            <div className={Styles.RightDivider}/>
+                        </header>
+                        <div className={Styles.SubHeader}>
+                            <div className={Styles.Date}>{project.date}</div>
+                            <div className={Styles.Links}>
+                                {project.website && <FontAwesomeIcon className={Styles.Website} onClick={() => window.open(project.website,'_blank')} icon={faGlobe}/>}
+                                <FontAwesomeIcon className={Styles.Github} onClick={() => {window.open(project.github,'_blank')}} icon={faGithub}/>
                             </div>
-                            <ul className={Styles.UserStories}>
+                        </div>
+                        <div className={Styles.Summary}>{project.summary}</div>
+    
+                        <section className={Styles.Body}>
+                            <section className={Styles.BodyMain}>
+                                <div className={Styles.ImageContainer}>
+                                <div className={Styles.PlaceHolderImage} alt={"spinner"}><div className={Styles.Loading}>Loading...</div><div className={Styles.Spinner}/></div>
                                 {
-                                    project.userStories.map((story, index) => {
+                                    index === 0 ?
+                                    <img id={`${project.name}Image`} onLoad={() => {}} loading="eager" className={Styles.Image} key={project.src} src={project.src} alt={project.name}/>
+                                    :
+                                    <img id={`${project.name}Image`} onLoad={() => {}} loading="lazy" className={Styles.Image} key={project.src} src={project.src} alt={project.name}/>
+                                }
+                                </div>
+                                <ul className={Styles.UserStories}>
+                                    {
+                                        project.userStories.map((story, index) => {
+                                            return(
+                                                <li key={index}>{story}</li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            </section>
+                            <div className={Styles.TechStackList}>
+                                {
+                                    project.techStack.map((item, index) => {
                                         return(
-                                            <li key={index}>{story}</li>
+                                            < React.Fragment key={index}>
+                                                <span>{item}</span>
+                                                {
+                                                    index !== project.techStack.length - 1 &&
+                                                    <span className={Styles.VSeparator}></span>
+                                                }
+                                            </React.Fragment>
                                         )
                                     })
-                                }
-                            </ul>
+                                }  
+                            </div>
                         </section>
-                        <div className={Styles.TechStackList}>
-                            {
-                                project.techStack.map((item, index) => {
-                                    return(
-                                        < React.Fragment key={index}>
-                                            <span>{item}</span>
-                                            {
-                                                index !== project.techStack.length - 1 &&
-                                                <span className={Styles.VSeparator}></span>
-                                            }
-                                        </React.Fragment>
-                                    )
-                                })
-                            }  
-                        </div>
                     </section>
-                </section>
+                
+                setProjectViews((arr) => [...arr, newProject]);
+            }
+            
             )
-        })
-    };
+        };
+
+        displayProjects();
+
+        return() => {
+            setProjectViews([]);
+        }
+    
+    }, [selectedProjectType, memoizedProjects, ProjectType.All])
+
     
     const dropDown = () => {
         function onSelectProject() {
@@ -189,14 +199,13 @@ function Projects({title = ""}) {
 
     const selectProjectType = (selected) => {
         setSelectedProjectType(() => (selected))
-        setSourceChanged(() => (true))
     }
 
     return(
         <>
         <div className={Styles.Background}/>
         <div className={Styles.Container}>
-            <VStack header={dropDown()} style={Styles.VStack} stackStyle={Styles.VStackBody} items={displayProjects()}/>
+            <VStack header={dropDown()} style={Styles.VStack} stackStyle={Styles.VStackBody} items={projectViews}/>
         </div>
         </>
     )
