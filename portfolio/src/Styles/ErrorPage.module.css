@@ -69,20 +69,6 @@
     width: 50%;
 }
 
-.Title {
-    background: url('https://colorlib.com/etc/404/colorlib-error-404-10/img/bg.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 20vmax;
-    font-weight: bold;
-    margin: 0;
-    -webkit-text-stroke: 1px white;
-    display: none;
-}
-
 .ErrorText {
     font-weight: bold;
     font-size: var(--important_size);
@@ -90,10 +76,41 @@
 }
 
 .Button {
-    background-color: var(--link_color);
     padding: 15px 100px;
     border-radius: 40px;
-    border: none;  
+    border: none; 
+    animation: glow 1300ms infinite;
+    -webkit-animation: glow 1300ms infinite; 
+}
+
+@-webkit-keyframes glow {
+    0% {
+        background-color: #2ba805;
+        box-shadow: 0 0 5px #2ba805;
+      }
+    50% {
+        background-color: #49e819;
+        box-shadow: 0 0 20px #49e819;
+    }
+    100% {
+        background-color: #2ba805;
+        box-shadow: 0 0 5px #2ba805;
+    }
+}
+
+@keyframes glow {
+    0% {
+        background-color: #2ba805;
+        box-shadow: 0 0 5px #2ba805;
+      }
+    50% {
+        background-color: #49e819;
+        box-shadow: 0 0 20px #49e819;
+    }
+    100% {
+        background-color: #2ba805;
+        box-shadow: 0 0 5px #2ba805;
+    }
 }
 
 .ButtonLink {
@@ -108,6 +125,8 @@
     background-position: center;
     background-size: cover;
     cursor: pointer;
+    animation: none;
+    -webkit-animation: none;
 }
 
 .Button:hover .ButtonLink {
