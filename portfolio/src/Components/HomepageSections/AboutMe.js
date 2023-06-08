@@ -1,5 +1,5 @@
 import Styles from '../../Styles/AboutMe.module.css';
-import { baseURL } from '../../App';
+import { baseURL } from '../../Exports';
 
 function AboutMe({style, scrollIdentifier}) {
     return(

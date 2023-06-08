@@ -3,7 +3,7 @@ import ResumeEducation from './ResumeSections/ResumeEducation';
 import ResumeProjects from './ResumeSections/ResumeProjects';
 import ResumeRelevantExperience from './ResumeSections/ResumeRelevantExperience';
 import ResumeOtherExperience from './ResumeSections/ResumeOtherExperience';
-import { baseURL } from '../App';
+import { baseURL } from '../Exports';
 import { useEffect } from 'react';
 
 function Resume({title = ""}) {
