@@ -1,6 +1,7 @@
 import Styles from '../Styles/Projects.module.css';
 import VStack from './SubComponents/VStack';
 import SegmentController from './SubComponents/SegmentController';
+import ImageComponent from './SubComponents/ImageComponent';
 import React, { useState, useEffect, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
@@ -9,24 +10,22 @@ import { ProjectType, projects } from '../Exports';
 
 function Projects({title = ""}) {
     
-
     const [selectedProjectType, setSelectedProjectType] = useState(ProjectType.All);
-
-    useEffect(() => {
-        document.title = title || "";
-    }, [title])
-
     const memoizedProjects = useMemo(() => {
         return projects.filter((project) => {
             return selectedProjectType === ProjectType.All ? true : selectedProjectType === project.type
         })
     }, [selectedProjectType])
 
+    useEffect(() => {
+        document.title = title || "";
+    }, [title])
 
     const displayProjects = () => {
+
         return memoizedProjects
         .map((project, index) => {
-        return( <section id={project.name} className={Styles.Project} key={index}>
+            return( <section id={project.name} className={Styles.Project} key={index}>
                     <header className={Styles.Header}>
                         <div className={Styles.LeftDivider}/>
                         <div className={Styles.Title}>{project.name}</div> 
@@ -43,15 +42,8 @@ function Projects({title = ""}) {
 
                     <section className={Styles.Body}>
                         <section className={Styles.BodyMain}>
-                            <div className={Styles.ImageContainer}>
-                            <div id={`${project.name}Spinner`} className={Styles.PlaceHolderImage} alt={"spinner"}><div className={Styles.Loading}>Loading...</div><div className={Styles.Spinner}/></div>
-                            {
-                                index === 0 ?
-                                <img value={project.name} id={`${project.name}Image`} loading="eager" className={Styles.Image} key={project.src} src={project.src} alt={project.name}/>
-                                :
-                                <img value={project.name} id={`${project.name}Image`} loading="lazy" className={Styles.Image} key={project.src} src={project.src} alt={project.name}/>
-                            }
-                            </div>
+                            <ImageComponent project={project} index={index}/>
+
                             <ul className={Styles.UserStories}>
                                 {
                                     project.userStories.map((story, index) => {
