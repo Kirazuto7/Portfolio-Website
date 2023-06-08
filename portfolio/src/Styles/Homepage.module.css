@@ -114,8 +114,8 @@
 
 .ProfilePhoto {
     width: 100%;
-    height: 30vmax;
-    object-fit: contain;
+    height: 28vmax;
+    object-fit: cover;
     object-position: center;
     background: linear-gradient(#000000 0%, #2D3436 100%)
 }
@@ -281,6 +281,7 @@
 
         .ProfilePhoto {
             height: 40vh;
+            object-fit: contain;
         }
 
         .Button {

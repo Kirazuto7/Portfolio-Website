@@ -56,3 +56,32 @@ export const projects = [
      ]
     }
 ]
+
+export const SkillsType = Object.freeze({
+    Language: "Languages",
+    Framework: "Frameworks",
+    Database: "Databases",
+    Tools: "Tools",
+    array: ["Languages", "Frameworks", "Databases", "Tools"]
+})
+
+export const skills = [
+    {name: "Swift", src: `${baseURL}/skills/swift.png`, type: SkillsType.Language},
+    {name: "C++", src: `${baseURL}/skills/c++.png`, type: SkillsType.Language},
+    {name: "Javascript", src: `${baseURL}/skills/javascript.png`, type: SkillsType.Language},
+    {name: "Python", src: `${baseURL}/skills/python.png`, type: SkillsType.Language},
+    {name: "Java", src: `${baseURL}/skills/java.png`, type: SkillsType.Language},
+    {name: "C#", src: `${baseURL}/skills/csharp.jpeg`, type: SkillsType.Language},
+    {name: "UIKit", src: `${baseURL}/skills/uikit.png`, type: SkillsType.Framework},
+    {name: "React", src: "/logo192.png", type: SkillsType.Framework},
+    {name: "Firebase", src: `${baseURL}/skills/google-firestore.png`, type: SkillsType.Database},
+    {name: "MySQL", src: `${baseURL}/skills/mysql.png`, type: SkillsType.Database},
+    {name: "ExpressJS", src: `${baseURL}/skills/express.png`, type: SkillsType.Database},
+    {name: "VS Code", src: `${baseURL}/skills/vscode.png`, type: SkillsType.Tools},
+    {name: "XCode", src: `${baseURL}/skills/xcode.jpeg`, type: SkillsType.Tools},
+    {name: "Github", src: `${baseURL}/skills/github.png`, type: SkillsType.Tools},
+    {name: "Ubuntu", src: `${baseURL}/skills/ubuntu.png`, type: SkillsType.Tools},
+    {name: "Android", src: `${baseURL}/skills/androidstudio.jpeg`, type: SkillsType.Tools},
+    {name: "Unreal", src: `${baseURL}/skills/unrealengine.png`, type: SkillsType.Tools}
+
+]

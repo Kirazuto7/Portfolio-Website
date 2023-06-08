@@ -52,7 +52,7 @@ function HomepageHeader({scroll = () => {}}) {
             <h1 className={Styles.Welcome}>Welcome</h1>
             <div className={Styles.Wrapper}>
             <header className={Styles.Header}>
-                <img loading="lazy" className={Styles.ProfilePhoto} src={`${baseURL}/profile_photo.jpeg`} alt="profile"></img>
+                <img loading="lazy" className={Styles.ProfilePhoto} src={`${baseURL}/profile_photo.png`} alt="profile"></img>
                 <div className={Styles.Name}>Jordan Sukhnandan</div>
                 <div className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</div>
 
