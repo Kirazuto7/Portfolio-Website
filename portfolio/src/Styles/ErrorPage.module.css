@@ -61,7 +61,6 @@
 
     100% {
         transform: rotateZ(0deg);
-        visibility: hidden;
     }
 }
 
@@ -85,31 +84,31 @@
 
 @-webkit-keyframes glow {
     0% {
-        background-color: #2ba805;
-        box-shadow: 0 0 5px #2ba805;
+        background-color: #00ac0f;
+        box-shadow: 0 0 5px #00ac0f;
       }
     50% {
         background-color: #49e819;
         box-shadow: 0 0 20px #49e819;
     }
     100% {
-        background-color: #2ba805;
-        box-shadow: 0 0 5px #2ba805;
+        background-color: #00ac0f;
+        box-shadow: 0 0 5px #00ac0f;
     }
 }
 
 @keyframes glow {
     0% {
-        background-color: #2ba805;
-        box-shadow: 0 0 5px #2ba805;
+        background-color: #00ac0f;
+        box-shadow: 0 0 5px #00ac0f;
       }
     50% {
         background-color: #49e819;
         box-shadow: 0 0 20px #49e819;
     }
     100% {
-        background-color: #2ba805;
-        box-shadow: 0 0 5px #2ba805;
+        background-color: #00ac0f;
+        box-shadow: 0 0 5px #00ac0f;
     }
 }
 
