@@ -2,7 +2,7 @@ import Styles from '../../Styles/Homepage.module.css';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { baseURL } from '../../App';
+import { baseURL } from '../../Exports';
 
 function HomepageHeader({scroll = () => {}}) {
     const [exists, setExists] = useState(false);

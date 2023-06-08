@@ -1,5 +1,5 @@
 import Styles from '../../Styles/Skills.module.css';
-import { baseURL } from '../../App';
+import { baseURL } from '../../Exports';
 
 function Skills({style, scrollIdentifier}) {
     const sections = ["Languages", "Frameworks & Databases", "Tools"];
