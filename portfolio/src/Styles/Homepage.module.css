@@ -8,6 +8,10 @@
     font-size: var(--text_size);
 }
 
+.Hidden {
+    display: none !important;
+}
+
 /* MARK: - HEADER */
 
 .HeaderContainer {
@@ -34,7 +38,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-radius: 2.5%;
     position: relative;
     overflow: hidden;
     z-index: 900;
@@ -43,25 +46,6 @@
     width: 100%;
     margin: auto;
     padding-left: 5%;
-
-    &::after {
-        content: '';
-        position: absolute;
-        background-image: linear-gradient(
-            110deg,
-            rgba(255, 255, 255, 0) 30%,
-            rgba(255, 255, 255, .8),
-            rgba(255, 255, 255, 0) 70%
-        );
-        height: 100%;
-        width: 150px;
-        top: 0;
-        left: -150px;
-        animation: shine 5s 2 ease-in-out;
-        animation-delay: 1s;
-        -webkit-animation: shine 5s 2 ease-in-out;
-        -webkit-animation-delay: 1s;
-    }
 }
 
 .HeaderDelay {
@@ -70,7 +54,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-radius: 2.5%;
     position: relative;
     overflow: hidden;
     z-index: 900;
@@ -79,53 +62,6 @@
     width: 100%;
     margin: auto;
     padding-left: 5%;
-
-    &::after {
-        content: '';
-        position: absolute;
-        background-image: linear-gradient(
-            110deg,
-            rgba(255, 255, 255, 0) 30%,
-            rgba(255, 255, 255, .8),
-            rgba(255, 255, 255, 0) 70%
-        );
-        height: 100%;
-        width: 150px;
-        top: 0;
-        left: -150px;
-        animation: shine 5s 2 ease-in-out;
-        animation-delay: 3s;
-        -webkit-animation: shine 5s 2 ease-in-out;
-        -webkit-animation-delay: 3s;
-    }
-}
-
-@keyframes shine {
-    0% {
-        left: -150px;
-    }
-
-    20% {
-        left: 100%;
-    }
-
-    100% {
-        left: 100%;
-    }
-}
-
-@-webkit-keyframes shine {
-    0% {
-        left: -150px;
-    }
-
-    20% {
-        left: 100%;
-    }
-
-    100% {
-        left: 100%;
-    }
 }
 
 .HeaderInfo {
@@ -139,7 +75,6 @@
 
 .ProfilePhoto {
     width: 50%;
-    max-width: 1000px;
     max-width: 1000px;
     object-fit: contain;
     object-position: center;
@@ -359,22 +294,29 @@
 
 @media (orientation: portrait) {
     .Header {
-        margin: 0;
-        padding: 0;
+        margin: 0 !important;
+        padding: 0 !important;
         flex-direction: column;
         justify-content: center;
-        gap: 3vh;
+        height: 85vh;
+    }
+
+    .HeaderDelay {
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-direction: column;
+        justify-content: center;
         height: 85vh;
     }
 
     .ProfilePhoto {
         order: 0;
-        width: 100%;
+        width: 70%;
     }
 
     .HeaderInfo {
         order: 1;
-        gap: 5vh;
+        gap: 4vh;
         width: 100vw;
     }
 

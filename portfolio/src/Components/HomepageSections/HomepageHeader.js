@@ -26,7 +26,7 @@ function HomepageHeader({scroll = () => {}, visited = false}) {
         ]
         let visitedPage = sessionStorage.getItem('visited');
         let delay = visitedPage === 'true' ? 1000 : 3000;
-        
+
         const typeLetters = (element, message, delay) => {
             let i = 0;
             let interval = setInterval(() => {
@@ -66,6 +66,7 @@ function HomepageHeader({scroll = () => {}, visited = false}) {
             <h1 className={visited ? `${Styles.Hidden}`: `${Styles.Welcome} ${Animations.Expand}`}>Welcome</h1>
             <header className={visited ? `${Styles.Header} ${Animations.Appear}` : `${Styles.HeaderDelay} ${Animations.DelayedAppear}`}>
                 <div className={Styles.HeaderInfo}>
+                    <div className={visited ? `${Animations.Shine}` : `${Animations.DelayedShine}`}/>
                     <section className={Styles.Title}>
                         <div className={Styles.Name}>Jordan Sukhnandan</div>
                         <div className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</div>
