@@ -52,6 +52,10 @@
     object-fit: cover;
 }
 
+.Hidden {
+    display: none;
+}
+
 @media (orientation: landscape) {
     @media (max-width: 915px) {
         .Description {

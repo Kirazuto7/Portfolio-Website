@@ -1,0 +1,324 @@
+/* Style */
+
+.Appear {
+    animation: appear 1s ease-in;
+    animation-fill-mode: forwards;
+    -webkit-animation: appear 1s ease-in;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.DelayedAppear {
+    animation: appear 1s ease-in;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    -webkit-animation: appear 1s ease-in;
+    -webkit-animation-delay: 1.5s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.FadeIn {
+    animation: fadeIntoScreen 2s linear;
+    -webkit-animation: fadeIntoScreen 2s linear;
+}
+
+.RotateFadeIn {
+    animation: rotateFadeIntoScreen 2s linear;
+    -webkit-animation: rotateFadeIntoScreen 2s linear;
+}
+
+.ButtonGlow {
+    animation: glow 1300ms infinite;
+    -webkit-animation: glow 1300ms infinite; 
+}
+
+.Tilt {
+    animation: tilt 5s 3 linear;
+    -webkit-animation: tilt 5s 3 linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.VerticalScroll {
+    animation: fallingScroll 75s linear infinite;
+    -webkit-animation: fallingScroll 75s linear infinite;
+}
+
+.Spin {
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+.Expand {
+    animation: expand-disappear 1.5s ease-in;
+    -webkit-animation: expand-disappear 1.5s ease-in;
+}
+
+.LeftSlide {
+    animation: slideInLeft 3s ease-out;
+    animation-fill-mode: forwards;
+    -webkit-animation: slideInLeft 3s ease-out;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.RightSlide {
+    animation: slideInRight 3s ease-out;
+    animation-fill-mode: forwards;
+    -webkit-animation: slideInRight 3s ease-out;
+    -webkit-animation-fill-mode: forwards;
+}
+
+/* Animation Keyframes */
+
+@keyframes fadeIntoScreen {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 30%, 0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translate3d(0,0,0);
+    }
+  }
+  
+@-webkit-keyframes fadeIntoScreen {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 30%, 0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translate3d(0,0,0);
+    }
+}
+
+@keyframes rotateFadeIntoScreen {
+    0% {
+      opacity: 0;
+      transform: rotate(45deg) translate3d(100%, 100%, 0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: rotate(45deg) translate3d(0,0,0);
+    }
+  }
+  
+@-webkit-keyframes rotateFadeIntoScreen {
+    0% {
+      opacity: 0;
+      transform: rotate(45deg) translate3d(100%, 100%, 0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: rotate(45deg) translate3d(0,0,0);
+    }
+}
+
+@-webkit-keyframes glow {
+    0% {
+        background-color: #00ac0f;
+        box-shadow: 0 0 5px #00ac0f;
+      }
+    50% {
+        background-color: #49e819;
+        box-shadow: 0 0 20px #49e819;
+    }
+    100% {
+        background-color: #00ac0f;
+        box-shadow: 0 0 5px #00ac0f;
+    }
+}
+
+@keyframes glow {
+    0% {
+        background-color: #00ac0f;
+        box-shadow: 0 0 5px #00ac0f;
+      }
+    50% {
+        background-color: #49e819;
+        box-shadow: 0 0 20px #49e819;
+    }
+    100% {
+        background-color: #00ac0f;
+        box-shadow: 0 0 5px #00ac0f;
+    }
+}
+
+@-webkit-keyframes tilt {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateZ(-45deg);
+    }
+
+    50% {
+        transform: rotateZ(0deg);
+    }
+
+    75% {
+        transform: rotateZ(45deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateZ(-45deg);
+    }
+
+    50% {
+        transform: rotateZ(0deg);
+    }
+
+    75% {
+        transform: rotateZ(45deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+@-webkit-keyframes fallingScroll {
+    0%{
+        background-position: 0% 0%;
+    }
+
+    100%{
+        background-position: 0% 100%;
+    }
+}
+
+@keyframes fallingScroll {
+    0%{
+        background-position: 0% 0%;
+    }
+
+    100%{
+        background-position: 0% 100%;
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes expand-disappear {
+    from {
+        opacity: 1;
+        font-size: 0;
+    }
+
+    to {
+        opacity: 0;
+        font-size: 7em;
+    }
+}
+
+@keyframes expand-disappear {
+    from {
+        opacity: 1;
+        font-size: 0;
+    }
+
+    to {
+        opacity: 0;
+        font-size: 7em;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        position: relative;
+        left: -100%;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        position: relative;
+        right: -100%;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@-webkit-keyframes slideInLeft {
+    from {
+        position: relative;
+        left: -100%;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+@-webkit-keyframes slideInRight {
+    from {
+        position: relative;
+        right: -100%;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        width: auto;
+    }
+
+    to {
+        opacity: 1;
+        width: auto;
+        padding-bottom: 2vmax;
+    }
+}
+
+@-webkit-keyframes appear {
+    from {
+        opacity: 0;
+        width: auto;
+    }
+
+    to {
+        opacity: 1;
+        width: auto;
+        padding-bottom: 2vmax;
+    }
+}

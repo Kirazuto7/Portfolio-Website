@@ -1,3 +1,8 @@
+.ContainerWrapper {
+    height: 100%;
+    overflow: hidden;
+}
+
 .Container {
     height: 100vh;
     width: 100vw;
@@ -7,40 +12,17 @@
     align-items: center;
     position: fixed;
     z-index: 1;
-    
 }
 
 .Background {
     background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzg4YTZhNjVkZjBlY2YyNmYzOTVmNDY1NjU2YTVkNDJkMTc4MTk2ZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/FlodpfQUBSp20/giphy.gif');
-    background-size: cover; 
-    height: 100%;
+    background-size: 100% 50%; 
+    height: 200%;
     width: 100%;
     position: absolute;
     z-index: 0;
     background-repeat: repeat-y;
     background-position: center;
-    animation: fallingScroll 2000s linear infinite;
-    -webkit-animation: fallingScroll 2000s linear infinite;
-}
-
-@-webkit-keyframes fallingScroll {
-    0%{
-        background-position: 0 10000%;
-    }
-
-    100%{
-        background-position: 0 0;
-    }
-}
-
-@keyframes fallingScroll {
-    0%{
-        background-position: 0 10000%;
-    }
-
-    100%{
-        background-position: 0 0;
-    }
 }
 
 .AlienImage {
@@ -49,30 +31,6 @@
     position: absolute;
     bottom: 15%;
     right: 5%;
-    animation: tilt 5s 3 linear;
-    animation-fill-mode: forwards;
-}
-
-@keyframes tilt {
-    0% {
-        transform: rotateZ(0deg);
-    }
-
-    25% {
-        transform: rotateZ(-45deg);
-    }
-
-    50% {
-        transform: rotateZ(0deg);
-    }
-
-    75% {
-        transform: rotateZ(45deg);
-    }
-
-    100% {
-        transform: rotateZ(0deg);
-    }
 }
 
 .ErrorImage {
@@ -89,38 +47,6 @@
     padding: 15px 100px;
     border-radius: 40px;
     border: none; 
-    animation: glow 1300ms infinite;
-    -webkit-animation: glow 1300ms infinite; 
-}
-
-@-webkit-keyframes glow {
-    0% {
-        background-color: #00ac0f;
-        box-shadow: 0 0 5px #00ac0f;
-      }
-    50% {
-        background-color: #49e819;
-        box-shadow: 0 0 20px #49e819;
-    }
-    100% {
-        background-color: #00ac0f;
-        box-shadow: 0 0 5px #00ac0f;
-    }
-}
-
-@keyframes glow {
-    0% {
-        background-color: #00ac0f;
-        box-shadow: 0 0 5px #00ac0f;
-      }
-    50% {
-        background-color: #49e819;
-        box-shadow: 0 0 20px #49e819;
-    }
-    100% {
-        background-color: #00ac0f;
-        box-shadow: 0 0 5px #00ac0f;
-    }
 }
 
 .ButtonLink {

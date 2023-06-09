@@ -138,38 +138,6 @@
     display: none;
 }
 
-.LeftSlide {
-    animation: slideInLeft 3s ease-out;
-    animation-fill-mode: forwards;
-}
-
-.RightSlide {
-    animation: slideInRight 3s ease-out;
-    animation-fill-mode: forwards;
-}
-
-@keyframes slideInLeft {
-    from {
-        position: relative;
-        left: -100%;
-    }
-
-    to {
-        left: 100%;
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        position: relative;
-        right: -100%;
-    }
-
-    to {
-        right: 100%;
-    }
-}
-
 .Label {
     text-align: start;
     font-size: var(--title_size);

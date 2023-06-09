@@ -1,4 +1,5 @@
 import Styles from '../Styles/Projects.module.css';
+import Animations from '../Styles/Animations.module.css';
 import VStack from './SubComponents/VStack';
 import SegmentController from './SubComponents/SegmentController';
 import ImageComponent from './SubComponents/ImageComponent';
@@ -115,12 +116,12 @@ function Projects({title = ""}) {
     }
 
     return(
-        <>
-        <div className={Styles.Background}/>
+        <div className={Styles.ContainerWrapper}>
+        <div className={`${Styles.Background} ${Animations.VerticalScroll}`}/>
         <div className={Styles.Container}>
             <VStack header={dropDown()} style={Styles.VStack} stackStyle={Styles.VStackBody} items={displayProjects()}/>
         </div>
-        </>
+        </div>
     )
 }
 

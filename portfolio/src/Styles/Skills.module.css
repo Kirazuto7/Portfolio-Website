@@ -49,6 +49,10 @@
     justify-content: center;
 }
 
+.Hidden {
+    display: none;
+}
+
 .SkillWrapper {
     display: flex;
     flex-direction: column;

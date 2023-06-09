@@ -1,4 +1,5 @@
 import Styles from '../../Styles/Experience.module.css';
+import Animations from '../../Styles/Animations.module.css';
 import HStack from '../SubComponents/HStack';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,7 +29,7 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
         return experiences.map((experience, index) => {
             if(index % 2 === 0){
                 return(
-                    <div key={experience.name} className={ slideLeft ? `${Styles.Experience} ${Styles.LeftSlide}` : `${Styles.Hidden}`}>
+                    <div key={experience.name} className={ slideLeft ? `${Styles.Experience} ${Animations.LeftSlide}` : `${Styles.Hidden}`}>
                         <section className={Styles.Body}>
                             <div className={Styles.BodyContent}>
                                 <header className={Styles.Label}>{experience.label}</header>
@@ -54,7 +55,7 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
             }
             else {
                 return(
-                    <div key={experience.name} className={ slideRight ? `${Styles.Experience} ${Styles.RightSlide}` : `${Styles.Hidden}`}>
+                    <div key={experience.name} className={ slideRight ? `${Styles.Experience} ${Animations.RightSlide}` : `${Styles.Hidden}`}>
                         <section className={Styles.Body}>
                             <img loading="lazy" className={Styles.ExperienceImage} src={experience.src} alt={experience.name}></img>
                             <div className={Styles.BodyContent}>
@@ -125,7 +126,7 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
             <div className={Styles.Separator}/>
             <div className={Styles.ExperiencesContainer}>{displayExperiences()}</div>
 
-            <div className={slideLeft2 ? `${Styles.Wrapper} ${Styles.LeftSlide}` : `${Styles.Hidden}`}>
+            <div className={slideLeft2 ? `${Styles.Wrapper} ${Animations.LeftSlide}` : `${Styles.Hidden}`}>
                 <button className={Styles.HStackLeftButton} onClick={() => scrollToCertificate(false)}><FontAwesomeIcon icon={faChevronLeft} className={Styles.HStackChevron}/></button>
                 <HStack id="CertificateStack" style={Styles.HStack}
                 header={<header className={Styles.Label}>Certificates</header>}

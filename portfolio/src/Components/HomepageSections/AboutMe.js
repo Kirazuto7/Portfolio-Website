@@ -1,13 +1,14 @@
 import Styles from '../../Styles/AboutMe.module.css';
+import Animations from '../../Styles/Animations.module.css';
 import { baseURL } from '../../Exports';
 
-function AboutMe({style, scrollIdentifier}) {
+function AboutMe({style, scrollIdentifier, animate = false}) {
     return(
         <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
             <div className={Styles.Title}>About Me</div>
             <div className={Styles.Separator}/>
 
-            <section className={Styles.Body}>
+            <section className={animate ? `${Styles.Body} ${Animations.FadeIn}` : `${Styles.Hidden}`}>
 
                 <div className={Styles.LeftSection}>
                     <p className={Styles.Description}>

@@ -1,7 +1,8 @@
 import Styles from '../../Styles/Skills.module.css';
+import Animations from '../../Styles/Animations.module.css';
 import { skills } from '../../Exports';
 
-function Skills({style, scrollIdentifier}) {
+function Skills({style, scrollIdentifier, animate = false}) {
     
     const createSkillTable = () => {
         return (
@@ -9,7 +10,7 @@ function Skills({style, scrollIdentifier}) {
             {skills
                 .map((skill) => {
                     return(
-                            <div className={Styles.SkillContainer} key={skill.name}>
+                            <div className={ animate ? `${Styles.SkillContainer} ${Animations.RotateFadeIn}` : `${Styles.Hidden}`} key={skill.name}>
                                 <div className={Styles.SkillWrapper}>
                                     <img loading="lazy" className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
                                     <div className={Styles.SkillName}>{skill.name}</div>
