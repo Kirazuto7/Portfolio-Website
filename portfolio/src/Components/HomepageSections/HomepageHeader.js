@@ -6,6 +6,18 @@ import { baseURL } from '../../Exports';
 
 function HomepageHeader({scroll = () => {}}) {
     const [exists, setExists] = useState(false);
+
+    useEffect(() => {
+        let experienceButton = document.getElementById('ExperienceButton');
+        let { width } = experienceButton.getBoundingClientRect();
+        let buttonGroup = document.getElementById('HomepageButtonGroup');
+        let buttons = buttonGroup.children;
+
+        for(let i = 0; i < buttons.length; ++i) {
+            buttons[i].style.width = `${width}px`;
+        }
+    }, [])
+
     useEffect(() => {
         let details = [
             "New York, NY",
@@ -50,36 +62,38 @@ function HomepageHeader({scroll = () => {}}) {
     return(
         <div id={"Header"} className={Styles.HeaderContainer}>
             <h1 className={Styles.Welcome}>Welcome</h1>
-            <div className={Styles.Wrapper}>
             <header className={Styles.Header}>
+                <div className={Styles.HeaderInfo}>
+                    <section className={Styles.Title}>
+                        <div className={Styles.Name}>Jordan Sukhnandan</div>
+                        <div className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</div>
+                    </section>
+                    
+                    <div className={Styles.DetailsContainer}>
+                        <div className={Styles.DetailContainer}>
+                            <FontAwesomeIcon icon={faLocationDot} />
+                            <div className={Styles.HeaderDetail}>&nbsp;</div>
+                        </div>
+                
+                        <div className={Styles.DetailContainer}>
+                            <FontAwesomeIcon icon={faPhoneVolume} />
+                            <a className={`${Styles.HeaderDetail} ${Styles.ContactLink}`} href="tel:9173245326"> </a>
+                        </div>
+
+                        <div className={Styles.DetailContainer}>
+                            <FontAwesomeIcon icon={faEnvelope} />
+                            <a className={`${Styles.HeaderDetail} ${Styles.ContactLink}`} href="mailto:jordansukhnyc@gmail.com"> </a>
+                        </div>
+                    </div>
+
+                    <div id="HomepageButtonGroup" className={Styles.ButtonGroup}>
+                        <button id="AboutMeButton" className={Styles.Button} onClick={(e) => scroll(e)} value={"AboutMe"}>About Me</button>
+                        <button id="SkillsButton" className={Styles.Button} onClick={(e) => scroll(e)} value={"Skills"}>Skills</button>
+                        <button id="ExperienceButton" className={`${Styles.Button} ${Styles.ButtonWidth}`} onClick={(e) => scroll(e)} value={"Experiences"}>Experiences</button>
+                    </div>
+                </div>
                 <img loading="lazy" className={Styles.ProfilePhoto} src={`${baseURL}/profile_photo.png`} alt="profile"></img>
-                <div className={Styles.Name}>Jordan Sukhnandan</div>
-                <div className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</div>
-
-                <div className={Styles.DetailsContainer}>
-                    <div className={Styles.DetailContainer}>
-                        <FontAwesomeIcon icon={faLocationDot} />
-                        <div className={Styles.HeaderDetail}>&nbsp;</div>
-                    </div>
-               
-                    <div className={Styles.DetailContainer}>
-                        <FontAwesomeIcon icon={faPhoneVolume} />
-                        <a className={`${Styles.HeaderDetail} ${Styles.ContactLink}`} href="tel:9173245326"> </a>
-                    </div>
-
-                    <div className={Styles.DetailContainer}>
-                        <FontAwesomeIcon icon={faEnvelope} />
-                        <a className={`${Styles.HeaderDetail} ${Styles.ContactLink}`} href="mailto:jordansukhnyc@gmail.com"> </a>
-                    </div>
-                </div>
-
-                <div className={Styles.ButtonGroup}>
-                    <button className={Styles.Button} onClick={(e) => scroll(e)} value={"AboutMe"}>About Me</button>
-                    <button className={Styles.Button} onClick={(e) => scroll(e)} value={"Skills"}>Skills</button>
-                    <button className={Styles.Button} onClick={(e) => scroll(e)} value={"Experiences"}>Experiences</button>
-                </div>
             </header>
-            </div>
         </div>
     )
 };

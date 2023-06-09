@@ -12,7 +12,7 @@
 
 .HeaderContainer {
     position: absolute;
-    height: 120vh;
+    height: 100vh;
     width: 100%;
     top: 0;
     left: 0;
@@ -41,29 +41,24 @@
     }
 }
 
-.Wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    background-color: transparent;
-}
-
 .Header {
     animation: appear 1s ease-in;
     animation-delay: 1.5s;
     animation-fill-mode: forwards;
     opacity: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    background-color: white;
     border-radius: 2.5%;
     position: relative;
     overflow: hidden;
     z-index: 900;
-    border: 0.1px solid rgba(0,0,0,0.2);
+    color: white;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    padding-left: 5%;
 
     &::after {
         content: '';
@@ -112,12 +107,22 @@
     }
 }
 
+.HeaderInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10vh;
+}
+
 .ProfilePhoto {
-    width: 100%;
-    height: 28vmax;
-    object-fit: cover;
+    width: 50%;
+    max-width: 1000px;
+    max-width: 1000px;
+    object-fit: contain;
     object-position: center;
-    background: linear-gradient(#000000 0%, #2D3436 100%)
+    -o-object-position: center;
 }
 
 .Header img {
@@ -125,26 +130,36 @@
     overflow-clip-margin: content-box;
 }
 
+.Title {
+    display: flex;
+    flex-direction: column;
+}
+
 .Name {
-    font-size: var(--important_size);
+    font-size: calc(5rem + 1vw);
     font-weight: bold;
     margin-top: 0.5vmax;
     margin-bottom: 0vmax;
 }
 
+
+
 .Position {
+    font-size: calc(1.5rem + 1vw);
     font-weight: 500;
     margin-bottom: 1.5vmax;
     padding-left: 1em;
     padding-right: 1em;
+    white-space: nowrap;
 }
 
 .DetailsContainer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 0.5em;
+    gap: 1em;
     margin-left: 2.5%;
+    font-size: calc(1rem + 1vw);
 }
 
 .DetailContainer {
@@ -160,7 +175,7 @@
 }
 
 .ContactLink {
-    color: var(--link_color);
+    color: var(--secondary_link_color);
     text-decoration: none;
 }
 
@@ -175,16 +190,17 @@
     gap: 2em;
     margin-left: 1vmax;
     margin-right: 1vmax;
+    justify-content: space-evenly;
 }
 
 .Button {
     background-color: white;
     border: 0.1px solid rgba(0,0,0,0.2);
-    border-radius: 5%;
+    border-radius: 2vmax;
     padding: 0.6em 1.1em;
-    width: 10vw;
-    font-size: var(--text_size);
-    color: var(--link_color);
+    font-size: calc(1rem + 1vw);
+    white-space: nowrap;
+    color: var(--secondary_link_color);
     font-weight: 700;
     text-align: center;
 }
@@ -275,18 +291,35 @@
 @media (orientation: landscape) {
     @media (max-width: 915px) {
 
-        .Wrapper {
-            transform: translate(-50%, -65%);
+        .Header {
+            gap: 5vw;
         }
 
         .ProfilePhoto {
-            height: 40vh;
             object-fit: contain;
+            width: 40%;
+            position: relative;
+            top: -10%;
+        }
+
+        .Name {
+            margin: 0;
+            font-size: calc(2rem + 1vw);
+        }
+
+        .Position {
+            margin: 0;
+            font-size: calc(1rem + 1vw);
+        }
+
+        .ButtonGroup {
+            margin: 0;
+            gap: 2.5vw;
+            justify-content: space-evenly;
         }
 
         .Button {
-            padding: 0.7em 0em;
-            width: 12vw;
+            padding: 0.5em 0.5em;
         }
 
         .TopButton {
@@ -303,19 +336,50 @@
 }
 
 @media (orientation: portrait) {
+    .Header {
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3vh;
+        height: 85vh;
+    }
+
     .ProfilePhoto {
-        height: 40vh;
+        order: 0;
+        width: 100%;
+    }
+
+    .HeaderInfo {
+        order: 1;
+        gap: 5vh;
+        width: 100vw;
+    }
+
+    .Name {
+        font-size: calc(3rem + 1vw);
+        margin: 0;
+    }
+
+    .Position {
+        font-size: calc(1.275rem + 1vw);
+    }
+
+    .DetailsContainer {
+        font-size: calc(1.25rem + 1vw);
     }
 
     .ButtonGroup {
-        margin-left: 1.5vmax;
-        margin-right: 1.5vmax;
-        gap: 1.5vw;
+        gap: 10vw;
+        margin: 0 auto;
+        width: 80vw;
+        justify-content: space-evenly;
     }
 
     .Button {
-        padding: 0.7em 0em;
-        width: 30vw;
+        padding: 0.5em 1em;
+        border-radius: 3%;
+        
     }
 
     .TopButton {
