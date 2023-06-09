@@ -10,6 +10,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
         let element = document.getElementById('NavDot')
         let children = element.children
         let index;
+        let linkColor = '#0080FE';
 
         if(pageHeight < 44) {
             index = 0;
@@ -17,13 +18,13 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
             for(let i = 0; i < children.length; ++i) {
                 if(i === index) {
                     setSelected(() => (children[i].getAttribute("value")));
-                    children[i].style.backgroundColor = '#3366bb';
-                    children[i].onmouseover = function() {this.style.backgroundColor = "#3366bb"};
-                    children[i].onmouseout = function() {this.style.backgroundColor = "#3366bb"}; 
+                    children[i].style.backgroundColor = linkColor;
+                    children[i].onmouseover = function() {this.style.backgroundColor = linkColor};
+                    children[i].onmouseout = function() {this.style.backgroundColor = linkColor}; 
                 }
                 else {
                     children[i].style.backgroundColor = 'white';
-                    children[i].onmouseover = function() {this.style.backgroundColor = "#3366bb"};
+                    children[i].onmouseover = function() {this.style.backgroundColor = linkColor};
                     children[i].onmouseout = function() {this.style.backgroundColor = "white"}; 
                 }
             }
@@ -34,13 +35,13 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
             for(let i = 0; i < children.length; ++i) {
                 if(i === index) {
                     setSelected(() => (children[i].getAttribute("value")));
-                    children[i].style.backgroundColor = '#3366bb';
-                    children[i].onmouseover = function() {this.style.backgroundColor = "#3366bb"};
-                    children[i].onmouseout = function() {this.style.backgroundColor = "#3366bb"}; 
+                    children[i].style.backgroundColor = linkColor;
+                    children[i].onmouseover = function() {this.style.backgroundColor = linkColor};
+                    children[i].onmouseout = function() {this.style.backgroundColor = linkColor}; 
                 }
                 else {
                     children[i].style.backgroundColor = 'black';
-                    children[i].onmouseover = function() {this.style.backgroundColor = "#3366bb"};
+                    children[i].onmouseover = function() {this.style.backgroundColor = linkColor};
                     children[i].onmouseout = function() {this.style.backgroundColor = "black"}; 
                 }
             }
@@ -51,13 +52,13 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
             for(let i = 0; i < children.length; ++i) {
                 if(i === index) {
                     setSelected(() => (children[i].getAttribute("value")));
-                    children[i].style.backgroundColor = '#3366bb';
-                    children[i].onmouseover = function() {this.style.backgroundColor = "#3366bb"};
-                    children[i].onmouseout = function() {this.style.backgroundColor = "#3366bb"}; 
+                    children[i].style.backgroundColor = linkColor;
+                    children[i].onmouseover = function() {this.style.backgroundColor = linkColor};
+                    children[i].onmouseout = function() {this.style.backgroundColor = linkColor}; 
                 }
                 else {
                     children[i].style.backgroundColor = 'white';
-                    children[i].onmouseover = function() {this.style.backgroundColor = "#3366bb"};
+                    children[i].onmouseover = function() {this.style.backgroundColor = linkColor};
                     children[i].onmouseout = function() {this.style.backgroundColor = "white"}; 
                 }
             }
@@ -68,13 +69,13 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
             for(let i = 0; i < children.length; ++i) {
                 if(i === index) {
                     setSelected(() => (children[i].getAttribute("value")));
-                    children[i].style.backgroundColor = '#3366bb';
-                    children[i].onmouseover = function() {this.style.backgroundColor = "#3366bb"};
-                    children[i].onmouseout = function() {this.style.backgroundColor = "#3366bb"}; 
+                    children[i].style.backgroundColor = linkColor;
+                    children[i].onmouseover = function() {this.style.backgroundColor = linkColor};
+                    children[i].onmouseout = function() {this.style.backgroundColor = linkColor}; 
                 }
                 else {
                     children[i].style.backgroundColor = 'black';
-                    children[i].onmouseover = function() {this.style.backgroundColor = "#3366bb"};
+                    children[i].onmouseover = function() {this.style.backgroundColor = linkColor};
                     children[i].onmouseout = function() {this.style.backgroundColor = "black"}; 
                 }
             }
