@@ -20,6 +20,17 @@
     background-repeat: repeat-y;
     background-position: center;
     animation: fallingScroll 2000s linear infinite;
+    -webkit-animation: fallingScroll 2000s linear infinite;
+}
+
+@-webkit-keyframes fallingScroll {
+    0%{
+        background-position: 0 10000%;
+    }
+
+    100%{
+        background-position: 0 0;
+    }
 }
 
 @keyframes fallingScroll {
@@ -32,7 +43,7 @@
     }
 }
 
-.SideImage {
+.AlienImage {
     width: 20%;
     align-self: flex-start;
     position: absolute;
@@ -64,7 +75,7 @@
     }
 }
 
-.Image {
+.ErrorImage {
     width: 50%;
 }
 
@@ -135,11 +146,30 @@
 @media (orientation: landscape) {
     @media(max-width: 915px) {
 
+        .Container {
+            justify-content: flex-start;
+        }
+        .ErrorImage {
+            margin-top: 5%;
+            width: 40%;
+        }
+
+        .Button {
+            padding: 10px 100px;
+        }
     }
 }
 
 @media (orientation: portrait) {
-    .Title {
-        font-size: 10vmax;
+
+    .AlienImage {
+        width: 50%;
+        top: 10vh;
+        right: 15vw;
+    }
+
+    .ErrorImage {
+        margin-top: 30%;
+        width: 70%;
     }
 }
