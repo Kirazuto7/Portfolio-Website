@@ -15,7 +15,22 @@ function Homepage({title = ""}) {
     const [slideLeftExperience, setSlideLeftExperience] = useState(false);
     const [slideRightExperience, setSlideRightExperience] = useState(false);
     const [slideLeftExperience2, setSlideLeftExperience2] = useState(false);
+    const [showAboutMe, setShowAboutMe] = useState(false);
+    const [showSkills, setShowSkills] = useState(false);
     const [scrollPageHeight, setScrollPageHeight] = useState(0);
+    const [visited, setVisited] = useState(false);
+
+    useEffect(() => {
+        // Used to determine whether to render the welcome animation or not
+        const visitedPage = sessionStorage.getItem('visited');
+        if(visitedPage === 'true') {
+            setVisited(true);
+        }
+        else {
+            sessionStorage.setItem('visited', 'true');
+            setVisited(false);
+        }
+    }, [])
 
     useEffect(() => {
         document.title = title || "";
@@ -103,6 +118,17 @@ function Homepage({title = ""}) {
                 }
             }
 
+            // AboutMe Slide
+            if(pageHeight < 5) {
+                setShowAboutMe(false);
+            }
+            else if(pageHeight >= 34 && pageHeight < 220) {
+                setShowAboutMe(true);
+            }
+            else if(pageHeight >= 220) {
+                setShowAboutMe(false);
+            }
+
             // Experience Slide
             if(pageHeight <= 270 && slideLeftExperience === true) {
                 setSlideLeftExperience(() => (false))
@@ -124,6 +150,17 @@ function Homepage({title = ""}) {
             else if(pageHeight >= 425 && slideLeftExperience2 === false) {
                 setSlideLeftExperience2(() => (true))
             }
+
+            // Skills Slide
+            if(pageHeight < 100) {
+                setShowSkills(false)
+            }
+            else if(pageHeight >= 170 && pageHeight < 370) {
+                setShowSkills(true)
+            }
+            else if(pageHeight >= 370) {
+                setShowSkills(false)
+            }
             
         })
 
@@ -136,13 +173,13 @@ function Homepage({title = ""}) {
         <div id="top" className={Styles.Container}>
             <SideDotNavbar pageHeight={scrollPageHeight} links={pages}/> 
 
-            <HomepageHeader scroll={scrollToView} />
+            <HomepageHeader scroll={scrollToView} visited={visited}/>
 
             <AngledRight top="100%"/>
-            <AboutMe scrollIdentifier="AboutMe" style={Styles.AboutMe}/>
+            <AboutMe scrollIdentifier="AboutMe" style={Styles.AboutMe} animate={showAboutMe}/>
 
             <AngledLeft top="200%"/>
-            <Skills scrollIdentifier="Skills" style={Styles.Skills} />
+            <Skills scrollIdentifier="Skills" style={Styles.Skills} animate={showSkills}/>
 
             <AngledRight top="372.5%"/>
             <Experience scrollIdentifier="Experiences" style={Styles.Experience} slideLeft={slideLeftExperience} slideRight={slideRightExperience} slideLeft2={slideLeftExperience2}/>

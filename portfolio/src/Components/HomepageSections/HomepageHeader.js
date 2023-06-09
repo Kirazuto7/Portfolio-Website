@@ -1,10 +1,11 @@
 import Styles from '../../Styles/Homepage.module.css';
+import Animations from '../../Styles/Animations.module.css';
 import { useEffect, useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { baseURL } from '../../Exports';
 
-function HomepageHeader({scroll = () => {}}) {
+function HomepageHeader({scroll = () => {}, visited = false}) {
     const [exists, setExists] = useState(false);
     const buttonRef = useRef();
     useEffect(() => {
@@ -16,14 +17,16 @@ function HomepageHeader({scroll = () => {}}) {
             buttons[i].style.width = `${width}px`;
         }
     }, [])
-
+    
     useEffect(() => {
         let details = [
             "New York, NY",
             "917-324-5326",
             "jordansukhnyc@gmail.com"
         ]
-
+        let visitedPage = sessionStorage.getItem('visited');
+        let delay = visitedPage === 'true' ? 1000 : 3000;
+        
         const typeLetters = (element, message, delay) => {
             let i = 0;
             let interval = setInterval(() => {
@@ -50,7 +53,7 @@ function HomepageHeader({scroll = () => {}}) {
                 }, index * 1000)
                 
             });
-        }, 3000)
+        }, delay)
     }
         return () => {
             clearTimeout(timeout)
@@ -60,8 +63,8 @@ function HomepageHeader({scroll = () => {}}) {
    
     return(
         <div id={"Header"} className={Styles.HeaderContainer}>
-            <h1 className={Styles.Welcome}>Welcome</h1>
-            <header className={Styles.Header}>
+            <h1 className={visited ? `${Styles.Hidden}`: `${Styles.Welcome} ${Animations.Expand}`}>Welcome</h1>
+            <header className={visited ? `${Styles.Header} ${Animations.Appear}` : `${Styles.HeaderDelay} ${Animations.DelayedAppear}`}>
                 <div className={Styles.HeaderInfo}>
                     <section className={Styles.Title}>
                         <div className={Styles.Name}>Jordan Sukhnandan</div>
