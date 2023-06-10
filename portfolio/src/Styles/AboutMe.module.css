@@ -12,8 +12,6 @@
 
 .Separator {
     content: "";
-    width: 10vmax;
-    margin-top: 0.8em;
     border: 0.5px solid #d3d3d3;
 }
 
@@ -61,17 +59,14 @@
         .Description {
             text-align: left;
             font-size: var(--text_size);
-            line-height: 1.5em;
-            line-height: calc(0.425rem + 2vh);
+            align-self: flex-start;
+            line-height: calc(0.6rem + 2vh);
         }
-    
     }
 }
 
 @media (orientation: portrait) {
     .Separator {
-        width: 15vmax;
-        margin-top: 0.4em;
         margin-bottom: 0.4em;
     }
 
@@ -79,15 +74,19 @@
         flex-direction: column;
         height: 100%;
         gap: 0;
+        justify-content: flex-start;
     }
 
     .LeftSection {
         order: 1;
         width: 95%;
+        height: 100%;
         align-items: flex-start;
     }
     .RightSection {
-        display: none;
+        width: 50%;
+        height: 20%;
+        justify-self: flex-start;
     }
 
     .Description {

@@ -3,7 +3,7 @@ import Styles from '../../Styles/Resume.module.css';
 function ResumeProjects() {
     return(
         <section className={Styles.Section}>
-            <div className={Styles.SectionLabel}>PROJECTS</div>
+            <h2 className={Styles.SectionLabel}>PROJECTS</h2>
             <div className={Styles.SubSections}>
                 <section>
                     <div className={Styles.RowContainer}> 

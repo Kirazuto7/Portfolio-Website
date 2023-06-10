@@ -1,29 +1,38 @@
 import Styles from '../../Styles/Experience.module.css';
 import Animations from '../../Styles/Animations.module.css';
 import HStack from '../SubComponents/HStack';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { baseURL } from '../../Exports';
 
 function Experience({style, scrollIdentifier, slideLeft = false, slideRight = false, slideLeft2 = false}) {
-    
+
+    useEffect(() => {
+        let title = document.getElementById("ExperienceTitle");
+        let underline = document.getElementById("ExperienceSeparator");
+        let { width } = title.getBoundingClientRect();
+        underline.style.width = `${width}px`
+    }, [])
+
     const displayExperiences = () => {
         const experiences = [
-            {name: "CUNY Hunter College", src: `${baseURL}/huntercollege.jpeg`, label: "Graduated From", date: "Jan. 2020 - May 2023", position: "B.A. Computer Science", 
-            details: [
-                <dd>Graduated with a cumulative <b>GPA of 3.90</b> achieving <b>Summa Cum Laude</b> and departmental honors</dd>,
-                <dd>Focus Study Minor in Japanese up to Advanced Japanese 1</dd>,
-                <dd>Developed teamwork skills participating in group projects and hackathon(s) among student peers</dd>,
-                <dd>Learned several data structures and algorithms in which I further practice doing Leetcode and in my project(s)</dd>
-            ]},
-            {name: "JetSweat", src: `${baseURL}/jetsweat.jpeg`, label: "Recently Worked At", date: "May 2022 - Aug.2022", position: "iOS Mobile Developer Intern",
-            details: [
+            {name: "JetSweat", src: `${baseURL}/jetsweat.jpeg`, label: "Previously Worked At", date: "May 2022 - Aug.2022", position: "iOS Mobile Developer Intern",
+             website: "https://jetsweatfitness.com/",
+             details: [
                 <dd>Analyzed and debugged code to fix an issue where live classes disappeared 1 minute after the start time.</dd>,
                 <dd>Constructed a radiating indicator and banner for live videos to notify users when they are currently streaming.</dd>,
                 <dd>Programmed the ability for users to view future and previous weeks of scheduled live classes in Swift.</dd>,
                 <dd>Collaborated together with a UX designer to implement styling changes based on designs in Figma files.</dd>
-            ]},
+             ]},
+            {name: "CUNY Hunter College", src: `${baseURL}/huntercollege.jpeg`, label: "Graduated From", date: "Jan. 2020 - May 2023", position: "B.A. Computer Science", 
+             website: "https://hunter.cuny.edu/",
+             details: [
+                <dd>Graduated with a cumulative <b>GPA of 3.90</b> achieving <b>Summa Cum Laude</b> and departmental honors</dd>,
+                <dd>Focus Study Minor in Japanese up to Advanced Japanese 1</dd>,
+                <dd>Developed teamwork skills participating in group projects and hackathon(s) among student peers</dd>,
+                <dd>Learned several data structures and algorithms in which I further practice doing Leetcode and in my project(s)</dd>
+             ]},
         ]
 
         return experiences.map((experience, index) => {
@@ -32,8 +41,8 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
                     <div key={experience.name} className={ slideLeft ? `${Styles.Experience} ${Animations.LeftSlide}` : `${Styles.Hidden}`}>
                         <section className={Styles.Body}>
                             <div className={Styles.BodyContent}>
-                                <header className={Styles.Label}>{experience.label}</header>
-                                <h2 className={Styles.ExperienceName}>{experience.name}</h2>
+                                <h3 className={Styles.Label}>{experience.label}</h3>
+                                <h4 className={Styles.ExperienceName}>{experience.name}</h4>
                                 <div style={{'display':'flex', 'flexDirection':'right', 'justifyContent': 'space-between'}}>
                                     <div style={{'fontWeight':'600'}}>{experience.position}</div>
                                     <div style={{'whiteSpace': 'nowrap'}}>{experience.date}</div>
@@ -48,7 +57,7 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
                                 }
                                 </dl>
                             </div>
-                            <img loading="lazy" className={Styles.ExperienceImage} src={experience.src} alt={experience.name}></img>
+                            <img loading="lazy" className={Styles.ExperienceImage} src={experience.src} alt={experience.name} onClick={() => window.open(experience.website,'_blank')}/>
                         </section>
                     </div>
                 )
@@ -57,10 +66,10 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
                 return(
                     <div key={experience.name} className={ slideRight ? `${Styles.Experience} ${Animations.RightSlide}` : `${Styles.Hidden}`}>
                         <section className={Styles.Body}>
-                            <img loading="lazy" className={Styles.ExperienceImage} src={experience.src} alt={experience.name}></img>
+                            <img loading="lazy" className={Styles.ExperienceImage} src={experience.src} alt={experience.name} onClick={() => window.open(experience.website,'_blank')}/>
                             <div className={Styles.BodyContent}>
-                                <header className={Styles.Label}>{experience.label}</header>
-                                <h2 className={Styles.ExperienceName}>{experience.name}</h2>
+                                <h3 className={Styles.Label}>{experience.label}</h3>
+                                <h4 className={Styles.ExperienceName}>{experience.name}</h4>
                                 <div style={{'display':'flex', 'flexDirection':'right', 'justifyContent': 'space-between'}}>
                                     <div style={{'fontWeight':'600'}}>{experience.position}</div>
                                     <div style={{'whiteSpace': 'nowrap'}}>{experience.date}</div>
@@ -122,8 +131,8 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
 
     return(
         <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
-            <div className={Styles.Title}>Experiences</div>
-            <div className={Styles.Separator}/>
+            <h2 id="ExperienceTitle" className={Styles.Title}>Experiences</h2>
+            <div id="ExperienceSeparator" className={Styles.Separator}/>
             <div className={Styles.ExperiencesContainer}>{displayExperiences()}</div>
 
             <div className={slideLeft2 ? `${Styles.Wrapper} ${Animations.LeftSlide}` : `${Styles.Hidden}`}>

@@ -34,6 +34,7 @@
 .JobTitle {
     color: white;
     font-size: var(--section_size);
+    margin: 0;
 }
 
 .HSeparator {
@@ -223,31 +224,96 @@
 @media (orientation: portrait) {
     .Container {
         margin-top: 5vh;
+        flex-direction: column;
     }
 
-    /* LEFT */
+    /* TOP */
 
     .LeftContainer {
-        width: 30%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 2vh;
-        padding-bottom: 5vh;
+        padding-bottom: 1vh;
+    }
+
+    .Photo {
+        width: 30vw;
+        height: 30vw;
+        border-radius: 15vw;
+    }
+
+    .Title {
+        color: white;
+        margin: 0;
     }
 
     .JobTitle {
         text-align: center;
     }
 
+    .SubTitleRow {
+        flex-direction: row;
+        gap: 4px;
+    }
+
+    .SubTitle {
+        font-size: var(--text_size);
+        color: white;
+    }
+
+    .SubTitleRow a {
+        text-decoration: none;
+        color: #23d09e;
+        font-size: var(--text_size);
+        
+    }
+
+    /* BOTTOM */
+
+    .RightContainer {
+        width: 100%;
+    }
+    
+    .ResumeSections {
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        font-size: var(--text_size);
+    }
+    
+    .RowContainer {
+        flex-direction: column;
+    }
+    
+    .SectionTitleWrapper {
+        gap: 2vw;
+    }
+    
+    .SectionDate {
+        text-align: end;
+    }
+
+    .EducationList {
+        margin-left: 10%;
+    }
+
     .SkillsContainer {
         flex-direction: column;
         align-content: flex-start;
         margin-left: 0%;
+        gap: 0;
+    }
+
+    .SkillRow {
+        justify-content: space-evenly;
+        width: 100%;
     }
     
     .SkillsLabel {
-        margin-left: 10%;
+        color: var(--secondary_color);
+        font-size: var(--section_size);
+        font-weight: 600;
     }
     
     .Skill {
@@ -267,44 +333,6 @@
     .SkillName {
         text-align: center;
         font-size: var(--icon_text_size);
-    }
-
-    /* RIGHT */
-
-    .RightContainer {
-        width: 70%;
-    }
-
-    .SubTitleRow .VSeparator {
-        height: 0;
-        width: 10vmax;
-    }
-    
-    .SubTitleRow {
-        flex-direction: column;
-        gap: 2px;
-    }
-    
-    .ResumeSections {
-        margin-left: 2.5%;
-        margin-right: 2.5%;
-        font-size: var(--text_size);
-    }
-    
-    .RowContainer {
-        flex-direction: column;
-    }
-    
-    .SectionTitleWrapper {
-        gap: 1vw;
-        justify-content: space-between;
-    }
-
-    .SectionTitleWrapper .VSeparator {
-        display: none;
-    }
-
-    .EducationList {
-        margin-left: 10%;
+        color: black;
     }
 }

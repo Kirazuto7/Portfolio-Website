@@ -1,5 +1,14 @@
 export const baseURL = "/pictures";
 
+export const isPortraitMode = () => {
+    return window.matchMedia("(orientation: portrait)").matches;
+}
+
+export const isMobile = () => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    return /mobile|android|iphone|ipad|iemobile|wpdesktop|windows phone|blackberry|opera mini/i.test(userAgent);
+}
+ 
 export const ProjectType = Object.freeze({
     All: "All",
     Web: "Web",

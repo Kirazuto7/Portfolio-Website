@@ -68,8 +68,8 @@ function HomepageHeader({scroll = () => {}, visited = false}) {
                 <div className={Styles.HeaderInfo}>
                     <div className={visited ? `${Animations.Shine}` : `${Animations.DelayedShine}`}/>
                     <section className={Styles.Title}>
-                        <div className={Styles.Name}>Jordan Sukhnandan</div>
-                        <div className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</div>
+                        <h1 className={Styles.Name}>Jordan Sukhnandan</h1>
+                        <h2 className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</h2>
                     </section>
                     
                     <div className={Styles.DetailsContainer}>

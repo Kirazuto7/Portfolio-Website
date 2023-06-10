@@ -3,7 +3,7 @@ import Styles from '../../Styles/Resume.module.css';
 function ResumeEducation() {
     return(
         <section className={Styles.Section}>
-            <div className={Styles.SectionLabel}>EDUCATION</div>
+            <h2 className={Styles.SectionLabel}>EDUCATION</h2>
 
             <div className={Styles.SubSections}>
                 <section>
@@ -12,7 +12,7 @@ function ResumeEducation() {
                         <div className={Styles.SectionDate}>Jan. 2020 - May 2023</div>
                     </div>
                     <div className={Styles.RowContainer}>
-                        <div>B.A. in Computer Science</div>
+                        <div>B.A. w/ Honors in Computer Science</div>
                         <div><span style={{'fontWeight': 'bold'}}>GPA:</span> 3.90</div>
                     </div>
                     <div className={Styles.EducationList}> <span style={{'fontWeight': 'bold'}}>Relevant Coursework: </span> Web Dev, Intro to APIs, Database Management, Data Structures, Computer Architecture, Operating Systems, Computer Theory, iOS Dev, Capstone</div>
