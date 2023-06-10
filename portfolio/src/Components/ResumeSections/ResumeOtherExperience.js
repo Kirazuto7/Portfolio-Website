@@ -3,7 +3,7 @@ import Styles from '../../Styles/Resume.module.css';
 function ResumeOtherExperience() {
     return(
         <section className={Styles.Section}>
-            <div className={Styles.SectionLabel}>OTHER EXPERIENCE</div>
+            <h2 className={Styles.SectionLabel}>OTHER EXPERIENCE</h2>
 
             <div className={Styles.SubSections}>
                 <section>

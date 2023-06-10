@@ -7,15 +7,16 @@
 .Title {
     font-size: var(--title_size);
     font-weight: bold;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .Separator {
     content: "";
     background-color: #d3d3d3;
-    width: 13em;
     height: 1px;
     margin: auto;
-    margin-top: 0.5em;
 }
 
 .Wrapper {
@@ -142,6 +143,7 @@
     text-align: start;
     font-size: var(--title_size);
     font-weight: bold;
+    margin: 0;
 }
 
 .ExperienceName {
@@ -180,6 +182,7 @@
     padding: 2vmax;
     box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1), 
                 -2px 2px 2px 2px rgba(0,0,0,0.1);
+    cursor: pointer;
 }
 
 .InvisBlock {

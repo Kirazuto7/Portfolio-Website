@@ -1,8 +1,16 @@
 import Styles from '../../Styles/Skills.module.css';
 import Animations from '../../Styles/Animations.module.css';
 import { skills } from '../../Exports';
+import { useEffect } from 'react';
 
 function Skills({style, scrollIdentifier, animate = false}) {
+
+    useEffect(() => {
+        let title = document.getElementById("SkillsTitle");
+        let underline = document.getElementById("SkillsSeparator");
+        let { width } = title.getBoundingClientRect();
+        underline.style.width = `${width}px`
+    })
     
     const createSkillTable = () => {
         return (
@@ -13,7 +21,7 @@ function Skills({style, scrollIdentifier, animate = false}) {
                             <div className={ animate ? `${Styles.SkillContainer} ${Animations.RotateFadeIn}` : `${Styles.Hidden}`} key={skill.name}>
                                 <div className={Styles.SkillWrapper}>
                                     <img loading="lazy" className={Styles.SkillImage} src={skill.src} alt={skill.name}/> 
-                                    <div className={Styles.SkillName}>{skill.name}</div>
+                                    <h4 className={Styles.SkillName}>{skill.name}</h4>
                                 </div>
                             </div>
                     )
@@ -25,8 +33,8 @@ function Skills({style, scrollIdentifier, animate = false}) {
 
     return (
         <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
-            <div className={Styles.Title}>Skills</div>
-            <div className={Styles.Separator}/>
+            <h2 id="SkillsTitle" className={Styles.Title}>Skills</h2>
+            <div id="SkillsSeparator" className={Styles.Separator}/>
             <section className={Styles.Body}> { createSkillTable() } </section>
         </div>
     )
