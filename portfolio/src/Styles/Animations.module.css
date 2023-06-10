@@ -54,6 +54,20 @@
     -webkit-animation-delay: 3s;
 }
 
+.Matrix {
+    position: absolute;
+    background-image: url('https://cdn.wallpapersafari.com/84/22/Jz6bAs.gif');
+    width: 100vw;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: flash 5s 1 ease-in-out;
+    animation-fill-mode: forwards;
+    -webkit-animation: flash 5s 1 ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+}
+
 .FadeIn {
     animation: fadeIntoScreen 2s linear;
     -webkit-animation: fadeIntoScreen 2s linear;
@@ -396,5 +410,27 @@
 
     100% {
         left: 100%;
+    }
+}
+
+@keyframes flash {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@-webkit-keyframes flash {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
     }
 }

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { baseURL } from '../../Exports';
 
-function HomepageHeader({scroll = () => {}, visited = false}) {
+function HomepageHeader({scroll = () => {}}) {
     const [exists, setExists] = useState(false);
     const buttonRef = useRef();
     useEffect(() => {
@@ -24,8 +24,8 @@ function HomepageHeader({scroll = () => {}, visited = false}) {
             "917-324-5326",
             "jordansukhnyc@gmail.com"
         ]
-        let visitedPage = sessionStorage.getItem('visited');
-        let delay = visitedPage === 'true' ? 1000 : 3000;
+
+        let delay = 3000;
 
         const typeLetters = (element, message, delay) => {
             let i = 0;
@@ -63,10 +63,10 @@ function HomepageHeader({scroll = () => {}, visited = false}) {
    
     return(
         <div id={"Header"} className={Styles.HeaderContainer}>
-            <h1 className={visited ? `${Styles.Hidden}`: `${Styles.Welcome} ${Animations.Expand}`}>Welcome</h1>
-            <header className={visited ? `${Styles.Header} ${Animations.Appear}` : `${Styles.HeaderDelay} ${Animations.DelayedAppear}`}>
+            <div className={`${Animations.Matrix}`}/>
+            <header className={`${Styles.Header} ${Animations.Appear}`}>
                 <div className={Styles.HeaderInfo}>
-                    <div className={visited ? `${Animations.Shine}` : `${Animations.DelayedShine}`}/>
+                    <div className={`${Animations.Shine}`}/>
                     <section className={Styles.Title}>
                         <h1 className={Styles.Name}>Jordan Sukhnandan</h1>
                         <h2 className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</h2>

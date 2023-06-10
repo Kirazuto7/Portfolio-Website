@@ -18,19 +18,6 @@ function Homepage({title = ""}) {
     const [showAboutMe, setShowAboutMe] = useState(false);
     const [showSkills, setShowSkills] = useState(false);
     const [scrollPageHeight, setScrollPageHeight] = useState(0);
-    const [visited, setVisited] = useState(false);
-
-    useEffect(() => {
-        // Used to determine whether to render the welcome animation or not
-        const visitedPage = sessionStorage.getItem('visited');
-        if(visitedPage === 'true') {
-            setVisited(true);
-        }
-        else {
-            sessionStorage.setItem('visited', 'true');
-            setVisited(false);
-        }
-    }, [])
 
     useEffect(() => {
         document.title = title || "";
@@ -173,7 +160,7 @@ function Homepage({title = ""}) {
         <div id="top" className={Styles.Container}>
             <SideDotNavbar pageHeight={scrollPageHeight} links={pages}/> 
 
-            <HomepageHeader scroll={scrollToView} visited={visited}/>
+            <HomepageHeader scroll={scrollToView}/>
 
             <AngledRight top="100%"/>
             <AboutMe scrollIdentifier="AboutMe" style={Styles.AboutMe} animate={showAboutMe}/>
