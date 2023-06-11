@@ -1,7 +1,7 @@
 import Styles from '../../Styles/SideDotNavbar.module.css';
 import { useState, useEffect } from 'react';
 
-export default function SideDotNavbar({links = [], pageHeight = 0}) {
+export default function SideDotNavbar({links = [], breakpoints = []}) {
 
     const [selected, setSelected] = useState(links[0]);
 
@@ -11,8 +11,8 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
         let children = element.children
         let index;
         let linkColor = '#0080FE';
-
-        if(pageHeight < 44) {
+        
+        if(breakpoints[0] > 500) {
             index = 0;
 
             for(let i = 0; i < children.length; ++i) {
@@ -29,7 +29,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
                 }
             }
         }
-        else if(pageHeight >= 44 && pageHeight < 166) {
+        else if(breakpoints[0] <= 500 && breakpoints[1] > 400) {
             index = 1;
 
             for(let i = 0; i < children.length; ++i) {
@@ -46,7 +46,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
                 }
             }
         }
-        else if(pageHeight >= 166 && pageHeight < 316) {
+        else if(breakpoints[1] <= 400 && breakpoints[2] > 480) {
             index = 2;
 
             for(let i = 0; i < children.length; ++i) {
@@ -63,7 +63,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
                 }
             }
         }
-        else if(pageHeight >= 316) {
+        else if(breakpoints[2] <= 480) {
             index = 3;
 
             for(let i = 0; i < children.length; ++i) {
@@ -81,7 +81,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
             }
         }
         
-    }, [selected, pageHeight])
+    }, [selected, breakpoints])
 
     const handleClick = (e) => {
         let value = e.target.getAttribute("value");

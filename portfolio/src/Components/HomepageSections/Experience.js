@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { baseURL } from '../../Exports';
 
-function Experience({style, scrollIdentifier, slideLeft = false, slideRight = false, slideLeft2 = false}) {
+function Experience({style, scrollIdentifier, slideLeft = false, slideRight = false, slideLeft2 = false, experienceRef}) {
 
     useEffect(() => {
         let title = document.getElementById("ExperienceTitle");
@@ -130,7 +130,7 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
     }
 
     return(
-        <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
+        <div ref={experienceRef} id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
             <h2 id="ExperienceTitle" className={Styles.Title}>Experiences</h2>
             <div id="ExperienceSeparator" className={Styles.Separator}/>
             <div className={Styles.ExperiencesContainer}>{displayExperiences()}</div>

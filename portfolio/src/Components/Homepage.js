@@ -1,5 +1,5 @@
 import Styles from '../Styles/Homepage.module.css';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import HomepageHeader from './HomepageSections/HomepageHeader';
 import AboutMe from './HomepageSections/AboutMe';
 import Skills from './HomepageSections/Skills';
@@ -12,19 +12,26 @@ import AngledRight from './SubComponents/AngledRight.js';
 
 function Homepage({title = ""}) {
     const pages = ["Header", "AboutMe", "Skills", "Experiences"]
+    const topButtonRef = useRef();
+    const headerRef = useRef(null);
+    const aboutMeRef = useRef(null);
+    const skillsRef = useRef(null);
+    const experienceRef = useRef(null);
+
+    const [backgroundColor, setBackgroundColor] = useState('white');
     const [slideLeftExperience, setSlideLeftExperience] = useState(false);
     const [slideRightExperience, setSlideRightExperience] = useState(false);
     const [slideLeftExperience2, setSlideLeftExperience2] = useState(false);
     const [showAboutMe, setShowAboutMe] = useState(false);
     const [showSkills, setShowSkills] = useState(false);
-    const [scrollPageHeight, setScrollPageHeight] = useState(0);
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+    const [aboutMePageTop, setAboutMePageTop] = useState(0);
+    const [skillsPageTop, setSkillsPageTop] = useState(0);
+    const [experiencePageTop, setExperiencePageTop] = useState(0);
 
     useEffect(() => {
         document.title = title || "";
     }, [title])
-    
-    const topButtonRef = useRef();
-    const [backgroundColor, setBackgroundColor] = useState('white');
 
     const scrollToView = (e) => {
         const element = document.getElementById(`${e.target.value}`)
@@ -47,32 +54,37 @@ function Homepage({title = ""}) {
         let links = navbar.children;
 
         app.addEventListener(('scroll'), () => {
-            let scrollTop = app.scrollTop;
-            let pageHeight = (scrollTop / (window.innerHeight)) * 100
+            let aboutMeTop = aboutMeRef.current.getBoundingClientRect().top;
+            let skillsTop = skillsRef.current.getBoundingClientRect().top;
+            let experienceTop = experienceRef.current.getBoundingClientRect().top;
+            let aboutMeWindowBottom = aboutMeTop - windowHeight;
+            let skillsWindowBottom = skillsTop - windowHeight;
+            let experienceWindowBottom = experienceTop - windowHeight;
+        
+            setAboutMePageTop(() => (aboutMeTop))
+            setSkillsPageTop(() => (skillsTop))
+            setExperiencePageTop(() => (experienceTop))
 
-            setScrollPageHeight(() => (pageHeight))
-
-            if(pageHeight < 5) {
+            if(aboutMeWindowBottom > 0) {
                 button.style.display = 'none';
             }
             else {
                 button.style.display = 'initial';
             }
             
-            // Button to go to top breakpoints
-            if(pageHeight >= 5 && pageHeight < 116) {
+            // TopButton breakpoints
+            if(aboutMeWindowBottom <= 0 && skillsWindowBottom > 0) {
                 setBackgroundColor('white');
             }
-            else if(pageHeight >= 116 && pageHeight < 277 ) {
+            else if(skillsWindowBottom <= 0 && experienceWindowBottom > 0 ) {
                 setBackgroundColor('black');
             }
-            else if(pageHeight >= 277) {
+            else if(experienceWindowBottom <= 0) {
                 setBackgroundColor('white');
             }
 
             // Navbar breakpoints
-
-            if (pageHeight < 93) {
+            if (aboutMeTop > 0) {
                 navbar.style.backgroundColor = '#D7DBDF';
                 for(let link of links) {
                     link.style.color = '#3366bb';
@@ -80,7 +92,7 @@ function Homepage({title = ""}) {
                     link.onmouseout = function() {this.style.color = "#3366bb"};
                 }
             }
-            else if (pageHeight >= 93 && pageHeight < 215) {
+            else if (aboutMeTop <= 0 && skillsTop > 0) {
                 navbar.style.backgroundColor = 'black';
                 for(let link of links) {
                     link.style.color = 'white';
@@ -88,7 +100,7 @@ function Homepage({title = ""}) {
                     link.onmouseout = function() {this.style.color = "white"};
                 }
             }
-            else if (pageHeight >= 215 && pageHeight < 368) {
+            else if (skillsTop <= 0 && experienceTop > 0) {
                 navbar.style.backgroundColor = '#D7DBDF';
                 for(let link of links) {
                     link.style.color = '#3366bb';
@@ -96,7 +108,7 @@ function Homepage({title = ""}) {
                     link.onmouseout = function() {this.style.color = "#3366bb"};
                 }
             }
-            else if ( pageHeight >= 368) {
+            else if ( experienceTop <= 0) {
                 navbar.style.backgroundColor = 'black';
                 for(let link of links) {
                     link.style.color = 'white';
@@ -104,49 +116,48 @@ function Homepage({title = ""}) {
                     link.onmouseout = function() {this.style.color = "white"};
                 }
             }
-
-            // AboutMe Slide
-            if(pageHeight < 5) {
+            // AboutMe FadeIn
+            if(aboutMeWindowBottom >= 50) {
                 setShowAboutMe(false);
             }
-            else if(pageHeight >= 34 && pageHeight < 220) {
+            else if(aboutMeWindowBottom <= -100 && aboutMeTop > -760) {
                 setShowAboutMe(true);
             }
-            else if(pageHeight >= 220) {
+            else if(aboutMeTop <= -760) {
                 setShowAboutMe(false);
+            }
+
+            // Skills FadeIn
+            if(skillsWindowBottom >= 70) {
+                setShowSkills(false)
+            }
+            else if(skillsWindowBottom <= -300 && skillsTop > -1090) {
+                setShowSkills(true)
+            }
+            else if(skillsTop <= -1090) {
+                setShowSkills(false)
             }
 
             // Experience Slide
-            if(pageHeight <= 270 && slideLeftExperience === true) {
-                setSlideLeftExperience(() => (false))
+            if(experienceWindowBottom > 100 && slideLeftExperience === true) {
+                setSlideLeftExperience(false)
             }
-            else if(pageHeight >= 316 && slideLeftExperience === false) {
-                setSlideLeftExperience(() => (true))
-            }
-
-            if(pageHeight <= 270 && slideRightExperience === true) {
-                setSlideRightExperience(() => (false))
-            }
-            else if(pageHeight >= 360 && slideRightExperience === false) {
-                setSlideRightExperience(() => (true))
+            else if(experienceWindowBottom <= -290 && slideLeftExperience === false) {
+                setSlideLeftExperience(true)
             }
 
-            if(pageHeight <= 270 && slideLeftExperience2 === true) {
-                setSlideLeftExperience2(() => (false))
+            if(experienceWindowBottom > 100 && slideRightExperience === true) {
+                setSlideRightExperience(false)
             }
-            else if(pageHeight >= 425 && slideLeftExperience2 === false) {
-                setSlideLeftExperience2(() => (true))
+            else if(experienceWindowBottom <= -610 && slideRightExperience === false) {
+                setSlideRightExperience(true)
             }
 
-            // Skills Slide
-            if(pageHeight < 100) {
-                setShowSkills(false)
+            if(experienceWindowBottom > 100 && slideLeftExperience2 === true) {
+                setSlideLeftExperience2(false)
             }
-            else if(pageHeight >= 170 && pageHeight < 370) {
-                setShowSkills(true)
-            }
-            else if(pageHeight >= 370) {
-                setShowSkills(false)
+            else if(experienceWindowBottom <= -1050 && slideLeftExperience2 === false) {
+                setSlideLeftExperience2(true)
             }
             
         })
@@ -154,22 +165,33 @@ function Homepage({title = ""}) {
         return () => {
             app.removeEventListener(('scroll'), null);
         }
-    }, [backgroundColor, slideLeftExperience, slideRightExperience, slideLeftExperience2])
+    }, [backgroundColor, slideLeftExperience, slideRightExperience, slideLeftExperience2, windowHeight])
+
+    useLayoutEffect(() => {
+        const handleWindowResize = () => {
+            setWindowHeight(window.innerHeight);
+        }
+        window.addEventListener('resize', handleWindowResize);
+    
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        }
+    }, [windowHeight])
     
     return(
         <div id="top" className={Styles.Container}>
-            <SideDotNavbar pageHeight={scrollPageHeight} links={pages}/> 
+            <SideDotNavbar links={pages} breakpoints={[aboutMePageTop, skillsPageTop, experiencePageTop]}/> 
 
-            <HomepageHeader scroll={scrollToView}/>
+            <HomepageHeader headerRef={headerRef} scroll={scrollToView}/>
 
             <AngledRight top="100%"/>
-            <AboutMe scrollIdentifier="AboutMe" style={Styles.AboutMe} animate={showAboutMe}/>
+            <AboutMe aboutMeRef={aboutMeRef} scrollIdentifier="AboutMe" style={Styles.AboutMe} animate={showAboutMe}/>
 
             <AngledLeft top="200%"/>
-            <Skills scrollIdentifier="Skills" style={Styles.Skills} animate={showSkills}/>
+            <Skills skillsRef={skillsRef} scrollIdentifier="Skills" style={Styles.Skills} animate={showSkills}/>
 
             <AngledRight top="372.5%"/>
-            <Experience scrollIdentifier="Experiences" style={Styles.Experience} slideLeft={slideLeftExperience} slideRight={slideRightExperience} slideLeft2={slideLeftExperience2}/>
+            <Experience experienceRef={experienceRef} scrollIdentifier="Experiences" style={Styles.Experience} slideLeft={slideLeftExperience} slideRight={slideRightExperience} slideLeft2={slideLeftExperience2}/>
 
             <button ref={topButtonRef} className={backgroundColor === 'white' ? `${Styles.TopButton} ${Styles.White}` : `${Styles.TopButton} ${Styles.Black}`} onClick={() => scrollToTop()}>
                 <FontAwesomeIcon icon={faChevronUp} className={Styles.TopButtonIcon}/>

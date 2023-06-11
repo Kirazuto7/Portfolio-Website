@@ -3,7 +3,7 @@ import Animations from '../../Styles/Animations.module.css';
 import { skills } from '../../Exports';
 import { useEffect } from 'react';
 
-function Skills({style, scrollIdentifier, animate = false}) {
+function Skills({style, scrollIdentifier, animate = false, skillsRef}) {
 
     useEffect(() => {
         let title = document.getElementById("SkillsTitle");
@@ -32,7 +32,7 @@ function Skills({style, scrollIdentifier, animate = false}) {
     }
 
     return (
-        <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
+        <div ref={skillsRef} id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
             <h2 id="SkillsTitle" className={Styles.Title}>Skills</h2>
             <div id="SkillsSeparator" className={Styles.Separator}/>
             <section className={Styles.Body}> { createSkillTable() } </section>

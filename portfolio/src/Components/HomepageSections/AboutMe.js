@@ -3,7 +3,7 @@ import Animations from '../../Styles/Animations.module.css';
 import { baseURL, isMobile } from '../../Exports';
 import { useEffect } from 'react';
 
-function AboutMe({style, scrollIdentifier, animate = false}) {
+function AboutMe({style, scrollIdentifier, animate = false, aboutMeRef}) {
 
     useEffect(() => {
         let title = document.getElementById("AboutMeTitle");
@@ -13,7 +13,7 @@ function AboutMe({style, scrollIdentifier, animate = false}) {
     }, [])
 
     return(
-        <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
+        <div ref={aboutMeRef} id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
             <h2 id="AboutMeTitle" className={Styles.Title}>About Me</h2>
             <div id="AboutMeSeparator" className={Styles.Separator}/>
 
