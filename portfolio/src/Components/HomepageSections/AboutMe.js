@@ -1,6 +1,6 @@
 import Styles from '../../Styles/AboutMe.module.css';
 import Animations from '../../Styles/Animations.module.css';
-import { baseURL, isMobile } from '../../Exports';
+import { baseURL } from '../../Exports';
 import { useEffect } from 'react';
 import AngledRight from '../SubComponents/AngledRight';
 
