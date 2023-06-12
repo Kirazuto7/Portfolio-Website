@@ -14,41 +14,7 @@
 
 /* MARK: - HEADER */
 
-.HeaderContainer {
-    position: absolute;
-    height: 100vh;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 900;
-}
-
-.Welcome {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -200%);
-    font-size: 0;
-    color: white;
-}
-
 .Header {
-    opacity: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    z-index: 900;
-    color: white;
-    height: 100%;
-    width: 100%;
-    margin: auto;
-    padding-left: 5%;
-}
-
-.HeaderDelay {
     opacity: 0;
     display: flex;
     flex-direction: row;
@@ -169,35 +135,49 @@
         #1cb5e0 25%, #015194 100%);
 }
 
+.HeaderContainer {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 900;
+}
+
 /* MARK: - ABOUT ME */
 
 .AboutMe {
-    position: absolute;
-    top: 107.5%;
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: white;
+    padding: 0 0 8rem;
+    scroll-behavior: smooth;
+    z-index: 2;
 }
 
 /* MARK: - SKILLS */
 
 .Skills {
-    position: absolute;
-    top: 220%;
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: transparent;
+    background: var(--background);
+    padding: 8rem 0 12rem;
+    scroll-behavior: smooth;
+    z-index: 1;
 }
 
 /* MARK: - EXPERIENCE */
 
 .Experience {
-    position: absolute;
-    top: 380%;
+    position: relative;
     width: 100%;
     height: auto;
     background-color: white;
-    padding-bottom: 5%;
+    min-height: 100vh;
+    z-index: 1;
 }
 
 /* MARK: - Button to go to top of the page */
@@ -208,6 +188,7 @@
     width: 3vmax;
     border-radius: 1.5vmax;
     display: none;
+    z-index: 999;
 }
 
 .TopButtonIcon {
@@ -299,14 +280,7 @@
         flex-direction: column;
         justify-content: center;
         height: 85vh;
-    }
-
-    .HeaderDelay {
-        margin: 0 !important;
-        padding: 0 !important;
-        flex-direction: column;
-        justify-content: center;
-        height: 85vh;
+        overflow: visible;
     }
 
     .ProfilePhoto {

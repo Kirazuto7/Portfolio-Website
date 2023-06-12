@@ -1,9 +1,9 @@
 import Styles from '../../Styles/Angled.module.css';
 
-export default function AngledLeft({style, top = '0'}) {
+export default function AngledLeft({style, top = '-60px', angleID}) {
     return(
         <>
-        <div className={`${Styles.AngledLeft} ${style}`} style={{'top':`${top}`}}/>
+        <div id={angleID} className={`${Styles.AngledLeft} ${style}`} style={{'top':`${top}`}}/>
         </>
     )
 };

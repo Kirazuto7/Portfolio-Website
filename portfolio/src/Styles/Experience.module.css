@@ -2,6 +2,8 @@
     width: 100%;
     height: auto;
     margin-bottom: 5%;
+    position: relative;
+    box-sizing: border-box;
 }
 
 .Title {
@@ -136,7 +138,7 @@
 }
 
 .Hidden {
-    display: none;
+    opacity: 0;
 }
 
 .Label {

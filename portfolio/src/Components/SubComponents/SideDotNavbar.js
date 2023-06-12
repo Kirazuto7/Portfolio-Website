@@ -1,7 +1,7 @@
 import Styles from '../../Styles/SideDotNavbar.module.css';
 import { useState, useEffect } from 'react';
 
-export default function SideDotNavbar({links = [], breakpoints = []}) {
+export default function SideDotNavbar({links = [], breakpoints = [], scroll = 0}) {
 
     const [selected, setSelected] = useState(links[0]);
 
@@ -11,8 +11,8 @@ export default function SideDotNavbar({links = [], breakpoints = []}) {
         let children = element.children
         let index;
         let linkColor = '#0080FE';
-        
-        if(breakpoints[0] > 500) {
+
+        if(scroll < breakpoints[0]) {
             index = 0;
 
             for(let i = 0; i < children.length; ++i) {
@@ -29,7 +29,7 @@ export default function SideDotNavbar({links = [], breakpoints = []}) {
                 }
             }
         }
-        else if(breakpoints[0] <= 500 && breakpoints[1] > 400) {
+        else if(scroll >= breakpoints[0] && scroll < breakpoints[1]) {
             index = 1;
 
             for(let i = 0; i < children.length; ++i) {
@@ -46,7 +46,7 @@ export default function SideDotNavbar({links = [], breakpoints = []}) {
                 }
             }
         }
-        else if(breakpoints[1] <= 400 && breakpoints[2] > 480) {
+        else if(scroll >= breakpoints[1] && scroll < breakpoints[2]) {
             index = 2;
 
             for(let i = 0; i < children.length; ++i) {
@@ -63,9 +63,9 @@ export default function SideDotNavbar({links = [], breakpoints = []}) {
                 }
             }
         }
-        else if(breakpoints[2] <= 480) {
+        else if(scroll >= breakpoints[2] && breakpoints[2] > 0) {
             index = 3;
-
+            
             for(let i = 0; i < children.length; ++i) {
                 if(i === index) {
                     setSelected(() => (children[i].getAttribute("value")));
@@ -81,7 +81,7 @@ export default function SideDotNavbar({links = [], breakpoints = []}) {
             }
         }
         
-    }, [selected, breakpoints])
+    }, [selected, breakpoints, scroll])
 
     const handleClick = (e) => {
         let value = e.target.getAttribute("value");
