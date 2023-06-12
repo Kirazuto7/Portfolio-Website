@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { baseURL } from '../../Exports';
 
-function HomepageHeader({scroll = () => {}}) {
+function HomepageHeader({scroll = () => {}, headerRef}) {
     const [exists, setExists] = useState(false);
     const buttonRef = useRef();
     useEffect(() => {
@@ -62,7 +62,7 @@ function HomepageHeader({scroll = () => {}}) {
     }, [exists])
    
     return(
-        <div id={"Header"} className={Styles.HeaderContainer}>
+        <div ref={headerRef} id={"Header"} className={Styles.HeaderContainer}>
             <div className={`${Animations.Matrix}`}/>
             <header className={`${Styles.Header} ${Animations.Appear}`}>
                 <div className={Styles.HeaderInfo}>

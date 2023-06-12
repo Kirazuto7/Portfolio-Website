@@ -10,7 +10,7 @@
 .HomepageBackground {
   background: url("https://i.pinimg.com/originals/08/29/cc/0829cc1818d40b77f11df5740b264feb.jpg") no-repeat;
   background-size: cover;
-  background: linear-gradient(#000000 0%, #2D3436 100%)
+  background: linear-gradient(#000000 0%, #2D3436 100%);
 }
 
 
@@ -21,6 +21,7 @@
   --box_shadow_color: rgba(0,0,0,0.5);
   --secondary_color: #38485C;
   --test_color: #096192;
+  --background: linear-gradient(#000000 0%, #2D3436 100%);
 }
 
 @media (orientation: landscape) {

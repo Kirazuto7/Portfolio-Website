@@ -5,8 +5,9 @@ import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { baseURL } from '../../Exports';
+import AngledRight from '../SubComponents/AngledRight';
 
-function Experience({style, scrollIdentifier, slideLeft = false, slideRight = false, slideLeft2 = false}) {
+function Experience({style, scrollIdentifier, slideLeft = false, slideRight = false, slideLeft2 = false, experienceRef}) {
 
     useEffect(() => {
         let title = document.getElementById("ExperienceTitle");
@@ -130,7 +131,9 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
     }
 
     return(
-        <div id={scrollIdentifier} className={`${Styles.Container} ${style}`}>
+        <section className={style}>
+        <AngledRight angleID={"HomeBreakpoint3"} top={"-60px"}/>
+        <div ref={experienceRef} id={scrollIdentifier} className={`${Styles.Container}`}>
             <h2 id="ExperienceTitle" className={Styles.Title}>Experiences</h2>
             <div id="ExperienceSeparator" className={Styles.Separator}/>
             <div className={Styles.ExperiencesContainer}>{displayExperiences()}</div>
@@ -143,9 +146,12 @@ function Experience({style, scrollIdentifier, slideLeft = false, slideRight = fa
                 />
                 <button className={Styles.HStackRightButton} onClick={() => scrollToCertificate(true)}><FontAwesomeIcon icon={faChevronRight} className={Styles.HStackChevron}/></button>
             </div>
-            <div className={slideLeft2 ? `${Styles.Hidden}` : `${Styles.InvisBlock}`}/>
         </div>
+        </section>
     )
 }
 
 export default Experience;
+
+/*             <div className={slideLeft2 ? `${Styles.Hidden}` : `${Styles.InvisBlock}`}/>
+*/

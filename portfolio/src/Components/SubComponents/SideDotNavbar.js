@@ -1,7 +1,7 @@
 import Styles from '../../Styles/SideDotNavbar.module.css';
 import { useState, useEffect } from 'react';
 
-export default function SideDotNavbar({links = [], pageHeight = 0}) {
+export default function SideDotNavbar({links = [], breakpoints = [], scroll = 0}) {
 
     const [selected, setSelected] = useState(links[0]);
 
@@ -12,7 +12,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
         let index;
         let linkColor = '#0080FE';
 
-        if(pageHeight < 44) {
+        if(scroll < breakpoints[0]) {
             index = 0;
 
             for(let i = 0; i < children.length; ++i) {
@@ -29,7 +29,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
                 }
             }
         }
-        else if(pageHeight >= 44 && pageHeight < 166) {
+        else if(scroll >= breakpoints[0] && scroll < breakpoints[1]) {
             index = 1;
 
             for(let i = 0; i < children.length; ++i) {
@@ -46,7 +46,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
                 }
             }
         }
-        else if(pageHeight >= 166 && pageHeight < 316) {
+        else if(scroll >= breakpoints[1] && scroll < breakpoints[2]) {
             index = 2;
 
             for(let i = 0; i < children.length; ++i) {
@@ -63,9 +63,9 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
                 }
             }
         }
-        else if(pageHeight >= 316) {
+        else if(scroll >= breakpoints[2] && breakpoints[2] > 0) {
             index = 3;
-
+            
             for(let i = 0; i < children.length; ++i) {
                 if(i === index) {
                     setSelected(() => (children[i].getAttribute("value")));
@@ -81,7 +81,7 @@ export default function SideDotNavbar({links = [], pageHeight = 0}) {
             }
         }
         
-    }, [selected, pageHeight])
+    }, [selected, breakpoints, scroll])
 
     const handleClick = (e) => {
         let value = e.target.getAttribute("value");

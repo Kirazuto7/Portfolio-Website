@@ -69,8 +69,11 @@
 }
 
 .FadeIn {
+    position: relative;
     animation: fadeIntoScreen 2s linear;
     -webkit-animation: fadeIntoScreen 2s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
 }
 
 .RotateFadeIn {
@@ -134,48 +137,48 @@
 @keyframes fadeIntoScreen {
     0% {
       opacity: 0;
-      transform: translate3d(0, 30%, 0);
+      transform: translateY(100px);
     }
   
     100% {
       opacity: 1;
-      transform: translate3d(0,0,0);
+      transform: none;
     }
   }
   
 @-webkit-keyframes fadeIntoScreen {
     0% {
       opacity: 0;
-      transform: translate3d(0, 30%, 0);
+      transform: translateY(100px);
     }
   
     100% {
       opacity: 1;
-      transform: translate3d(0,0,0);
+      transform: none;
     }
 }
 
 @keyframes rotateFadeIntoScreen {
     0% {
       opacity: 0;
-      transform: rotate(45deg) translate3d(100%, 100%, 0);
+      transform: rotate(45deg) translate3d(100px, 100px, 0);
     }
   
     100% {
       opacity: 1;
-      transform: rotate(45deg) translate3d(0,0,0);
+      transform: rotate(45deg) none;
     }
   }
   
 @-webkit-keyframes rotateFadeIntoScreen {
     0% {
       opacity: 0;
-      transform: rotate(45deg) translate3d(100%, 100%, 0);
+      transform: rotate(45deg) translate3d(100px, 100px, 0);
     }
   
     100% {
       opacity: 1;
-      transform: rotate(45deg) translate3d(0,0,0);
+      transform: rotate(45deg);
     }
 }
 

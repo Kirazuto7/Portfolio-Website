@@ -1,5 +1,5 @@
 import Styles from '../Styles/Homepage.module.css';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import HomepageHeader from './HomepageSections/HomepageHeader';
 import AboutMe from './HomepageSections/AboutMe';
 import Skills from './HomepageSections/Skills';
@@ -7,24 +7,30 @@ import Experience from './HomepageSections/Experience';
 import SideDotNavbar from './SubComponents/SideDotNavbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import AngledLeft from './SubComponents/AngledLeft.js';
-import AngledRight from './SubComponents/AngledRight.js';
 
 function Homepage({title = ""}) {
     const pages = ["Header", "AboutMe", "Skills", "Experiences"]
+    const topButtonRef = useRef();
+    const headerRef = useRef(null);
+    const aboutMeRef = useRef(null);
+    const skillsRef = useRef(null);
+    const experienceRef = useRef(null);
+
+    const [backgroundColor, setBackgroundColor] = useState('white');
     const [slideLeftExperience, setSlideLeftExperience] = useState(false);
     const [slideRightExperience, setSlideRightExperience] = useState(false);
     const [slideLeftExperience2, setSlideLeftExperience2] = useState(false);
     const [showAboutMe, setShowAboutMe] = useState(false);
     const [showSkills, setShowSkills] = useState(false);
-    const [scrollPageHeight, setScrollPageHeight] = useState(0);
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+    const [sideNavBreakpoint1, setSideNavBreakpoint1] = useState(0);
+    const [sideNavBreakpoint2, setSideNavBreakpoint2] = useState(0);
+    const [sideNavBreakpoint3, setSideNavBreakpoint3] = useState(0);
+    const [scrollPage, setScrollPage] = useState(0);
 
     useEffect(() => {
         document.title = title || "";
     }, [title])
-    
-    const topButtonRef = useRef();
-    const [backgroundColor, setBackgroundColor] = useState('white');
 
     const scrollToView = (e) => {
         const element = document.getElementById(`${e.target.value}`)
@@ -46,130 +52,149 @@ function Homepage({title = ""}) {
         let navbar = document.getElementById("NavBar");
         let links = navbar.children;
 
-        app.addEventListener(('scroll'), () => {
-            let scrollTop = app.scrollTop;
-            let pageHeight = (scrollTop / (window.innerHeight)) * 100
+        const handleScroll = () => {
+            requestAnimationFrame(() => {
+                let aboutMe = aboutMeRef.current.getBoundingClientRect();
+                let skills = skillsRef.current.getBoundingClientRect();
+                let experience = experienceRef.current.getBoundingClientRect();
+                let aboutMeTop = aboutMe.top;
+                let skillsTop = skills.top;
+                let experienceTop = experience.top;
 
-            setScrollPageHeight(() => (pageHeight))
+                let scrollTop = app.scrollTop;
+                let scrollBottom = scrollTop + windowHeight;
 
-            if(pageHeight < 5) {
-                button.style.display = 'none';
-            }
-            else {
-                button.style.display = 'initial';
-            }
-            
-            // Button to go to top breakpoints
-            if(pageHeight >= 5 && pageHeight < 116) {
-                setBackgroundColor('white');
-            }
-            else if(pageHeight >= 116 && pageHeight < 277 ) {
-                setBackgroundColor('black');
-            }
-            else if(pageHeight >= 277) {
-                setBackgroundColor('white');
-            }
+                let breakPoint1 = windowHeight + 400;
+                let breakPoint2 = document.getElementById("HomeBreakpoint2").getBoundingClientRect().bottom + scrollTop;
+                let breakPoint3 = document.getElementById("HomeBreakpoint3").getBoundingClientRect().top + scrollTop;
+                
+                let aboutMeBreakpoint = aboutMeTop + scrollTop;
+                let skillsBreakpoint = skillsTop + scrollTop;
+                let experienceBreakpoint = experienceTop + scrollTop;
 
-            // Navbar breakpoints
+                setScrollPage(() => (scrollBottom - windowHeight/2))
+                setSideNavBreakpoint1(() => (document.getElementById("HomeBreakpoint1").getBoundingClientRect().top + scrollTop))
+                setSideNavBreakpoint2(() => (breakPoint2 - 100))
+                setSideNavBreakpoint3(() => (breakPoint3))
 
-            if (pageHeight < 93) {
-                navbar.style.backgroundColor = '#D7DBDF';
-                for(let link of links) {
-                    link.style.color = '#3366bb';
-                    link.onmouseover = function() {this.style.color = "white"};
-                    link.onmouseout = function() {this.style.color = "#3366bb"};
+                if(scrollBottom < breakPoint1) {
+                    button.style.display = 'none';
                 }
-            }
-            else if (pageHeight >= 93 && pageHeight < 215) {
-                navbar.style.backgroundColor = 'black';
-                for(let link of links) {
-                    link.style.color = 'white';
-                    link.onmouseover = function() {this.style.color = "#3366bb"};
-                    link.onmouseout = function() {this.style.color = "white"};
+                else {
+                    button.style.display = 'initial';
                 }
-            }
-            else if (pageHeight >= 215 && pageHeight < 368) {
-                navbar.style.backgroundColor = '#D7DBDF';
-                for(let link of links) {
-                    link.style.color = '#3366bb';
-                    link.onmouseover = function() {this.style.color = "white"};
-                    link.onmouseout = function() {this.style.color = "#3366bb"};
+
+                // TopButton breakpoints
+                if(scrollBottom >= breakPoint1 && scrollBottom < breakPoint2 - 50) {
+                    setBackgroundColor('white');
                 }
-            }
-            else if ( pageHeight >= 368) {
-                navbar.style.backgroundColor = 'black';
-                for(let link of links) {
-                    link.style.color = 'white';
-                    link.onmouseover = function() {this.style.color = "#3366bb"};
-                    link.onmouseout = function() {this.style.color = "white"};
+                else if(scrollBottom >= breakPoint2 - 50 && scrollBottom < breakPoint3 + 115 ) {
+                    setBackgroundColor('black');
                 }
-            }
+                else if( scrollBottom >= breakPoint3 + 115) {
+                    setBackgroundColor('white');
+                }
+                
+                // Navbar breakpoints
+                if (aboutMeTop > 0) {
+                    navbar.style.backgroundColor = '#D7DBDF';
+                    for(let link of links) {
+                        link.style.color = '#3366bb';
+                        link.onmouseover = function() {this.style.color = "white"};
+                        link.onmouseout = function() {this.style.color = "#3366bb"};
+                    }
+                }
+                else if (aboutMeTop <= 0 && skillsTop > 0) {
+                    navbar.style.backgroundColor = 'black';
+                    for(let link of links) {
+                        link.style.color = 'white';
+                        link.onmouseover = function() {this.style.color = "#3366bb"};
+                        link.onmouseout = function() {this.style.color = "white"};
+                    }
+                }
+                else if (skillsTop <= 0 && experienceTop > 0) {
+                    navbar.style.backgroundColor = '#D7DBDF';
+                    for(let link of links) {
+                        link.style.color = '#3366bb';
+                        link.onmouseover = function() {this.style.color = "white"};
+                        link.onmouseout = function() {this.style.color = "#3366bb"};
+                    }
+                }
+                else if ( experienceTop <= 0) {
+                    navbar.style.backgroundColor = 'black';
+                    for(let link of links) {
+                        link.style.color = 'white';
+                        link.onmouseover = function() {this.style.color = "#3366bb"};
+                        link.onmouseout = function() {this.style.color = "white"};
+                    }
+                }
+                
+                // AboutMe FadeIn
+                if(scrollTop >= aboutMeBreakpoint/2.5 && scrollTop < skillsBreakpoint) {
+                    setShowAboutMe(true);
+                }
+                else if (scrollTop >= skillsBreakpoint + 150 || scrollTop < 30) {
+                    setShowAboutMe(false);
+                }
+               
+                // Skills FadeIn
+                if(scrollTop >= skillsBreakpoint/2.5 && scrollTop < experienceBreakpoint) {
+                    setShowSkills(true);
+                }
+                else if(scrollTop >= experienceBreakpoint || scrollTop < aboutMeBreakpoint - 100) {
+                    setShowSkills(false);
+                }
+                // Experience Slide
+                if(scrollTop >= experienceBreakpoint - 200) {
+                    setSlideLeftExperience(true);
+                }
 
-            // AboutMe Slide
-            if(pageHeight < 5) {
-                setShowAboutMe(false);
-            }
-            else if(pageHeight >= 34 && pageHeight < 220) {
-                setShowAboutMe(true);
-            }
-            else if(pageHeight >= 220) {
-                setShowAboutMe(false);
-            }
+                if(scrollTop >= experienceBreakpoint) {
+                    setSlideRightExperience(true);
+                }
 
-            // Experience Slide
-            if(pageHeight <= 270 && slideLeftExperience === true) {
-                setSlideLeftExperience(() => (false))
-            }
-            else if(pageHeight >= 316 && slideLeftExperience === false) {
-                setSlideLeftExperience(() => (true))
-            }
+                if(scrollTop >= experienceBreakpoint + 100) {
+                    setSlideLeftExperience2(true);
+                }
 
-            if(pageHeight <= 270 && slideRightExperience === true) {
-                setSlideRightExperience(() => (false))
-            }
-            else if(pageHeight >= 360 && slideRightExperience === false) {
-                setSlideRightExperience(() => (true))
-            }
+                if(scrollTop <= experienceBreakpoint - 800) {
+                    setSlideLeftExperience(false);
+                    setSlideRightExperience(false);
+                    setSlideLeftExperience2(false);
+                }
 
-            if(pageHeight <= 270 && slideLeftExperience2 === true) {
-                setSlideLeftExperience2(() => (false))
-            }
-            else if(pageHeight >= 425 && slideLeftExperience2 === false) {
-                setSlideLeftExperience2(() => (true))
-            }
+            })
+        }
 
-            // Skills Slide
-            if(pageHeight < 100) {
-                setShowSkills(false)
-            }
-            else if(pageHeight >= 170 && pageHeight < 370) {
-                setShowSkills(true)
-            }
-            else if(pageHeight >= 370) {
-                setShowSkills(false)
-            }
-            
-        })
+        app.addEventListener(('scroll'), handleScroll)
 
         return () => {
-            app.removeEventListener(('scroll'), null);
+            app.removeEventListener(('scroll'), handleScroll);
         }
-    }, [backgroundColor, slideLeftExperience, slideRightExperience, slideLeftExperience2])
+    }, [backgroundColor, windowHeight])
+
+    useLayoutEffect(() => {
+        const handleWindowResize = () => {
+            setWindowHeight(window.innerHeight);
+        }
+        window.addEventListener('resize', handleWindowResize);
+    
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        }
+    }, [windowHeight])
     
     return(
         <div id="top" className={Styles.Container}>
-            <SideDotNavbar pageHeight={scrollPageHeight} links={pages}/> 
+            <SideDotNavbar links={pages} breakpoints={[sideNavBreakpoint1, sideNavBreakpoint2, sideNavBreakpoint3]} scroll={scrollPage}/> 
 
-            <HomepageHeader scroll={scrollToView}/>
+            <HomepageHeader headerRef={headerRef} scroll={scrollToView}/>
+            
+            <AboutMe aboutMeRef={aboutMeRef} scrollIdentifier="AboutMe" style={Styles.AboutMe} animate={showAboutMe}/>
 
-            <AngledRight top="100%"/>
-            <AboutMe scrollIdentifier="AboutMe" style={Styles.AboutMe} animate={showAboutMe}/>
+            <Skills skillsRef={skillsRef} scrollIdentifier="Skills" style={Styles.Skills} animate={showSkills}/>
 
-            <AngledLeft top="200%"/>
-            <Skills scrollIdentifier="Skills" style={Styles.Skills} animate={showSkills}/>
-
-            <AngledRight top="372.5%"/>
-            <Experience scrollIdentifier="Experiences" style={Styles.Experience} slideLeft={slideLeftExperience} slideRight={slideRightExperience} slideLeft2={slideLeftExperience2}/>
+            <Experience experienceRef={experienceRef} scrollIdentifier="Experiences" style={Styles.Experience} slideLeft={slideLeftExperience} slideRight={slideRightExperience} slideLeft2={slideLeftExperience2}/>
 
             <button ref={topButtonRef} className={backgroundColor === 'white' ? `${Styles.TopButton} ${Styles.White}` : `${Styles.TopButton} ${Styles.Black}`} onClick={() => scrollToTop()}>
                 <FontAwesomeIcon icon={faChevronUp} className={Styles.TopButtonIcon}/>
