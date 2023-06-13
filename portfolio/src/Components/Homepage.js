@@ -5,11 +5,12 @@ import AboutMe from './HomepageSections/AboutMe';
 import Skills from './HomepageSections/Skills';
 import Experience from './HomepageSections/Experience';
 import SideDotNavbar from './SubComponents/SideDotNavbar';
+import SideMenuNavbar from './SubComponents/SideMenuNavbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { isMobile, homepagePages as pages } from '../Exports';
 
 function Homepage({title = ""}) {
-    const pages = ["Header", "AboutMe", "Skills", "Experiences"]
     const topButtonRef = useRef();
     const headerRef = useRef(null);
     const aboutMeRef = useRef(null);
@@ -17,6 +18,8 @@ function Homepage({title = ""}) {
     const experienceRef = useRef(null);
 
     const [backgroundColor, setBackgroundColor] = useState('white');
+    const [menuBackgroundColor, setMenuBackgroundColor] = useState(true);
+    const [currentPage, setCurrentPage] = useState(pages[0]);
     const [slideLeftExperience, setSlideLeftExperience] = useState(false);
     const [slideRightExperience, setSlideRightExperience] = useState(false);
     const [slideLeftExperience2, setSlideLeftExperience2] = useState(false);
@@ -64,7 +67,8 @@ function Homepage({title = ""}) {
                 let scrollTop = app.scrollTop;
                 let scrollBottom = scrollTop + windowHeight;
 
-                let breakPoint1 = windowHeight + 400;
+                let breakPoint0 = windowHeight + 400;
+                let breakPoint1 = document.getElementById("HomeBreakpoint1").getBoundingClientRect().top + scrollTop;
                 let breakPoint2 = document.getElementById("HomeBreakpoint2").getBoundingClientRect().bottom + scrollTop;
                 let breakPoint3 = document.getElementById("HomeBreakpoint3").getBoundingClientRect().top + scrollTop;
                 
@@ -73,11 +77,11 @@ function Homepage({title = ""}) {
                 let experienceBreakpoint = experienceTop + scrollTop;
 
                 setScrollPage(() => (scrollBottom - windowHeight/2))
-                setSideNavBreakpoint1(() => (document.getElementById("HomeBreakpoint1").getBoundingClientRect().top + scrollTop))
+                setSideNavBreakpoint1(() => (breakPoint1))
                 setSideNavBreakpoint2(() => (breakPoint2 - 100))
                 setSideNavBreakpoint3(() => (breakPoint3))
 
-                if(scrollBottom < breakPoint1) {
+                if(scrollBottom < breakPoint0) {
                     button.style.display = 'none';
                 }
                 else {
@@ -85,7 +89,7 @@ function Homepage({title = ""}) {
                 }
 
                 // TopButton breakpoints
-                if(scrollBottom >= breakPoint1 && scrollBottom < breakPoint2 - 50) {
+                if(scrollBottom >= breakPoint0 && scrollBottom < breakPoint2 - 50) {
                     setBackgroundColor('white');
                 }
                 else if(scrollBottom >= breakPoint2 - 50 && scrollBottom < breakPoint3 + 115 ) {
@@ -94,9 +98,11 @@ function Homepage({title = ""}) {
                 else if( scrollBottom >= breakPoint3 + 115) {
                     setBackgroundColor('white');
                 }
-                
+            
                 // Navbar breakpoints
-                if (aboutMeTop > 0) {
+                if (scrollTop < breakPoint1 + 50) {
+                    setMenuBackgroundColor(true);
+                    setCurrentPage(pages[0]);
                     navbar.style.backgroundColor = '#D7DBDF';
                     for(let link of links) {
                         link.style.color = '#3366bb';
@@ -104,7 +110,9 @@ function Homepage({title = ""}) {
                         link.onmouseout = function() {this.style.color = "#3366bb"};
                     }
                 }
-                else if (aboutMeTop <= 0 && skillsTop > 0) {
+                else if (scrollTop >= breakPoint1 + 50 && scrollTop < breakPoint2 - 60) {
+                    setMenuBackgroundColor(false);
+                    setCurrentPage(pages[1]);
                     navbar.style.backgroundColor = 'black';
                     for(let link of links) {
                         link.style.color = 'white';
@@ -112,7 +120,9 @@ function Homepage({title = ""}) {
                         link.onmouseout = function() {this.style.color = "white"};
                     }
                 }
-                else if (skillsTop <= 0 && experienceTop > 0) {
+                else if (scrollTop >= breakPoint2 - 60 && scrollTop < breakPoint3 + 60) {
+                    setMenuBackgroundColor(true);
+                    setCurrentPage(pages[2]);
                     navbar.style.backgroundColor = '#D7DBDF';
                     for(let link of links) {
                         link.style.color = '#3366bb';
@@ -120,7 +130,9 @@ function Homepage({title = ""}) {
                         link.onmouseout = function() {this.style.color = "#3366bb"};
                     }
                 }
-                else if ( experienceTop <= 0) {
+                else if ( scrollTop >= breakPoint3 + 50) {
+                    setMenuBackgroundColor(false);
+                    setCurrentPage(pages[3]);
                     navbar.style.backgroundColor = 'black';
                     for(let link of links) {
                         link.style.color = 'white';
@@ -186,9 +198,12 @@ function Homepage({title = ""}) {
     
     return(
         <div id="top" className={Styles.Container}>
-            <SideDotNavbar links={pages} breakpoints={[sideNavBreakpoint1, sideNavBreakpoint2, sideNavBreakpoint3]} scroll={scrollPage}/> 
-
-            <HomepageHeader headerRef={headerRef} scroll={scrollToView}/>
+            {   isMobile() ?
+                <SideMenuNavbar links={pages} style={ menuBackgroundColor ? Styles.MenuNavbar : Styles.MenuNavbar2} page={currentPage}/>
+                :
+                <SideDotNavbar links={pages} breakpoints={[sideNavBreakpoint1, sideNavBreakpoint2, sideNavBreakpoint3]} scroll={scrollPage}/> 
+            }
+            <HomepageHeader headerRef={headerRef} scroll={scrollToView}/>       
             
             <AboutMe aboutMeRef={aboutMeRef} scrollIdentifier="AboutMe" style={Styles.AboutMe} animate={showAboutMe}/>
 

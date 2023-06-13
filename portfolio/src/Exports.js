@@ -8,6 +8,8 @@ export const isMobile = () => {
     const userAgent = navigator.userAgent.toLowerCase();
     return /mobile|android|iphone|ipad|iemobile|wpdesktop|windows phone|blackberry|opera mini/i.test(userAgent);
 }
+
+export const homepagePages = ["Intro", "AboutMe", "Skills", "Experiences"];
  
 export const ProjectType = Object.freeze({
     All: "All",
