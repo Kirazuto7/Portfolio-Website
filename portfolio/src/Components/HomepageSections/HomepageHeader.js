@@ -1,6 +1,6 @@
 import Styles from '../../Styles/Homepage.module.css';
 import Animations from '../../Styles/Animations.module.css';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { baseURL, isMobile } from '../../Exports';
@@ -8,18 +8,27 @@ import { baseURL, isMobile } from '../../Exports';
 function HomepageHeader({scroll = () => {}, headerRef}) {
     const [exists, setExists] = useState(false);
     const buttonRef = useRef();
-    useEffect(() => {
-        if(!isMobile()) {
-            let experienceButton = buttonRef.current;
-            let { width } = experienceButton.getBoundingClientRect();
-            let buttonGroup = document.getElementById('HomepageButtonGroup');
-            let buttons = buttonGroup.children;
-            for(let i = 0; i < buttons.length; ++i) {
-                buttons[i].style.width = `${width}px`;
+    const [buttonWidth, setButtonWidth] = useState(0);
+
+    useLayoutEffect(() => {
+        const handleButtonWidth = () => {
+            if(!isMobile()) {
+                let experienceButton = buttonRef.current;
+                let { width } = experienceButton.getBoundingClientRect();
+                setButtonWidth(width);            
             }
         }
+
+        handleButtonWidth();
+
+        window.addEventListener('resize', handleButtonWidth);
+
+        return () => {
+            window.removeEventListener('resize', handleButtonWidth);
+        }
+        
     }, [])
-    
+
     useEffect(() => {
         let details = [
             "New York, NY",
@@ -95,9 +104,9 @@ function HomepageHeader({scroll = () => {}, headerRef}) {
                         null
                         :
                         <div id="HomepageButtonGroup" className={Styles.ButtonGroup}>
-                            <button id="AboutMeButton" className={Styles.Button} onClick={(e) => scroll(e)} value={"AboutMe"}>About Me</button>
-                            <button id="SkillsButton" className={Styles.Button} onClick={(e) => scroll(e)} value={"Skills"}>Skills</button>
-                            <button ref={buttonRef} id="ExperienceButton" className={`${Styles.Button} ${Styles.ButtonWidth}`} onClick={(e) => scroll(e)} value={"Experiences"}>Experiences</button>
+                            <button style={{'width': `${buttonWidth}px`}} id="AboutMeButton" className={Styles.Button} onClick={(e) => scroll(e)} value={"AboutMe"}>About Me</button>
+                            <button style={{'width': `${buttonWidth}px`}} id="SkillsButton" className={Styles.Button} onClick={(e) => scroll(e)} value={"Skills"}>Skills</button>
+                            <button style={{'width': `${buttonWidth}px`}} ref={buttonRef} id="ExperienceButton" className={`${Styles.Button} ${Styles.ButtonWidth}`} onClick={(e) => scroll(e)} value={"Experiences"}>Experiences</button>
                         </div>
                     }
                 </div>
