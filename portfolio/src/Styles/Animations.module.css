@@ -25,13 +25,13 @@
         rgba(255, 255, 255, 0.5) 70%
     );
     transform: rotateZ(8deg);
-    height: 110%;
+    height: 120%;
     width: 100px;
     top: -10%;
     left: -150px;
-    animation: shine 5s 2 ease-in-out;
+    animation: shine 4s 2 ease-in-out;
     animation-delay: 1s;
-    -webkit-animation: shine 5s 2 ease-in-out;
+    -webkit-animation: shine 4s 2 ease-in-out;
     -webkit-animation-delay: 1s;
 }
 
@@ -396,7 +396,7 @@
     }
 
     20% {
-        left: 110%;
+        left: 120%;
         background: linear-gradient(
         rgba(255, 255, 255, 0.2) 30%,
         rgba(255, 255, 255, 0.2),
@@ -405,7 +405,7 @@
     }
 
     100% {
-        left: 110%;
+        left: 120%;
     }
 }
 
@@ -420,7 +420,7 @@
     }
 
     20% {
-        left: 110%;
+        left: 120%;
         background: linear-gradient(
         rgba(255, 255, 255, 0.2) 30%,
         rgba(255, 255, 255, 0.2),
@@ -429,7 +429,7 @@
     }
 
     100% {
-        left: 110%;
+        left: 120%;
     }
 }
 
