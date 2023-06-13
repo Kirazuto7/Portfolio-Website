@@ -62,9 +62,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: flash 5s 1 ease-in-out;
+    animation: flash 10s 1 ease-in-out;
     animation-fill-mode: forwards;
-    -webkit-animation: flash 5s 1 ease-in-out;
+    -webkit-animation: flash 10s 1 ease-in-out;
     -webkit-animation-fill-mode: forwards;
 }
 
@@ -119,6 +119,13 @@
     animation: slideInRight 3s ease-out;
     animation-fill-mode: forwards;
     -webkit-animation: slideInRight 3s ease-out;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.UnCollapse {
+    animation: uncollapse 0.5s ease-out;
+    animation-fill-mode: forwards;
+    -webkit-animation: uncollapse 0.5s ease-out;
     -webkit-animation-fill-mode: forwards;
 }
 
@@ -435,5 +442,28 @@
     to {
         opacity: 0;
         display: none;
+    }
+}
+
+@keyframes uncollapse {
+    from {
+        width: 0;
+        border: none;
+    }
+
+    to {
+        width: 80vw;
+
+    }
+}
+
+@-webkit-keyframes uncollapse {
+    from {
+        width: 0;
+        border: none;
+    }
+
+    to {
+        width: 80vw;
     }
 }

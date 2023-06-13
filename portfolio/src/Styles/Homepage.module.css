@@ -12,6 +12,16 @@
     display: none !important;
 }
 
+.MenuNavbar {
+    background-color: black !important;
+    color: white !important;
+}
+
+.MenuNavbar2 {
+    background-color: white !important;
+    color: black !important;
+}
+
 /* MARK: - HEADER */
 
 .Header {

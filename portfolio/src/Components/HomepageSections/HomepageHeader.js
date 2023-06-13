@@ -3,18 +3,20 @@ import Animations from '../../Styles/Animations.module.css';
 import { useEffect, useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { baseURL } from '../../Exports';
+import { baseURL, isMobile } from '../../Exports';
 
 function HomepageHeader({scroll = () => {}, headerRef}) {
     const [exists, setExists] = useState(false);
     const buttonRef = useRef();
     useEffect(() => {
-        let experienceButton = buttonRef.current;
-        let { width } = experienceButton.getBoundingClientRect();
-        let buttonGroup = document.getElementById('HomepageButtonGroup');
-        let buttons = buttonGroup.children;
-        for(let i = 0; i < buttons.length; ++i) {
-            buttons[i].style.width = `${width}px`;
+        if(!isMobile()) {
+            let experienceButton = buttonRef.current;
+            let { width } = experienceButton.getBoundingClientRect();
+            let buttonGroup = document.getElementById('HomepageButtonGroup');
+            let buttons = buttonGroup.children;
+            for(let i = 0; i < buttons.length; ++i) {
+                buttons[i].style.width = `${width}px`;
+            }
         }
     }, [])
     
@@ -62,7 +64,7 @@ function HomepageHeader({scroll = () => {}, headerRef}) {
     }, [exists])
    
     return(
-        <div ref={headerRef} id={"Header"} className={Styles.HeaderContainer}>
+        <div ref={headerRef} id={"Intro"} className={Styles.HeaderContainer}>
             <div className={`${Animations.Matrix}`}/>
             <header className={`${Styles.Header} ${Animations.Appear}`}>
                 <div className={Styles.HeaderInfo}>
@@ -88,12 +90,16 @@ function HomepageHeader({scroll = () => {}, headerRef}) {
                             <a className={`${Styles.HeaderDetail} ${Styles.ContactLink}`} href="mailto:jordansukhnyc@gmail.com"> </a>
                         </div>
                     </div>
-
-                    <div id="HomepageButtonGroup" className={Styles.ButtonGroup}>
-                        <button id="AboutMeButton" className={Styles.Button} onClick={(e) => scroll(e)} value={"AboutMe"}>About Me</button>
-                        <button id="SkillsButton" className={Styles.Button} onClick={(e) => scroll(e)} value={"Skills"}>Skills</button>
-                        <button ref={buttonRef} id="ExperienceButton" className={`${Styles.Button} ${Styles.ButtonWidth}`} onClick={(e) => scroll(e)} value={"Experiences"}>Experiences</button>
-                    </div>
+                    {
+                        isMobile() ?
+                        null
+                        :
+                        <div id="HomepageButtonGroup" className={Styles.ButtonGroup}>
+                            <button id="AboutMeButton" className={Styles.Button} onClick={(e) => scroll(e)} value={"AboutMe"}>About Me</button>
+                            <button id="SkillsButton" className={Styles.Button} onClick={(e) => scroll(e)} value={"Skills"}>Skills</button>
+                            <button ref={buttonRef} id="ExperienceButton" className={`${Styles.Button} ${Styles.ButtonWidth}`} onClick={(e) => scroll(e)} value={"Experiences"}>Experiences</button>
+                        </div>
+                    }
                 </div>
                 <img loading="lazy" className={Styles.ProfilePhoto} src={`${baseURL}/profile_photo.png`} alt="profile"></img>
             </header>
