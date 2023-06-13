@@ -16,44 +16,6 @@
     -webkit-animation-fill-mode: forwards;
 }
 
-.Shine {
-    content: '';
-    position: absolute;
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.5) 30%,
-        rgba(255, 255, 255, 1),
-        rgba(255, 255, 255, 0.5) 70%
-    );
-    transform: rotateZ(8deg);
-    height: 120%;
-    width: 100px;
-    top: -10%;
-    left: -150px;
-    animation: shine 4s 2 ease-in-out;
-    animation-delay: 1s;
-    -webkit-animation: shine 4s 2 ease-in-out;
-    -webkit-animation-delay: 1s;
-}
-
-.DelayedShine {
-    content: '';
-    position: absolute;
-    background-image: linear-gradient(
-            110deg,
-            rgba(255, 255, 255, 0) 30%,
-            rgba(255, 255, 255, .8),
-            rgba(255, 255, 255, 0) 70%
-    );
-    height: 100%;
-    width: 150px;
-    top: 0;
-    left: -150px;
-    animation: shine 5s 2 ease-in-out;
-    animation-delay: 3s;
-    -webkit-animation: shine 5s 2 ease-in-out;
-    -webkit-animation-delay: 3s;
-}
-
 .Matrix {
     position: absolute;
     background-image: url('https://cdn.wallpapersafari.com/84/22/Jz6bAs.gif');
@@ -129,7 +91,76 @@
     -webkit-animation-fill-mode: forwards;
 }
 
+.TeleportAppear {
+    animation: teleportAppear 4s 2 linear;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+    -webkit-animation: teleportAppear 4s 2 linear;
+    -webkit-animation-delay: .3s;
+    -webkit-animation-fill-mode: forwards;
+}
+
 /* Animation Keyframes */
+
+@keyframes teleportAppear {
+    0% {
+        opacity: 1;
+      }
+    
+    15% {
+        opacity: 0.7;
+    }
+
+    30% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    70% {
+        opacity: 0.5;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes teleportAppear {
+    0% {
+        opacity: 1;
+      }
+    
+    15% {
+        opacity: 0.7;
+    }
+
+    30% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    70% {
+        opacity: 0.5;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
 
 @keyframes fadeIntoScreen {
     0% {
@@ -382,54 +413,6 @@
     to {
         opacity: 1;
         width: auto;
-    }
-}
-
-@keyframes shine {
-    0% {
-        left: -150px;
-        background: linear-gradient(
-        rgba(255, 255, 255, 0.3) 30%,
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.3) 70%
-        );
-    }
-
-    20% {
-        left: 120%;
-        background: linear-gradient(
-        rgba(255, 255, 255, 0.2) 30%,
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.2) 70%
-        );
-    }
-
-    100% {
-        left: 120%;
-    }
-}
-
-@-webkit-keyframes shine {
-    0% {
-        left: -150px;
-        background: linear-gradient(
-        rgba(255, 255, 255, 0.3) 30%,
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.3) 70%
-        );
-    }
-
-    20% {
-        left: 120%;
-        background: linear-gradient(
-        rgba(255, 255, 255, 0.2) 30%,
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.2) 70%
-        );
-    }
-
-    100% {
-        left: 120%;
     }
 }
 

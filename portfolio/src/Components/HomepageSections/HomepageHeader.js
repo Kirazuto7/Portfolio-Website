@@ -77,7 +77,6 @@ function HomepageHeader({scroll = () => {}, headerRef}) {
             <div className={`${Animations.Matrix}`}/>
             <header className={`${Styles.Header} ${Animations.Appear}`}>
                 <div className={Styles.HeaderInfo}>
-                    <div className={`${Animations.Shine}`}/>
                     <section className={Styles.Title}>
                         <h1 className={Styles.Name}>Jordan Sukhnandan</h1>
                         <h2 className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</h2>
@@ -110,7 +109,7 @@ function HomepageHeader({scroll = () => {}, headerRef}) {
                         </div>
                     }
                 </div>
-                <img loading="lazy" className={Styles.ProfilePhoto} src={`${baseURL}/profile_photo.png`} alt="profile"></img>
+                <img loading="lazy" className={`${Styles.ProfilePhoto} ${Animations.TeleportAppear}`} src={`${baseURL}/profile_photo.png`} alt="profile"></img>
             </header>
         </div>
     )
