@@ -129,16 +129,6 @@
     -webkit-animation-fill-mode: forwards;
 }
 
-@media(orientation: portrait) {
-    .Shine {
-        width: 130px;
-    }
-
-    .DelayedShine {
-        width: 130px;
-    }
-}
-
 /* Animation Keyframes */
 
 @keyframes fadeIntoScreen {
