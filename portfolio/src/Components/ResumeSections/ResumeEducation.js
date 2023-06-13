@@ -29,6 +29,25 @@ function ResumeEducation() {
                         <a className={Styles.Link} href="https://drive.google.com/file/d/1HZEkoU-_nvpHKCTXecE9nODRUh376d20/view" target="_blank" rel="noreferrer"> CodePath Certificate in Android Development (Fall 2021)</a>
                     </div>
                 </section>
+                
+                <section>
+                    <div className={Styles.RowContainer}> 
+                        <div className={Styles.SectionTitleWrapper}> <div className={Styles.SectionTitle}>Project Basta</div> <div className={Styles.VSeparator}/> <div className={Styles.SectionAttribute}>Cohort</div> </div>
+                        <div className={Styles.SectionDate}>Mar. 2020 - July 2022</div>
+                    </div>
+                    <div className={Styles.EducationList}> Selected to participate in a rigorous 10-week career prep program designed to support first generation college students in landing a great entry level job; spend 50+ hours networking and preparing for interviews.</div>
+                </section>
+
+                <section>
+                    <div className={Styles.RowContainer}> 
+                        <div className={Styles.SectionTitleWrapper}> <div className={Styles.SectionTitle}>NYU Tandon School of Engineering</div> <div className={Styles.VSeparator}/> <div className={Styles.SectionAttribute}>New York, NY</div> </div>
+                        <div className={Styles.SectionDate}>Jan. 2013 - Dec. 2015</div>
+                    </div>
+                    <div className={Styles.RowContainer}>
+                        <div>B.S. in Computer Engineering</div>
+                    </div>
+                </section>
+
             </div>
         </section>
     )
