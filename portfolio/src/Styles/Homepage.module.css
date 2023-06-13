@@ -13,13 +13,23 @@
 }
 
 .MenuNavbar {
-    background-color: black !important;
-    color: white !important;
+    background-color: none !important;
+    color: var(--link_color) !important;
 }
 
 .MenuNavbar2 {
-    background-color: white !important;
-    color: black !important;
+    background-color: none !important;
+    color: white !important;
+}
+
+@media(orientation: landscape) {
+    .MenuNavbar {
+        color: white !important;
+    }
+
+    .MenuNavbar2 {
+        color: black !important;
+    }
 }
 
 /* MARK: - HEADER */
