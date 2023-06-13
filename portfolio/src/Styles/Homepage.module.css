@@ -145,7 +145,7 @@
     color: var(--secondary_link_color);
     font-weight: 700;
     text-align: center;
-    width: fit-content;
+    min-width: fit-content;
 }
 
 .Button:hover {
