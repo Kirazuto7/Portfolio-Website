@@ -69,42 +69,6 @@
     color: white;
 }
 
-.SpiralContainer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50vw;
-    height: 90vh;
-    z-index: 100;
-    border: 1px solid red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Spiral {
-    height: 30vmax;
-    width: 30vmax;
-    border-radius: 15vmax;
-    background-color: purple;
-}
-
-.SpiralEdgeWrapper {
-    position: relative;
-    top: 20%;
-    left: -60%;
-    transform: rotateZ(10deg);
-    height: 100px;
-    overflow: hidden;
-}
-
-.SpiralEdge {
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    border: 30px solid purple;
-}
 
 @media (orientation: landscape) {
     @media(max-width: 915px) {
