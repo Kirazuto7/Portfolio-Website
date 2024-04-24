@@ -161,6 +161,13 @@
     gap: 3vh;
 }
 
+.WorkSectionContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+    align-items: center;
+}
+
 .RowContainer {
     display: flex;
     flex-direction: row;
@@ -187,6 +194,12 @@
     margin-left: 2%; 
     display: list-item; 
     list-style-type: disc;
+}
+
+.WorkImage {
+    width: 5vmax;
+    height: 5vmax;
+    border-radius: 8px;
 }
 
 @media (orientation: landscape) {
@@ -217,6 +230,10 @@
 
         .SubTitleRow {
             font-size: 12px;
+        }
+
+        .WorkSectionContainer {
+            align-items: start;
         }
     }
 }
@@ -334,5 +351,9 @@
         text-align: center;
         font-size: var(--icon_text_size);
         color: black;
+    }
+
+    .WorkSectionContainer {
+        align-items: start;
     }
 }

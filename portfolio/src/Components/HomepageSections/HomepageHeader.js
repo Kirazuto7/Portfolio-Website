@@ -79,7 +79,7 @@ function HomepageHeader({scroll = () => {}, headerRef}) {
                 <div className={Styles.HeaderInfo}>
                     <section className={Styles.Title}>
                         <h1 className={Styles.Name}>Jordan Sukhnandan</h1>
-                        <h2 className={Styles.Position}>Software Developer (Mobile | Fullstack Web)</h2>
+                        <h2 className={Styles.Position}>Incoming Software Engineer (ITS 2) @ NYS ITS</h2>
                     </section>
                     
                     <div className={Styles.DetailsContainer}>

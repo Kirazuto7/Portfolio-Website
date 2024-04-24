@@ -99,9 +99,9 @@ function Resume({title = ""}) {
                     </section>
     
                     <section className={Styles.ResumeSections}>
-                        <ResumeEducation/>
-                        <ResumeProjects/>
                         <ResumeRelevantExperience/>
+                        <ResumeProjects/>
+                        <ResumeEducation/>
                         <ResumeOtherExperience/>
                     </section>
                 </div>

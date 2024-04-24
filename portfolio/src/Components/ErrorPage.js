@@ -21,6 +21,13 @@ export default function ErrorPage({title}) {
                 <h1 className={Styles.ErrorText}>404 - PAGE UNKNOWN</h1>
                 <button onClick={navigateHome} className={`${Styles.Button} ${Animations.ButtonGlow}`}><a href="/" className={Styles.ButtonLink}>Home</a></button>
             </div>
+            <div className={`${Styles.SpiralContainer} ${Animations.Spin}`}>
+                <div className={Styles.Spiral}>
+                    <div className={`${Styles.SpiralEdgeWrapper}`}>
+                        <div className={Styles.SpiralEdge}/>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 };
