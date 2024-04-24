@@ -133,9 +133,9 @@ function Resume({title = ""}) {
     
                 <div className={Styles.RightContainer}> 
                     <section className={Styles.ResumeSections}>
-                        <ResumeEducation/>
-                        <ResumeProjects/>
                         <ResumeRelevantExperience/>
+                        <ResumeProjects/>
+                        <ResumeEducation/>
                         <ResumeOtherExperience/>
                         <section className={Styles.SkillsContainer}>
                             <h4 className={Styles.SkillsLabel}>Skills</h4>
